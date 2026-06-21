@@ -1,0 +1,100 @@
+---
+interface Props {
+  current?: 'home' | 'blog';
+}
+
+const { current = 'home' } = Astro.props;
+const prefix = current === 'home' ? '' : '/';
+const homeHref = current === 'home' ? '#hero' : '/';
+const workHref = `${prefix}#work`;
+const experienceHref = `${prefix}#experience`;
+const skillsHref = `${prefix}#skills`;
+const contactHref = `${prefix}#contact`;
+---
+
+<nav aria-label="Primary navigation">
+  <a class="nav-logo" href="/">BG.</a>
+  <ul class="nav-links">
+    <li><a href={homeHref}>Home</a></li>
+    <li><a href={workHref}>Work</a></li>
+    <li><a href={experienceHref}>Experience</a></li>
+    <li><a href={skillsHref}>Skills</a></li>
+    <li><a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a></li>
+    <li><a href={contactHref} class="cta-pill">Hire Me</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6%;
+    background: rgba(4, 4, 10, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: "Syne", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-decoration: none;
+    background: linear-gradient(130deg, #fff 0%, #a8c8ff 45%, #00cfff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(238, 240, 250, 0.52);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a[aria-current="page"] {
+    color: #eef0fa;
+  }
+
+  .nav-links .cta-pill {
+    padding: 7px 20px;
+    border-radius: 100px;
+    background: linear-gradient(130deg, #4f8eff 0%, #00cfff 100%);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .nav-links .cta-pill:hover {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 900px) {
+    nav .nav-links li:not(:last-child) {
+      display: none;
+    }
+  }
+</style>
