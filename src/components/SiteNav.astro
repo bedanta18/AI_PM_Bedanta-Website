@@ -1,12 +1,11 @@
 ---
 interface Props {
-  current?: 'home' | 'blog';
+  current?: 'home' | 'blog' | 'work';
 }
 
 const { current = 'home' } = Astro.props;
 const prefix = current === 'home' ? '' : '/';
 const homeHref = current === 'home' ? '#hero' : '/';
-const workHref = `${prefix}#work`;
 const experienceHref = `${prefix}#experience`;
 const skillsHref = `${prefix}#skills`;
 const contactHref = `${prefix}#contact`;
@@ -16,7 +15,7 @@ const contactHref = `${prefix}#contact`;
   <a class="nav-logo" href="/">BG.</a>
   <ul class="nav-links">
     <li><a href={homeHref}>Home</a></li>
-    <li><a href={workHref}>Work</a></li>
+    <li><a href="/work/" aria-current={current === 'work' ? 'page' : undefined}>Work</a></li>
     <li><a href={experienceHref}>Experience</a></li>
     <li><a href={skillsHref}>Skills</a></li>
     <li><a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a></li>
