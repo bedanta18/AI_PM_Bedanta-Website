@@ -43,4 +43,19 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { blog, work };
+const pmConcepts = defineCollection({
+  loader: glob({
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/pm-concepts',
+  }),
+  schema: z.object({
+    title: z.string(),
+    desc: z.string(),
+    date: z.coerce.date(),
+    ispublished: z.boolean(),
+    author: z.string(),
+    categories: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { blog, work, pmConcepts };

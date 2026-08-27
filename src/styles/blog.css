@@ -227,6 +227,23 @@ a {
   line-height: 1.15;
 }
 
+.article-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.6em 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.article-body blockquote {
+  margin: 1.6em 0;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+
 @media (max-width: 760px) {
   .blog-shell {
     width: min(100% - 24px, 1120px);

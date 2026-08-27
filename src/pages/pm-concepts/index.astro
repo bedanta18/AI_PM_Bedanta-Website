@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import SiteNav from '../../components/SiteNav.astro';
+import '../../styles/blog.css';
+
+const posts = (await getCollection('pmConcepts'))
+  .filter((post) => post.data.ispublished)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = [...new Set(posts.flatMap((post) => post.data.categories))].sort();
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PM Concepts | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="A growing glossary of product management concepts and frameworks, from Bedanta Gogoi."
+    />
+    <link rel="canonical" href="https://www.aipmbedanta.com/pm-concepts/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="pm-concepts" />
+
+      <header class="blog-hero">
+        <p class="eyebrow">Glossary</p>
+        <h1>PM Concepts</h1>
+        <p>
+          A growing glossary of product management concepts and frameworks — the mental models behind the day-to-day decisions.
+        </p>
+      </header>
+
+      <section class="category-band" aria-labelledby="categories-title">
+        <h2 id="categories-title">Categories</h2>
+        <div class="category-list">
+          {categories.map((category) => <a href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>{category}</a>)}
+        </div>
+      </section>
+
+      <section class="post-grid" aria-label="Published PM concepts">
+        {
+          posts.map((post) => (
+            <article class="post-card" id={post.data.categories[0]?.toLowerCase().replaceAll(' ', '-')}>
+              <div class="post-meta">
+                <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                <span>{post.data.author}</span>
+              </div>
+              <h2>
+                <a href={`/pm-concepts/${post.id}/`}>{post.data.title}</a>
+              </h2>
+              <p>{post.data.desc}</p>
+              <div class="chip-row">
+                {post.data.categories.map((category) => <span>{category}</span>)}
+              </div>
+            </article>
+          ))
+        }
+      </section>
+    </main>
+  </body>
+</html>
