@@ -15,6 +15,9 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+const seoTitle = post.data.metaTitle ?? post.data.title;
+const seoDescription = post.data.metaDescription ?? post.data.desc;
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
     month: 'long',
@@ -28,13 +31,16 @@ const formatDate = (date: Date) =>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{post.data.title} | Bedanta Gogoi</title>
-    <meta name="description" content={post.data.desc} />
+    <title>{seoTitle} | Bedanta Gogoi</title>
+    <meta name="description" content={seoDescription} />
+    {post.data.keywords.length > 0 && (
+      <meta name="keywords" content={post.data.keywords.join(', ')} />
+    )}
     <meta name="author" content={post.data.author} />
     <meta property="article:published_time" content={post.data.date.toISOString()} />
     <meta property="article:author" content={post.data.author} />
-    <meta property="og:title" content={post.data.title} />
-    <meta property="og:description" content={post.data.desc} />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
     <meta property="og:type" content="article" />
     <link rel="canonical" href={`https://www.aipmbedanta.com/blog/${post.id}/`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
