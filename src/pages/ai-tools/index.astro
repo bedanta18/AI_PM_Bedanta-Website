@@ -1,0 +1,128 @@
+---
+import SiteNav from '../../components/SiteNav.astro';
+import '../../styles/blog.css';
+import '../../styles/products.css';
+
+const icons = {
+  chat: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H9l-4 4v-4H6.5A2.5 2.5 0 0 1 4 12.5v-7z"/>',
+  spark:
+    '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>',
+  search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-5-5"/>',
+  image:
+    '<rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="M3 16l5-5 4 4 3-3 5 5"/>',
+  document: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/>',
+  code: '<path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/>',
+  slides: '<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M3 9h18"/><path d="M7 13h4"/>',
+  waveform: '<path d="M3 12v.01M6 9v6M9 5v14M12 3v18M15 5v14M18 9v6M21 12v.01"/>',
+  film: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>',
+  barchart: '<path d="M6 20v-7M12 20V6M18 20v-11"/><path d="M3 20h18"/>',
+  tag: '<path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="15" cy="9" r="1.4" fill="currentColor" stroke="none"/>',
+  user: '<circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0114 0"/>',
+  envelope: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  palette:
+    '<path d="M12 3a9 9 0 100 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.3A4.7 4.7 0 0021 10c0-3.9-4-7-9-7z"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="9.5" cy="7" r="1.1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="7" r="1.1" fill="currentColor" stroke="none"/>',
+  share:
+    '<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.8L15.8 7.2M8.2 13.2l7.6 3.6"/>',
+  target:
+    '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/>',
+};
+
+const aiIcoStyle = 'background:rgba(0,207,255,.1);color:#00CFFF';
+const mktIcoStyle = 'background:rgba(251,191,36,.1);color:#FBBF24';
+
+const tools = [
+  { cat: 'ai', name: 'ChatGPT', tag: 'AI Chat', icon: 'chat', desc: 'Conversational AI for drafting, research, and quick ideation.' },
+  { cat: 'ai', name: 'Claude', tag: 'AI Assistant', icon: 'spark', desc: 'Reasoning-heavy assistant for writing, analysis, and strategy docs.' },
+  { cat: 'ai', name: 'Perplexity', tag: 'AI Search', icon: 'search', desc: 'Real-time answer engine with cited, verifiable sources.' },
+  { cat: 'ai', name: 'Midjourney', tag: 'AI Image', icon: 'image', desc: 'Generates high-fidelity images and visual concepts from text.' },
+  { cat: 'ai', name: 'Notion AI', tag: 'AI Productivity', icon: 'document', desc: 'AI-native workspace for notes, roadmaps, and specs.' },
+  { cat: 'ai', name: 'GitHub Copilot', tag: 'AI Coding', icon: 'code', desc: 'In-editor pair programmer that autocompletes and explains code.' },
+  { cat: 'ai', name: 'Cursor', tag: 'AI Coding', icon: 'code', desc: 'AI-first code editor built for fast, context-aware iteration.' },
+  { cat: 'ai', name: 'Gamma', tag: 'AI Docs', icon: 'slides', desc: 'Turns rough outlines into polished decks and one-pagers.' },
+  { cat: 'ai', name: 'ElevenLabs', tag: 'AI Voice', icon: 'waveform', desc: 'Natural text-to-speech and voice cloning for content and demos.' },
+  { cat: 'ai', name: 'Runway', tag: 'AI Video', icon: 'film', desc: 'Generative video editing, effects, and motion tools.' },
+  { cat: 'mkt', name: 'Google Analytics 4', tag: 'Analytics', icon: 'barchart', desc: 'Cross-platform behavior tracking, funnels, and reporting.' },
+  { cat: 'mkt', name: 'Google Tag Manager', tag: 'Tagging', icon: 'tag', desc: 'Deploy and manage tracking tags without touching code.' },
+  { cat: 'mkt', name: 'SEMrush', tag: 'SEO', icon: 'search', desc: 'Keyword research, technical audits, and competitor tracking.' },
+  { cat: 'mkt', name: 'Ahrefs', tag: 'SEO', icon: 'search', desc: 'Backlink analysis and organic search intelligence.' },
+  { cat: 'mkt', name: 'HubSpot', tag: 'CRM', icon: 'user', desc: 'CRM, email, and marketing automation in one platform.' },
+  { cat: 'mkt', name: 'Mailchimp', tag: 'Email', icon: 'envelope', desc: 'Email campaigns, segmentation, and lifecycle automation.' },
+  { cat: 'mkt', name: 'Canva', tag: 'Design', icon: 'palette', desc: 'Fast, drag-and-drop design for social and campaign assets.' },
+  { cat: 'mkt', name: 'Buffer', tag: 'Social', icon: 'share', desc: 'Plan and publish content across social channels.' },
+  { cat: 'mkt', name: 'Google Ads', tag: 'Paid Search', icon: 'target', desc: "Search and display advertising across Google's network." },
+  { cat: 'mkt', name: 'Meta Ads Manager', tag: 'Paid Social', icon: 'target', desc: 'Campaign management across Facebook and Instagram.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI & Marketing Toolkit | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="The AI and marketing tools Bedanta Gogoi actually uses for building products, running growth experiments, and shipping campaigns."
+    />
+    <link rel="canonical" href="https://www.aipmbedanta.com/ai-tools/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="ai-tools" />
+
+      <div class="filters" role="group" aria-label="Filter by category">
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All Tools</button>
+        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI</button>
+        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing</button>
+      </div>
+
+      <section class="product-grid" aria-label="Tools">
+        {
+          tools.map((tool) => (
+            <div class="product-card" data-cat={tool.cat}>
+              <div class="product-head">
+                <div class="product-ico" style={tool.cat === 'ai' ? aiIcoStyle : mktIcoStyle}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    set:html={icons[tool.icon]}
+                  />
+                </div>
+                <span class={`product-tag ${tool.cat === 'ai' ? 'tag-ai' : 'tag-mkt'}`}>{tool.tag}</span>
+              </div>
+              <h3 class="product-title">{tool.name}</h3>
+              <p class="product-desc">{tool.desc}</p>
+              <div class="product-visit">Visit &rarr;</div>
+            </div>
+          ))
+        }
+      </section>
+    </main>
+
+    <script>
+      const pills = Array.from(document.querySelectorAll('.filter-pill'));
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          pills.forEach((p) => p.setAttribute('aria-pressed', 'false'));
+          pill.setAttribute('aria-pressed', 'true');
+          const filter = pill.getAttribute('data-filter');
+          cards.forEach((card) => {
+            const show = filter === 'all' || card.getAttribute('data-cat') === filter;
+            card.hidden = !show;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
