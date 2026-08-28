@@ -49,14 +49,6 @@ const formatDate = (date: Date) =>
     <main class="blog-shell">
       <SiteNav current="blog" />
 
-      <header class="blog-hero">
-        <p class="eyebrow">Writing</p>
-        <h1>Product, growth, and shipping notes.</h1>
-        <p>
-          Essays and field notes on SaaS, quick commerce, analytics, GTM, and building product systems that move real metrics.
-        </p>
-      </header>
-
       <section class="category-band" aria-labelledby="categories-title">
         <h2 id="categories-title">Categories</h2>
         <div class="category-list">
@@ -86,3 +78,20 @@ const formatDate = (date: Date) =>
     </main>
   </body>
 </html>
+
+<style>
+  .blog-shell {
+    padding-top: 90px;
+  }
+
+  .blog-shell .category-band {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  @media (max-width: 760px) {
+    .blog-shell {
+      padding-top: 76px;
+    }
+  }
+</style>
