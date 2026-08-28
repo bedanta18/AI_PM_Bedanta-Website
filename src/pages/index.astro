@@ -1,10 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
 import SiteNav from '../components/SiteNav.astro';
-
-const workItems = (await getCollection('work'))
-  .filter((item) => item.data.ispublished)
-  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <!DOCTYPE html>
@@ -172,123 +167,6 @@ h2.sec-title{
 }
 .sec-sub{font-size:1.05rem;color:var(--tx2);max-width:560px;line-height:1.7;font-weight:300}
 
-/* ── CARDS GRID ─────────────────────────── */
-.cards{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:56px}
-.card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:22px;padding:32px;position:relative;overflow:hidden;
-  cursor:default;
-  opacity:0;transform:translateY(28px);
-  transition:opacity .6s ease,transform .6s ease,background .35s,border-color .35s,box-shadow .35s;
-}
-.card.vis{opacity:1;transform:translateY(0)}
-.card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(79,142,255,.07) 0%,transparent 55%);
-  opacity:0;transition:opacity .4s;border-radius:22px;
-}
-.card:hover{background:var(--surface2);border-color:rgba(79,142,255,.28);transform:translateY(-8px);box-shadow:0 32px 72px rgba(0,0,0,.6),var(--glow)}
-.card:hover::before{opacity:1}
-
-.card-w6{grid-column:span 6}
-.card-w4{grid-column:span 4}
-.card-w3{grid-column:span 3}
-
-.card-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
-.card-ico{
-  width:46px;height:46px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
-}
-.tag{
-  font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;
-  padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid;
-}
-.tq{color:#00CFFF;border-color:rgba(0,207,255,.3);background:rgba(0,207,255,.08)}
-.ts{color:#A78BFA;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.08)}
-.tp{color:#34D399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)}
-.ta{color:#FBBF24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.08)}
-.card-w12{grid-column:span 12}
-.te{color:#FF9F5A;border-color:rgba(255,159,90,.3);background:rgba(255,159,90,.08)}
-.card-current{border-color:rgba(255,159,90,.22)!important;background:linear-gradient(145deg,rgba(255,159,90,.04) 0%,var(--surface) 60%)!important}
-.card-current::after{content:'● NOW';position:absolute;top:18px;right:18px;font-size:.62rem;letter-spacing:.1em;color:#FF9F5A;font-weight:700;font-family:var(--fD)}
-.card-current .met-v{background:linear-gradient(130deg,#FF9F5A,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-
-.card-co{font-size:.75rem;color:var(--tx3);margin-bottom:8px;font-weight:400}
-h3.card-t{font-family:var(--fD);font-size:1.35rem;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
-h3.card-t a{color:inherit;text-decoration:none}
-h3.card-t a:hover{text-decoration:underline}
-.card-w6 h3.card-t{font-size:1.6rem}
-p.card-d{font-size:.875rem;color:var(--tx2);line-height:1.68;font-weight:300;margin-bottom:22px}
-.metrics{display:flex;gap:20px;padding-top:18px;border-top:1px solid var(--border);flex-wrap:wrap}
-.met-v{
-  display:block;font-family:var(--fD);font-size:1.25rem;font-weight:800;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;line-height:1.1;
-}
-.met-l{font-size:.68rem;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
-.card-role{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:.75rem;font-weight:600;font-family:var(--fD);
-  color:var(--tx1);letter-spacing:.01em;
-  margin-bottom:10px;
-  padding:4px 12px 4px 0;
-}
-.card-role svg{flex-shrink:0;opacity:.6}
-
-
-/* ── TIMELINE ───────────────────────────── */
-.tl-wrap{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
-.tl{position:relative;padding-left:28px}
-.tl::before{
-  content:'';position:absolute;left:0;top:10px;bottom:10px;width:1px;
-  background:linear-gradient(to bottom,var(--a1),rgba(79,142,255,.15));
-}
-.tl-item{
-  position:relative;padding-bottom:44px;
-  opacity:0;transform:translateX(-18px);
-  transition:opacity .55s ease,transform .55s ease;
-}
-.tl-item.vis{opacity:1;transform:translateX(0)}
-.tl-item::before{
-  content:'';position:absolute;left:-32px;top:9px;
-  width:8px;height:8px;border-radius:50%;background:var(--a1);
-  box-shadow:0 0 0 4px rgba(79,142,255,.15);
-}
-.tl-date{font-size:.72rem;color:var(--a1);letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
-.tl-role{font-family:var(--fD);font-size:1.15rem;font-weight:700;margin-bottom:3px;letter-spacing:-.02em}
-.tl-co{font-size:.82rem;color:var(--tx2);margin-bottom:10px}
-.tl-pts{list-style:none}
-.tl-pts li{font-size:.83rem;color:var(--tx2);padding-left:16px;position:relative;line-height:1.62;margin-bottom:5px;font-weight:300}
-.tl-pts li::before{content:'→';position:absolute;left:0;color:var(--a1);opacity:.7;font-size:.72rem;top:3px}
-
-/* ── SKILLS ─────────────────────────────── */
-.pills{display:flex;flex-wrap:wrap;gap:11px;margin-top:40px}
-.pill{
-  padding:9px 22px;border-radius:100px;
-  background:var(--surface);border:1px solid var(--border);
-  font-size:.83rem;color:var(--tx1);font-weight:400;
-  transition:all .3s ease;cursor:default;
-  opacity:0;transform:scale(.92);
-}
-.pill.vis{opacity:1;transform:scale(1)}
-.pill:hover{background:rgba(79,142,255,.1);border-color:rgba(79,142,255,.32);color:#b8d0ff;transform:scale(1.05)}
-
-/* ── EDU / CERTS ────────────────────────── */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
-.mini-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:18px;
-  padding:28px 30px;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .55s,transform .55s;
-}
-.mini-card.vis{opacity:1;transform:translateY(0)}
-.mini-card:hover{background:var(--surface2);border-color:var(--border2)}
-.mini-ico{font-size:1.4rem;margin-bottom:12px}
-.mini-t{font-family:var(--fD);font-size:1rem;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
-.mini-line{font-size:.83rem;color:var(--tx2);line-height:1.55;margin-bottom:4px}
-.mini-line span{color:var(--tx3)}
-
 /* ── CONTACT ────────────────────────────── */
 #contact{text-align:center}
 .contact-box{
@@ -349,11 +227,6 @@ footer{
 
 /* ── RESPONSIVE ─────────────────────────── */
 @media(max-width:900px){
-  .tl-wrap{grid-template-columns:1fr;gap:48px}
-  .cards{display:block}
-  .card{margin-bottom:18px}
-  .card-w6,.card-w4,.card-w3{grid-column:span 1}
-  .two-col{grid-template-columns:1fr}
   .hero-stats{gap:28px}
   .contact-box{padding:44px 28px}
 }
@@ -379,7 +252,7 @@ footer{
     <p class="hero-role">Product Manager · Growth Strategist</p>
     <p class="hero-desc">Turning ambiguous problems into products people love — across Quick Commerce, SaaS, and PropTech. 6+ years of zero-to-one launches and measurable growth.</p>
     <div class="hero-actions">
-      <a href="#work" class="btn btn-p">
+      <a href="/about/#work" class="btn btn-p">
         View Case Studies
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -402,173 +275,6 @@ footer{
         <div class="stat-v">100M+</div>
         <div class="stat-l">Organic Views</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE STUDIES -->
-<section id="work" class="sec sec-alt">
-  <div class="max">
-    <div class="sr">
-      <div class="sec-label">Case Studies</div>
-      <h2 class="sec-title">Products I've Built &<br>Problems I've Solved</h2>
-      <p class="sec-sub">From zero-to-one launches to viral growth — every project shaped by obsessive user empathy and data-backed decisions.</p>
-    </div>
-
-    <div class="cards">
-      {workItems.map((item) => (
-        <div class={`card ${item.data.current ? 'card-w12 card-current' : 'card-w6'}`}>
-          <div class="card-head">
-            {item.data.logo && (
-              <div class="card-ico" style="background:#000;overflow:hidden;padding:0;">
-                <img src={item.data.logo} alt={`${item.data.company} logo`} style="width:100%;height:100%;object-fit:contain;border-radius:8px;background:#000;padding:2px;" />
-              </div>
-            )}
-            <span class={`tag ${item.data.tagVariant}`}>{item.data.tag}</span>
-          </div>
-          <div class="card-co">{item.data.company} &middot; {item.data.dateRange}</div>
-          {item.data.role && (
-            <div class="card-role"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="14" height="10" rx="2"/><path d="M5 5V4a3 3 0 016 0v1"/></svg> {item.data.role}</div>
-          )}
-          <h3 class="card-t"><a href={`/work/${item.id}/`}>{item.data.title}</a></h3>
-          <p class="card-d">{item.data.desc}</p>
-          <div class="metrics">
-            {item.data.metrics.map((m) => (
-              <div><span class="met-v">{m.value}</span><div class="met-l">{m.label}</div></div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE TIMELINE -->
-<section id="experience" class="sec">
-  <div class="max">
-    <div class="tl-wrap">
-      <div class="sr">
-        <div class="sec-label">Journey</div>
-        <h2 class="sec-title">Six Years of<br>Shipping Products</h2>
-        <p class="sec-sub" style="margin-top:16px">From data analyst to founding PM — each role sharpened a different dimension of how I think about users, strategy, and execution.</p>
-
-        <div style="margin-top:44px;display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:14px">
-            <span style="font-size:1.1rem">🎓</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:600;font-family:var(--fD)">PGDM — Marketing &amp; Operations</div>
-              <div style="font-size:.72rem;color:var(--tx3)">ISME · 2017–2019</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:14px">
-            <span style="font-size:1.1rem">⚡</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:600;font-family:var(--fD)">B.E. — Electrical &amp; Electronics Engineering</div>
-              <div style="font-size:.72rem;color:var(--tx3)">VTU · 2012–2016</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:14px">
-            <span style="font-size:1.1rem">📜</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:600;font-family:var(--fD)">International Certification in Product Management</div>
-              <div style="font-size:.72rem;color:var(--tx3)">Institute of Product Leadership</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:14px">
-            <span style="font-size:1.1rem">🏆</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:600;font-family:var(--fD)">PG Diploma in Product Management</div>
-              <div style="font-size:.72rem;color:var(--tx3)">Pragmatic Leaders</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl">
-        <div class="tl-item">
-          <div class="tl-date">Apr 2026 – Present</div>
-          <div class="tl-role">Marketing &amp; Growth Specialist</div>
-          <div class="tl-co">Apollo Knowledge · Ed Tech</div>
-          <ul class="tl-pts">
-            <li>SEO audits, keyword optimization &amp; technical SEO recommendations</li>
-            <li>Google Tag Manager &amp; digital analytics framework implementation</li>
-            <li>Cross-functional campaign execution &amp; local SEO management</li>
-          </ul>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Apr 2025 – Mar 2026</div>
-          <div class="tl-role">Product Manager</div>
-          <div class="tl-co">Zopping · E-com &amp; Q-com Enablement</div>
-          <ul class="tl-pts">
-            <li>Onboarding revamp → 2.5× faster activation, churned-user reactivation</li>
-            <li>PAN-India logistics expansion with Solr-based filtering &amp; zone mapping</li>
-            <li>VIP Membership, Subscriptions, Abandoned Cart, Appointments shipped</li>
-          </ul>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Oct 2023 – Mar 2025</div>
-          <div class="tl-role">Founding Product Manager</div>
-          <div class="tl-co">Oculon AI · AI SaaS / Stealth</div>
-          <ul class="tl-pts">
-            <li>Zero-to-one no-code FP&amp;A MVP shipped in 3 months</li>
-            <li>100+ beta adopters from survey leads to active waitlist</li>
-            <li>Competitor benchmarking across 40 tools; supported $100K pre-seed</li>
-          </ul>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Sep 2022 – Oct 2023</div>
-          <div class="tl-role">Associate Product Manager</div>
-          <div class="tl-co">Styldod · PropTech &amp; AI</div>
-          <ul class="tl-pts">
-            <li>REimagineHome.AI → 1M+ users in 102 days</li>
-            <li>100M+ organic video views &amp; 30K+ followers in 30 days</li>
-            <li>AI Marketing Hub launched for real estate agents</li>
-          </ul>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Jun 2019 – Sep 2022</div>
-          <div class="tl-role">Analytics Product Manager</div>
-          <div class="tl-co">GroupM · Marketing Analytics B2B</div>
-          <ul class="tl-pts">
-            <li>Productised Brandometer 360 &amp; Brandformance (Google ADH)</li>
-            <li>ABM reporting tool → 2 days reduced to ½ day</li>
-            <li>Pricing benchmarks → 4 new clients onboarded</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="sec sec-alt">
-  <div class="max">
-    <div class="sr">
-      <div class="sec-label">Expertise</div>
-      <h2 class="sec-title">Skills &amp; Tools</h2>
-      <p class="sec-sub">The full stack of what I bring to a product team — from roadmapping to growth to analytics.</p>
-    </div>
-    <div class="pills">
-      <span class="pill">Product Roadmapping</span>
-      <span class="pill">GTM Execution</span>
-      <span class="pill">User Research</span>
-      <span class="pill">Prototyping &amp; Wireframing</span>
-      <span class="pill">Growth &amp; Retention</span>
-      <span class="pill">Product Analytics</span>
-      <span class="pill">Agile &amp; Sprint Planning</span>
-      <span class="pill">Figma</span>
-      <span class="pill">Google Ads Optimisation</span>
-      <span class="pill">SEO &amp; Technical SEO</span>
-      <span class="pill">A/B Testing</span>
-      <span class="pill">Stakeholder Management</span>
-      <span class="pill">Quick Commerce</span>
-      <span class="pill">SaaS Metrics &amp; KPIs</span>
-      <span class="pill">PropTech</span>
-      <span class="pill">Financial Planning &amp; Analytics</span>
-      <span class="pill">Google ADH</span>
-      <span class="pill">Google Tag Manager</span>
-      <span class="pill">Zero-to-One Product Building</span>
-      <span class="pill">Competitive Analysis</span>
     </div>
   </div>
 </section>
@@ -618,22 +324,15 @@ window.addEventListener('scroll', () => {
 
 // Intersection Observer for all animated elements
 const io = new IntersectionObserver((entries) => {
-  entries.forEach((e, idx) => {
+  entries.forEach((e) => {
     if (e.isIntersecting) {
-      // stagger delay based on siblings
-      const siblings = e.target.parentElement?.querySelectorAll('.card, .pill, .tl-item, .mini-card');
-      if (siblings) {
-        Array.from(siblings).forEach((el, i) => {
-          el.style.transitionDelay = `${i * 0.07}s`;
-        });
-      }
       e.target.classList.add('vis');
       io.unobserve(e.target);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.sr, .card, .pill, .tl-item, .mini-card').forEach(el => io.observe(el));
+document.querySelectorAll('.sr').forEach(el => io.observe(el));
 
 // Smooth active nav highlighting
 const sections = document.querySelectorAll('section[id]');

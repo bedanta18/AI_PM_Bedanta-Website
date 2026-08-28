@@ -1,0 +1,210 @@
+---
+import { getCollection } from 'astro:content';
+import SiteNav from '../../components/SiteNav.astro';
+import '../../styles/blog.css';
+import '../../styles/work.css';
+import '../../styles/about.css';
+
+const workItems = (await getCollection('work'))
+  .filter((item) => item.data.ispublished)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="Work, experience, and skills of Bedanta Gogoi — a Product Manager with 6+ years shipping SaaS, Quick Commerce, and PropTech products."
+    />
+    <meta property="og:title" content="About Me | Bedanta Gogoi" />
+    <meta
+      property="og:description"
+      content="Work, experience, and skills of Bedanta Gogoi — a Product Manager with 6+ years shipping SaaS, Quick Commerce, and PropTech products."
+    />
+    <meta property="og:type" content="profile" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/about/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="about" />
+
+      <header class="blog-hero">
+        <p class="eyebrow">About</p>
+        <h1>About Me</h1>
+        <p>
+          The work I've shipped, the path that got me here, and the toolkit I bring to a product team.
+        </p>
+      </header>
+
+      <section id="work" class="about-section" aria-label="Case studies">
+        <p class="section-label">Case Studies</p>
+        <h2>Products I've Built &amp; Problems I've Solved</h2>
+        <p class="section-sub">
+          From zero-to-one launches to viral growth — every project shaped by obsessive user empathy and data-backed decisions.
+        </p>
+
+        <div class="post-grid">
+          {
+            workItems.map((item) => (
+              <article class:list={['post-card', { 'work-current': item.data.current }]}>
+                <div class="post-meta">
+                  {item.data.logo && <img class="work-logo" src={item.data.logo} alt={`${item.data.company} logo`} />}
+                  <span class:list={['work-tag', item.data.tagVariant]}>{item.data.tag}</span>
+                </div>
+                <div class="work-co">
+                  {item.data.company} &middot; {item.data.dateRange}
+                </div>
+                {item.data.role && <div class="work-role">{item.data.role}</div>}
+                <h2>
+                  <a href={`/work/${item.id}/`}>{item.data.title}</a>
+                </h2>
+                <p>{item.data.desc}</p>
+                <div class="work-metrics">
+                  {item.data.metrics.map((metric) => (
+                    <div>
+                      <span class="work-met-v">{metric.value}</span>
+                      <span class="work-met-l">{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="experience" class="about-section" aria-label="Experience">
+        <p class="section-label">Journey</p>
+        <h2>Six Years of Shipping Products</h2>
+        <p class="section-sub">
+          From data analyst to founding PM — each role sharpened a different dimension of how I think about users, strategy, and execution.
+        </p>
+
+        <div class="tl-wrap">
+          <div class="edu-list">
+            <div class="edu-item">
+              <span class="edu-ico">🎓</span>
+              <div>
+                <div class="edu-t">PGDM — Marketing &amp; Operations</div>
+                <div class="edu-sub">ISME · 2017–2019</div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <span class="edu-ico">⚡</span>
+              <div>
+                <div class="edu-t">B.E. — Electrical &amp; Electronics Engineering</div>
+                <div class="edu-sub">VTU · 2012–2016</div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <span class="edu-ico">📜</span>
+              <div>
+                <div class="edu-t">International Certification in Product Management</div>
+                <div class="edu-sub">Institute of Product Leadership</div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <span class="edu-ico">🏆</span>
+              <div>
+                <div class="edu-t">PG Diploma in Product Management</div>
+                <div class="edu-sub">Pragmatic Leaders</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-date">Apr 2026 – Present</div>
+              <div class="tl-role">Marketing &amp; Growth Specialist</div>
+              <div class="tl-co">Apollo Knowledge · Ed Tech</div>
+              <ul class="tl-pts">
+                <li>SEO audits, keyword optimization &amp; technical SEO recommendations</li>
+                <li>Google Tag Manager &amp; digital analytics framework implementation</li>
+                <li>Cross-functional campaign execution &amp; local SEO management</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">Apr 2025 – Mar 2026</div>
+              <div class="tl-role">Product Manager</div>
+              <div class="tl-co">Zopping · E-com &amp; Q-com Enablement</div>
+              <ul class="tl-pts">
+                <li>Onboarding revamp → 2.5× faster activation, churned-user reactivation</li>
+                <li>PAN-India logistics expansion with Solr-based filtering &amp; zone mapping</li>
+                <li>VIP Membership, Subscriptions, Abandoned Cart, Appointments shipped</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">Oct 2023 – Mar 2025</div>
+              <div class="tl-role">Founding Product Manager</div>
+              <div class="tl-co">Oculon AI · AI SaaS / Stealth</div>
+              <ul class="tl-pts">
+                <li>Zero-to-one no-code FP&amp;A MVP shipped in 3 months</li>
+                <li>100+ beta adopters from survey leads to active waitlist</li>
+                <li>Competitor benchmarking across 40 tools; supported $100K pre-seed</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">Sep 2022 – Oct 2023</div>
+              <div class="tl-role">Associate Product Manager</div>
+              <div class="tl-co">Styldod · PropTech &amp; AI</div>
+              <ul class="tl-pts">
+                <li>REimagineHome.AI → 1M+ users in 102 days</li>
+                <li>100M+ organic video views &amp; 30K+ followers in 30 days</li>
+                <li>AI Marketing Hub launched for real estate agents</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">Jun 2019 – Sep 2022</div>
+              <div class="tl-role">Analytics Product Manager</div>
+              <div class="tl-co">GroupM · Marketing Analytics B2B</div>
+              <ul class="tl-pts">
+                <li>Productised Brandometer 360 &amp; Brandformance (Google ADH)</li>
+                <li>ABM reporting tool → 2 days reduced to ½ day</li>
+                <li>Pricing benchmarks → 4 new clients onboarded</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="about-section" aria-label="Skills">
+        <p class="section-label">Expertise</p>
+        <h2>Skills &amp; Tools</h2>
+        <p class="section-sub">
+          The full stack of what I bring to a product team — from roadmapping to growth to analytics.
+        </p>
+        <div class="pills">
+          <span class="pill">Product Roadmapping</span>
+          <span class="pill">GTM Execution</span>
+          <span class="pill">User Research</span>
+          <span class="pill">Prototyping &amp; Wireframing</span>
+          <span class="pill">Growth &amp; Retention</span>
+          <span class="pill">Product Analytics</span>
+          <span class="pill">Agile &amp; Sprint Planning</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Google Ads Optimisation</span>
+          <span class="pill">SEO &amp; Technical SEO</span>
+          <span class="pill">A/B Testing</span>
+          <span class="pill">Stakeholder Management</span>
+          <span class="pill">Quick Commerce</span>
+          <span class="pill">SaaS Metrics &amp; KPIs</span>
+          <span class="pill">PropTech</span>
+          <span class="pill">Financial Planning &amp; Analytics</span>
+          <span class="pill">Google ADH</span>
+          <span class="pill">Google Tag Manager</span>
+          <span class="pill">Zero-to-One Product Building</span>
+          <span class="pill">Competitive Analysis</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

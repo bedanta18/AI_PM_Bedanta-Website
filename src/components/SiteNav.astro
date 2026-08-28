@@ -1,13 +1,11 @@
 ---
 interface Props {
-  current?: 'home' | 'blog' | 'work' | 'pm-concepts' | 'products';
+  current?: 'home' | 'blog' | 'about' | 'pm-concepts' | 'ai-tools';
 }
 
 const { current = 'home' } = Astro.props;
 const prefix = current === 'home' ? '' : '/';
 const homeHref = current === 'home' ? '#hero' : '/';
-const experienceHref = `${prefix}#experience`;
-const skillsHref = `${prefix}#skills`;
 const contactHref = `${prefix}#contact`;
 ---
 
@@ -15,9 +13,7 @@ const contactHref = `${prefix}#contact`;
   <a class="nav-logo" href="/">BG.</a>
   <ul class="nav-links">
     <li><a href={homeHref}>Home</a></li>
-    <li><a href="/work/" aria-current={current === 'work' ? 'page' : undefined}>Work</a></li>
-    <li><a href={experienceHref}>Experience</a></li>
-    <li><a href={skillsHref}>Skills</a></li>
+    <li><a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About Me</a></li>
     <li><a href="/ai-tools/" aria-current={current === 'ai-tools' ? 'page' : undefined}>AI & Marketing Tools</a></li>
     <li><a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a></li>
     <li><a href="/pm-concepts/" aria-current={current === 'pm-concepts' ? 'page' : undefined}>PM Concepts</a></li>
