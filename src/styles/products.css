@@ -82,6 +82,13 @@
   height: 19px;
 }
 
+.product-ico-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
 .product-tag {
   display: inline-flex;
   align-items: center;
