@@ -16,10 +16,14 @@ These web-based products become more complex so a breed of people is required to
 
 Fundamentally, products are solving the problems of the users. The product managers are nothing but a battalion of a soldier who is a problem solvers of the user, through the product and features.
 
+![A box being opened with a lightbulb of ideas — product managers as problem solvers](/blog-images/product-problem-solving.png)
+
 Disecting a product: 🧑‍🔧
 According to marketing wizard Prof. Philip Kotler, a product comprises three levels: Core, Actual, and Augmented.
 
 The diagram depicts the three product layers of a washing machine to resonate with the idea of a product. I will take the help of the diagram to explain the concept of a product by Prof. Philip Kotler.
+
+![The three levels of a product — Core, Actual, and Augmented — illustrated with a washing machine example](/blog-images/product-three-levels-diagram.png)
 
 Core Product: ⚡️✨🌟⭐️💫
 It solves the fundamental problem and the user derives a value out of it. Example: The washing machine provides us convenience by doing the fundamental work of washing the clothes. Simply put, a customer pays the price on the washing machine to wash clothes which reduces physical labor. So, eliminating physical labor by providing convenience becomes the core offering of the product.
