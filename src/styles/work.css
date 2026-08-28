@@ -23,11 +23,11 @@
   text-transform: uppercase;
 }
 
-.work-tag.te { color: #ff9f5a; border-color: rgba(255, 159, 90, 0.3); background: rgba(255, 159, 90, 0.08); }
-.work-tag.tq { color: #00cfff; border-color: rgba(0, 207, 255, 0.3); background: rgba(0, 207, 255, 0.08); }
-.work-tag.ts { color: #a78bfa; border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
-.work-tag.tp { color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.08); }
-.work-tag.ta { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.08); }
+.work-tag.te { color: #c65a12; border-color: rgba(198, 90, 18, 0.3); background: rgba(198, 90, 18, 0.09); }
+.work-tag.tq { color: #0083a8; border-color: rgba(0, 131, 168, 0.3); background: rgba(0, 131, 168, 0.09); }
+.work-tag.ts { color: #6d43d6; border-color: rgba(109, 67, 214, 0.3); background: rgba(109, 67, 214, 0.09); }
+.work-tag.tp { color: #0a8f5b; border-color: rgba(10, 143, 91, 0.3); background: rgba(10, 143, 91, 0.09); }
+.work-tag.ta { color: #a1670a; border-color: rgba(161, 103, 10, 0.3); background: rgba(161, 103, 10, 0.09); }
 
 .work-co {
   margin-top: 22px;
@@ -49,8 +49,8 @@
 
 .post-card.work-current {
   position: relative;
-  border-color: rgba(255, 159, 90, 0.22);
-  background: linear-gradient(145deg, rgba(255, 159, 90, 0.08), var(--surface));
+  border-color: rgba(198, 90, 18, 0.25);
+  background: linear-gradient(145deg, rgba(198, 90, 18, 0.07), #fff);
 }
 
 .post-card.work-current::after {
@@ -60,7 +60,7 @@
   right: 24px;
   font-size: 0.62rem;
   letter-spacing: 0.1em;
-  color: #ff9f5a;
+  color: #c65a12;
   font-weight: 700;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .work-current .work-met-v {
-  background: linear-gradient(130deg, #ff9f5a, #ff6b35);
+  background: linear-gradient(130deg, #c65a12, #a8380b);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
