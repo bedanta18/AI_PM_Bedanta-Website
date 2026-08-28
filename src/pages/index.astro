@@ -28,7 +28,7 @@ import SiteNav from '../components/SiteNav.astro';
   font-weight='900' font-size='44' fill='white'>BG</text>
 </svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:        #04040A;
@@ -47,7 +47,7 @@ import SiteNav from '../components/SiteNav.astro';
   --gradText:  linear-gradient(130deg,#fff 0%,#a8c8ff 45%,#00CFFF 100%);
   --glow:      0 0 60px rgba(79,142,255,.18);
   --fD:        'Syne', sans-serif;
-  --fB:        'DM Sans', sans-serif;
+  --fB:        Arial, Helvetica, sans-serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
@@ -84,22 +84,14 @@ body::before{
 
 .hero-inner{position:relative;z-index:2;max-width:920px;margin:0 auto}
 
-.badge{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:6px 18px;border-radius:100px;
-  background:rgba(79,142,255,.1);border:1px solid rgba(79,142,255,.22);
-  font-size:.72rem;color:var(--a2);letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-  margin-bottom:32px;
-  opacity:0;animation:fu .7s ease forwards .15s;
-}
-.badge-dot{width:6px;height:6px;background:var(--a2);border-radius:50%;animation:bpulse 2s ease infinite}
 @keyframes bpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.4)}}
 
 h1.hero-name{
   font-family:var(--fD);font-weight:800;
-  font-size:clamp(4rem,11vw,8.2rem);
-  line-height:.92;letter-spacing:-.045em;
+  font-size:clamp(2.1rem,5.5vw,3.75rem);
+  line-height:.96;letter-spacing:-.04em;
   margin-bottom:14px;
+  white-space:nowrap;
   opacity:0;animation:fu .8s ease forwards .3s;
 }
 .grad-name{
@@ -140,6 +132,10 @@ h1.hero-name{
   display:flex;gap:56px;justify-content:center;flex-wrap:wrap;
   margin-top:72px;
   opacity:0;animation:fu .8s ease forwards 1.1s;
+}
+.hero-socials{
+  margin-top:36px;
+  opacity:0;animation:fu .8s ease forwards 1.3s;
 }
 .stat-v{
   font-family:var(--fD);font-size:2rem;font-weight:800;
@@ -235,6 +231,9 @@ footer{
   .hero-actions{flex-direction:column;align-items:center}
   .sticky{bottom:16px;right:16px}
 }
+@media(max-width:380px){
+  h1.hero-name{font-size:1.85rem}
+}
 </style>
 </head>
 <body>
@@ -247,8 +246,7 @@ footer{
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
   <div class="hero-inner">
-    <div class="badge"><span class="badge-dot"></span> Open to PM opportunities</div>
-    <h1 class="hero-name"><span class="grad-name">Bedanta</span><br>Gogoi</h1>
+    <h1 class="hero-name"><span class="grad-name">Bedanta</span> Gogoi</h1>
     <p class="hero-role">Product Manager · Growth Strategist</p>
     <p class="hero-desc">Turning ambiguous problems into products people love — across Quick Commerce, SaaS, and PropTech. 6+ years of zero-to-one launches and measurable growth.</p>
     <div class="hero-actions">
@@ -275,6 +273,20 @@ footer{
         <div class="stat-v">100M+</div>
         <div class="stat-l">Organic Views</div>
       </div>
+    </div>
+    <div class="socials hero-socials">
+      <a href="https://www.linkedin.com/in/bedantagogoi/" target="_blank" class="soc">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://medium.com/@bedanta.gogoi" target="_blank" class="soc">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        Medium
+      </a>
+      <a href="mailto:bedanta.product@gmail.com" class="soc">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Email
+      </a>
     </div>
   </div>
 </section>

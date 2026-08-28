@@ -11,7 +11,7 @@
   --accent-2: #4f8eff;
   --grad: linear-gradient(130deg, #ffffff 0%, #a8c8ff 45%, #00cfff 100%);
   --font-display: "Syne", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 * {
