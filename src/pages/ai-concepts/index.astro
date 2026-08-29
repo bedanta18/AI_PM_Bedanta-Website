@@ -1,0 +1,186 @@
+---
+import { getCollection } from 'astro:content';
+import SiteNav from '../../components/SiteNav.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import '../../styles/blog.css';
+
+const posts = (await getCollection('aiConcepts'))
+  .filter((post) => post.data.ispublished)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = [...new Set(posts.flatMap((post) => post.data.categories))].sort();
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Concepts & Terminology for Product Managers | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="A growing glossary of AI concepts and terminology — LLMs, tokenization, RAG, agents, reasoning models, and more — explained by Bedanta Gogoi."
+    />
+    <meta
+      name="keywords"
+      content="AI concepts, AI terminology, AI glossary, LLM, RAG, MCP, AI agents, reasoning models, AI product management, bedanta gogoi"
+    />
+    <meta property="og:title" content="AI Concepts & Terminology for Product Managers" />
+    <meta
+      property="og:description"
+      content="A growing glossary of AI concepts and terminology — LLMs, tokenization, RAG, agents, reasoning models, and more — explained by Product Manager Bedanta Gogoi."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/ai-concepts/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="ai-concepts" />
+
+      <header class="blog-hero">
+        <p class="eyebrow">Glossary</p>
+        <h1>AI Concepts</h1>
+        <p>
+          A growing glossary of AI concepts and terminology — the building blocks behind LLMs, retrieval, agents, and reasoning that every AI PM should know.
+        </p>
+      </header>
+
+      <div class="category-list" role="group" aria-label="Filter posts by category">
+        <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All</button>
+        {
+          categories.map((category) => (
+            <button type="button" class="category-chip" data-category={category} aria-pressed="false">
+              {category}
+            </button>
+          ))
+        }
+      </div>
+
+      <section class="post-grid" aria-label="Published AI concepts">
+        {
+          posts.map((post) => (
+            <article class="post-card" data-categories={post.data.categories.join('||')}>
+              <div class="post-meta">
+                <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                <span>{post.data.author}</span>
+              </div>
+              <h2>
+                <a href={`/ai-concepts/${post.id}/`}>{post.data.title}</a>
+              </h2>
+              <p>{post.data.desc}</p>
+              <div class="chip-row">
+                {post.data.categories.map((category) => <span>{category}</span>)}
+              </div>
+            </article>
+          ))
+        }
+      </section>
+      <p class="no-results" hidden>No concepts in this category yet.</p>
+    </main>
+
+    <script>
+      const chips = document.querySelectorAll<HTMLButtonElement>('.category-chip');
+      const cards = document.querySelectorAll<HTMLElement>('.post-card');
+      const noResults = document.querySelector<HTMLElement>('.no-results');
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const selected = chip.dataset.category ?? 'all';
+
+          chips.forEach((c) => {
+            const isActive = c === chip;
+            c.classList.toggle('is-active', isActive);
+            c.setAttribute('aria-pressed', String(isActive));
+          });
+
+          let visibleCount = 0;
+          cards.forEach((card) => {
+            const cardCategories = card.dataset.categories ? card.dataset.categories.split('||') : [];
+            const show = selected === 'all' || cardCategories.includes(selected);
+            card.classList.toggle('is-hidden', !show);
+            if (show) visibleCount += 1;
+          });
+
+          noResults?.toggleAttribute('hidden', visibleCount > 0);
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .blog-shell {
+    padding-top: 90px;
+  }
+
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 24px 0;
+    margin-bottom: 8px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .category-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 14px;
+    border: 1px solid rgba(52, 87, 209, 0.22);
+    border-radius: 999px;
+    background: rgba(52, 87, 209, 0.07);
+    color: #2647c2;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .category-chip:hover {
+    background: rgba(52, 87, 209, 0.14);
+  }
+
+  .category-chip.is-active {
+    background: var(--grad);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .post-card.is-hidden {
+    display: none;
+  }
+
+  .no-results {
+    padding: 32px 0 8px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 760px) {
+    .blog-shell {
+      padding-top: 76px;
+    }
+  }
+</style>

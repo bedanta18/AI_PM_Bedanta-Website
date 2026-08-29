@@ -1,6 +1,15 @@
 ---
 interface Props {
-  current?: 'home' | 'blog' | 'about' | 'pm-concepts' | 'ai-tools' | 'resources' | 'privacy-policy' | 'terms';
+  current?:
+    | 'home'
+    | 'blog'
+    | 'about'
+    | 'pm-concepts'
+    | 'ai-concepts'
+    | 'ai-tools'
+    | 'resources'
+    | 'privacy-policy'
+    | 'terms';
 }
 
 const { current = 'home' } = Astro.props;
@@ -17,6 +26,7 @@ const contactHref = `${prefix}#contact`;
     <li><a href="/ai-tools/" aria-current={current === 'ai-tools' ? 'page' : undefined}>AI & Marketing Tools</a></li>
     <li><a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a></li>
     <li><a href="/pm-concepts/" aria-current={current === 'pm-concepts' ? 'page' : undefined}>PM Concepts</a></li>
+    <li><a href="/ai-concepts/" aria-current={current === 'ai-concepts' ? 'page' : undefined}>AI Concepts</a></li>
     <li><a href="/resources/" aria-current={current === 'resources' ? 'page' : undefined}>Resources</a></li>
     <li><a href={contactHref} class="cta-pill">Hire Me</a></li>
   </ul>

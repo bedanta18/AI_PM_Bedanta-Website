@@ -1,0 +1,75 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteNav from '../../components/SiteNav.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import '../../styles/blog.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('aiConcepts', (post) => post.data.ispublished);
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{post.data.title} | Bedanta Gogoi</title>
+    <meta name="description" content={post.data.desc} />
+    <meta name="author" content={post.data.author} />
+    <meta property="article:published_time" content={post.data.date.toISOString()} />
+    <meta property="article:author" content={post.data.author} />
+    <meta property="og:title" content={post.data.title} />
+    <meta property="og:description" content={post.data.desc} />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={`https://www.aipmbedanta.com/ai-concepts/${post.id}/`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="ai-concepts" />
+
+      <article class="article">
+        <a class="back-link" href="/ai-concepts/">Back to AI Concepts</a>
+        <header class="article-header">
+          <div class="post-meta">
+            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+            <span>{post.data.author}</span>
+          </div>
+          <h1>{post.data.title}</h1>
+          <p>{post.data.desc}</p>
+          <div class="chip-row">
+            {post.data.categories.map((category) => <span>{category}</span>)}
+          </div>
+        </header>
+        <div class="article-body">
+          <Content />
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
