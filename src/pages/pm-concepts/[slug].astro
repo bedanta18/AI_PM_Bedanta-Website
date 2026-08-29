@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 
 export async function getStaticPaths() {
@@ -26,6 +27,7 @@ const formatDate = (date: Date) =>
 <!doctype html>
 <html lang="en">
   <head>
+    <GoogleTag />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{post.data.title} | Bedanta Gogoi</title>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 
 const posts = (await getCollection('pmConcepts'))
@@ -20,6 +21,7 @@ const formatDate = (date: Date) =>
 <!doctype html>
 <html lang="en">
   <head>
+    <GoogleTag />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Management Concepts & Frameworks | Bedanta Gogoi</title>

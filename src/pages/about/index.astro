@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 import '../../styles/work.css';
 import '../../styles/about.css';
@@ -13,6 +14,7 @@ const workItems = (await getCollection('work'))
 <!doctype html>
 <html lang="en">
   <head>
+    <GoogleTag />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bedanta Gogoi — Product Manager Experience & Case Studies</title>
