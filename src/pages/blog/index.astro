@@ -56,15 +56,22 @@ const formatDate = (date: Date) =>
 
       <section class="category-band" aria-labelledby="categories-title">
         <h2 id="categories-title">Categories</h2>
-        <div class="category-list">
-          {categories.map((category) => <a href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>{category}</a>)}
+        <div class="category-list" role="group" aria-label="Filter posts by category">
+          <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All</button>
+          {
+            categories.map((category) => (
+              <button type="button" class="category-chip" data-category={category} aria-pressed="false">
+                {category}
+              </button>
+            ))
+          }
         </div>
       </section>
 
       <section class="post-grid" aria-label="Published blog posts">
         {
           posts.map((post) => (
-            <article class="post-card" id={post.data.categories[0]?.toLowerCase().replaceAll(' ', '-')}>
+            <article class="post-card" data-categories={post.data.categories.join('||')}>
               <div class="post-meta">
                 <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
                 <span>{post.data.author}</span>
@@ -80,7 +87,36 @@ const formatDate = (date: Date) =>
           ))
         }
       </section>
+      <p class="no-results" hidden>No posts in this category yet.</p>
     </main>
+
+    <script>
+      const chips = document.querySelectorAll<HTMLButtonElement>('.category-chip');
+      const cards = document.querySelectorAll<HTMLElement>('.post-card');
+      const noResults = document.querySelector<HTMLElement>('.no-results');
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const selected = chip.dataset.category ?? 'all';
+
+          chips.forEach((c) => {
+            const isActive = c === chip;
+            c.classList.toggle('is-active', isActive);
+            c.setAttribute('aria-pressed', String(isActive));
+          });
+
+          let visibleCount = 0;
+          cards.forEach((card) => {
+            const cardCategories = card.dataset.categories ? card.dataset.categories.split('||') : [];
+            const show = selected === 'all' || cardCategories.includes(selected);
+            card.classList.toggle('is-hidden', !show);
+            if (show) visibleCount += 1;
+          });
+
+          noResults?.toggleAttribute('hidden', visibleCount > 0);
+        });
+      });
+    </script>
   </body>
 </html>
 
@@ -92,6 +128,38 @@ const formatDate = (date: Date) =>
   .blog-shell .category-band {
     border-top: none;
     padding-top: 0;
+  }
+
+  .category-chip {
+    font: inherit;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .category-chip:hover {
+    background: rgba(52, 87, 209, 0.14);
+  }
+
+  .category-chip.is-active {
+    background: var(--grad);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .category-chip.is-active:hover {
+    background: var(--grad);
+  }
+
+  .post-card.is-hidden {
+    display: none;
+  }
+
+  .no-results {
+    padding: 32px 0 8px;
+    color: var(--muted);
+    text-align: center;
   }
 
   @media (max-width: 760px) {
