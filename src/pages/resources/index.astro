@@ -1,0 +1,798 @@
+---
+import GoogleTag from '../../components/GoogleTag.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<GoogleTag />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free PM Resources & Templates | Bedanta Gogoi</title>
+<meta name="description" content="Free product management templates, growth frameworks, AI prompt packs, and checklists — built from real PM work by Bedanta Gogoi.">
+<meta name="keywords" content="product management templates, free PRD template, product roadmap template, PM checklist, GTM template, OKR tracker, AI prompts for product managers, growth templates, bedanta gogoi">
+<meta name="author" content="Bedanta Gogoi">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free PM Resources & Templates | Bedanta Gogoi">
+<meta property="og:description" content="Free product management templates, growth frameworks, AI prompt packs, and checklists — built from real PM work.">
+<meta property="og:url" content="https://www.aipmbedanta.com/resources/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://www.aipmbedanta.com/resources/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────── */
+:root {
+  --bg:       #04040A;
+  --bg2:      #07070F;
+  --surface:  rgba(255,255,255,0.04);
+  --surface2: rgba(255,255,255,0.07);
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.14);
+  --tx1:      #EEF0FA;
+  --tx2:      rgba(238,240,250,0.52);
+  --tx3:      rgba(238,240,250,0.28);
+  --a1:       #4F8EFF;
+  --a2:       #00CFFF;
+  --a3:       #7B5EFF;
+  --a4:       #34D399;
+  --grad:     linear-gradient(130deg,#4F8EFF 0%,#00CFFF 100%);
+  --gradText: linear-gradient(130deg,#fff 0%,#a8c8ff 45%,#00CFFF 100%);
+  --glow:     0 0 60px rgba(79,142,255,.18);
+  --fD:       'Syne', sans-serif;
+  --fB:       'DM Sans', sans-serif;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth }
+body {
+  background:var(--bg); color:var(--tx1);
+  font-family:var(--fB); overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* grain */
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:900;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+
+/* ── NAV ───────────────────────────── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 6%;
+  background:rgba(4,4,10,.65);
+  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo {
+  font-family:var(--fD); font-weight:800; font-size:1.15rem; letter-spacing:-.03em;
+  background:var(--gradText); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; text-decoration:none;
+}
+.nav-links { display:flex; align-items:center; gap:2rem; list-style:none }
+.nav-links a {
+  color:var(--tx2); text-decoration:none; font-size:.82rem;
+  font-weight:400; letter-spacing:.01em; transition:color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--tx1) }
+.nav-links .cta-pill {
+  background:var(--grad); color:#fff !important;
+  padding:7px 20px; border-radius:100px; font-weight:600 !important;
+  font-size:.78rem !important; transition:opacity .2s, transform .2s;
+}
+.nav-links .cta-pill:hover { opacity:.85; transform:scale(1.04) }
+
+/* ── PAGE HERO ─────────────────────── */
+.page-hero {
+  padding:140px 6% 72px;
+  position:relative; overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.page-hero::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(79,142,255,.12) 1px, transparent 1px);
+  background-size:34px 34px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,#000 20%,transparent 100%);
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,#000 20%,transparent 100%);
+}
+.orb {
+  position:absolute; border-radius:50%;
+  pointer-events:none; filter:blur(90px);
+}
+.orb1 {
+  width:480px; height:480px;
+  background:radial-gradient(circle,rgba(79,142,255,.1) 0%,transparent 70%);
+  top:-140px; right:-80px;
+  animation:orbf 9s ease-in-out infinite;
+}
+.orb2 {
+  width:320px; height:320px;
+  background:radial-gradient(circle,rgba(123,94,255,.07) 0%,transparent 70%);
+  bottom:-60px; left:10%;
+  animation:orbf 12s ease-in-out infinite reverse;
+}
+@keyframes orbf { 0%,100%{transform:translate(0,0)} 50%{transform:translate(24px,-20px)} }
+
+.hero-inner { position:relative; z-index:2; max-width:1220px; margin:0 auto }
+
+.sec-label {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--a1); font-weight:600; margin-bottom:14px;
+}
+.sec-label::after { content:''; width:48px; height:1px; background:var(--a1); opacity:.4 }
+
+h1.page-title {
+  font-family:var(--fD); font-weight:800;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  letter-spacing:-.04em; line-height:1.05;
+  margin-bottom:16px;
+}
+.grad-text {
+  background:var(--gradText); -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; background-clip:text;
+}
+.page-sub {
+  font-size:1.05rem; color:var(--tx2); max-width:560px;
+  line-height:1.75; font-weight:300; margin-bottom:44px;
+}
+
+/* stats bar */
+.hero-stats {
+  display:flex; gap:48px; flex-wrap:wrap;
+  padding-top:36px; border-top:1px solid var(--border);
+}
+.stat-v {
+  display:block; font-family:var(--fD); font-size:1.8rem; font-weight:800;
+  background:var(--grad); -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; background-clip:text; line-height:1;
+}
+.stat-l {
+  font-size:.72rem; color:var(--tx3);
+  text-transform:uppercase; letter-spacing:.08em; margin-top:5px;
+}
+
+/* ── MAIN CONTENT ──────────────────── */
+.main { padding:64px 6% 96px; max-width:1220px; margin:0 auto }
+
+/* ── FILTER BAR ────────────────────── */
+.filter-bar {
+  display:flex; gap:10px; flex-wrap:wrap; margin-bottom:48px;
+}
+.filter-btn {
+  padding:9px 22px; border-radius:100px;
+  font-size:.8rem; font-weight:600; font-family:var(--fB);
+  border:1px solid var(--border); background:var(--surface);
+  color:var(--tx2); cursor:pointer;
+  transition:all .25s ease; letter-spacing:.02em;
+}
+.filter-btn:hover { background:var(--surface2); color:var(--tx1); border-color:var(--border2) }
+.filter-btn.active {
+  background:rgba(79,142,255,.12); border-color:rgba(79,142,255,.35);
+  color:var(--a1);
+}
+
+/* ── RESOURCE GRID ─────────────────── */
+.resource-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+}
+
+/* ── RESOURCE CARD ─────────────────── */
+.rcard {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:22px; padding:30px; position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+  opacity:0; transform:translateY(24px);
+  transition:opacity .55s ease, transform .55s ease,
+              background .3s, border-color .3s, box-shadow .3s;
+}
+.rcard.vis { opacity:1; transform:translateY(0) }
+.rcard::before {
+  content:''; position:absolute; inset:0; border-radius:22px;
+  background:linear-gradient(135deg,rgba(79,142,255,.06) 0%,transparent 55%);
+  opacity:0; transition:opacity .35s;
+}
+.rcard:hover {
+  background:var(--surface2); border-color:rgba(79,142,255,.22);
+  transform:translateY(-6px);
+  box-shadow:0 28px 64px rgba(0,0,0,.55), var(--glow);
+}
+.rcard:hover::before { opacity:1 }
+
+/* card top row */
+.rcard-top {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:20px;
+}
+.format-badge {
+  display:flex; align-items:center; gap:5px;
+  font-size:.65rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  padding:4px 11px; border-radius:100px;
+  border:1px solid var(--border); color:var(--tx3); background:var(--surface);
+}
+
+/* category badge */
+.cat-badge {
+  font-size:.67rem; font-weight:700; letter-spacing:.07em;
+  text-transform:uppercase; padding:4px 11px; border-radius:100px; border:1px solid;
+}
+.cat-pm     { color:var(--a1); border-color:rgba(79,142,255,.3);  background:rgba(79,142,255,.08)  }
+.cat-growth { color:var(--a2); border-color:rgba(0,207,255,.3);   background:rgba(0,207,255,.08)   }
+.cat-ai     { color:var(--a3); border-color:rgba(123,94,255,.3);  background:rgba(123,94,255,.08)  }
+.cat-check  { color:var(--a4); border-color:rgba(52,211,153,.3);  background:rgba(52,211,153,.08)  }
+
+/* card body */
+.rcard-icon { font-size:1.6rem; margin-bottom:12px; display:block }
+h3.rcard-title {
+  font-family:var(--fD); font-size:1.15rem; font-weight:700;
+  letter-spacing:-.02em; margin-bottom:10px; line-height:1.25;
+}
+p.rcard-desc {
+  font-size:.84rem; color:var(--tx2); line-height:1.68;
+  font-weight:300; margin-bottom:18px;
+}
+
+/* what's inside */
+.inside-label {
+  font-size:.67rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--tx3); margin-bottom:10px;
+}
+.inside-list { list-style:none; margin-bottom:24px }
+.inside-list li {
+  font-size:.8rem; color:var(--tx2); padding-left:16px;
+  position:relative; line-height:1.6; margin-bottom:5px; font-weight:300;
+}
+.inside-list li::before {
+  content:'→'; position:absolute; left:0;
+  color:var(--a1); font-size:.7rem; top:2px; opacity:.7;
+}
+
+/* card footer */
+.rcard-footer {
+  margin-top:auto; padding-top:20px; border-top:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.dl-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 20px; border-radius:100px;
+  background:var(--grad); color:#fff;
+  font-size:.78rem; font-weight:600; text-decoration:none;
+  transition:opacity .2s, transform .2s;
+  letter-spacing:.01em;
+}
+.dl-btn:hover { opacity:.85; transform:scale(1.03) }
+.dl-btn.soon {
+  background:var(--surface); border:1px solid var(--border);
+  color:var(--tx3); pointer-events:none;
+}
+.free-tag {
+  font-size:.68rem; font-weight:700; letter-spacing:.06em;
+  color:var(--a4); text-transform:uppercase;
+}
+
+/* hidden cards when filtered */
+.rcard.hidden { display:none }
+
+/* ── COMING SOON BANNER ────────────── */
+.cs-banner {
+  margin-top:56px; border-radius:22px;
+  background:var(--surface); border:1px solid var(--border);
+  padding:48px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:32px; flex-wrap:wrap;
+  position:relative; overflow:hidden;
+}
+.cs-banner::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 60% 60% at 90% 50%,rgba(79,142,255,.07) 0%,transparent 70%);
+}
+.cs-text h3 {
+  font-family:var(--fD); font-size:1.4rem; font-weight:700;
+  letter-spacing:-.02em; margin-bottom:8px;
+}
+.cs-text p { font-size:.9rem; color:var(--tx2); max-width:420px; line-height:1.7; font-weight:300 }
+.cs-form {
+  display:flex; gap:10px; flex-shrink:0; flex-wrap:wrap;
+}
+.cs-input {
+  padding:11px 20px; border-radius:100px;
+  background:var(--surface2); border:1px solid var(--border2);
+  color:var(--tx1); font-size:.85rem; font-family:var(--fB);
+  width:230px; outline:none;
+  transition:border-color .2s;
+}
+.cs-input::placeholder { color:var(--tx3) }
+.cs-input:focus { border-color:var(--a1) }
+.cs-btn {
+  padding:11px 26px; border-radius:100px;
+  background:var(--grad); color:#fff; border:none;
+  font-size:.85rem; font-weight:600; font-family:var(--fB);
+  cursor:pointer; transition:opacity .2s, transform .2s;
+}
+.cs-btn:hover { opacity:.85; transform:scale(1.03) }
+
+/* ── FOOTER ────────────────────────── */
+footer {
+  text-align:center; padding:28px 6%;
+  border-top:1px solid var(--border);
+  color:var(--tx3); font-size:.76rem; letter-spacing:.03em;
+}
+
+/* ── SCROLL REVEAL ─────────────────── */
+.sr { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease }
+.sr.vis { opacity:1; transform:translateY(0) }
+
+/* ── RESPONSIVE ────────────────────── */
+@media(max-width:960px) {
+  .resource-grid { grid-template-columns:repeat(2,1fr) }
+  .cs-banner { flex-direction:column; padding:36px 28px }
+  nav .nav-links li:not(:last-child) { display:none }
+}
+@media(max-width:600px) {
+  .resource-grid { grid-template-columns:1fr }
+  .filter-bar { gap:8px }
+  .filter-btn { font-size:.74rem; padding:8px 16px }
+  .hero-stats { gap:24px }
+  .cs-input { width:100% }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <a href="https://www.aipmbedanta.com/" class="nav-logo">BG.</a>
+  <ul class="nav-links">
+    <li><a href="https://www.aipmbedanta.com/about/">About Me</a></li>
+    <li><a href="https://www.aipmbedanta.com/blog/">Blog</a></li>
+    <li><a href="https://www.aipmbedanta.com/pm-concepts/">PM Concepts</a></li>
+    <li><a href="https://www.aipmbedanta.com/ai-tools/">AI Tools</a></li>
+    <li><a href="https://www.aipmbedanta.com/resources/" class="active">Resources</a></li>
+    <li><a href="https://www.aipmbedanta.com/#contact" class="cta-pill">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HERO ─────────────────────────────── -->
+<section class="page-hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner">
+    <div class="sr">
+      <div class="sec-label">Resources</div>
+      <h1 class="page-title">Free Tools &amp; Templates<br>for <span class="grad-text">Product Managers</span></h1>
+      <p class="page-sub">Real artifacts from real PM work — PRD templates, growth trackers, AI prompt packs, and checklists. Built from 6+ years across SaaS, Q-commerce, and PropTech.</p>
+    </div>
+    <div class="hero-stats sr">
+      <div>
+        <span class="stat-v">12</span>
+        <div class="stat-l">Free Resources</div>
+      </div>
+      <div>
+        <span class="stat-v">4</span>
+        <div class="stat-l">Categories</div>
+      </div>
+      <div>
+        <span class="stat-v">100%</span>
+        <div class="stat-l">Free — No Paywall</div>
+      </div>
+      <div>
+        <span class="stat-v">↑</span>
+        <div class="stat-l">Updated Regularly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESOURCES ─────────────────────────────── -->
+<div class="main">
+
+  <!-- Filter Bar -->
+  <div class="filter-bar sr">
+    <button class="filter-btn active" data-filter="all">All Resources</button>
+    <button class="filter-btn" data-filter="pm">PM Templates</button>
+    <button class="filter-btn" data-filter="growth">Growth</button>
+    <button class="filter-btn" data-filter="ai">AI PM</button>
+    <button class="filter-btn" data-filter="check">Checklists</button>
+  </div>
+
+  <!-- Resource Grid -->
+  <div class="resource-grid">
+
+    <!-- 1. PRD Template -->
+    <div class="rcard" data-cat="pm">
+      <div class="rcard-top">
+        <span class="cat-badge cat-pm">PM Templates</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2V4l-3-2z"/><polyline points="14 2 14 6 10 6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="6" y1="12" x2="10" y2="12"/></svg>
+          Google Docs
+        </span>
+      </div>
+      <span class="rcard-icon">📄</span>
+      <h3 class="rcard-title">PRD Template</h3>
+      <p class="rcard-desc">A structured Product Requirements Document covering everything from problem framing to success metrics. Based on the PRDs used at Zopping and Oculon AI.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Problem statement & user pain framing</li>
+        <li>Goals, non-goals & success metrics</li>
+        <li>User stories with acceptance criteria</li>
+        <li>Technical constraints & dependencies</li>
+        <li>Launch checklist & rollout plan</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 2. Product Roadmap Template -->
+    <div class="rcard" data-cat="pm">
+      <div class="rcard-top">
+        <span class="cat-badge cat-pm">PM Templates</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="6" y1="2" x2="6" y2="14"/></svg>
+          Google Sheets
+        </span>
+      </div>
+      <span class="rcard-icon">🗺️</span>
+      <h3 class="rcard-title">Product Roadmap Template</h3>
+      <p class="rcard-desc">A quarterly roadmap tracker for teams managing multiple features and initiatives. Supports both now-next-later and calendar views.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Quarterly initiative tracker</li>
+        <li>Feature-level priority & status columns</li>
+        <li>Dependencies & ownership mapping</li>
+        <li>Progress dashboard with auto-calculations</li>
+        <li>Stakeholder view (executive summary tab)</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 3. Competitive Analysis Canvas -->
+    <div class="rcard" data-cat="pm">
+      <div class="rcard-top">
+        <span class="cat-badge cat-pm">PM Templates</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="6" y1="2" x2="6" y2="14"/></svg>
+          Google Sheets
+        </span>
+      </div>
+      <span class="rcard-icon">🔬</span>
+      <h3 class="rcard-title">Competitive Analysis Canvas</h3>
+      <p class="rcard-desc">The exact framework used to benchmark 40+ FP&A tools during the Oculon AI product build. Adapt it for any market.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Feature-by-feature comparison matrix</li>
+        <li>Pricing & positioning tracker</li>
+        <li>Target ICP mapping per competitor</li>
+        <li>Strengths & weaknesses summary</li>
+        <li>White space opportunity identifier</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 4. User Story Map -->
+    <div class="rcard" data-cat="pm">
+      <div class="rcard-top">
+        <span class="cat-badge cat-pm">PM Templates</span>
+        <span class="format-badge">📝 Notion</span>
+      </div>
+      <span class="rcard-icon">🗂️</span>
+      <h3 class="rcard-title">User Story Map Template</h3>
+      <p class="rcard-desc">A JTBD-informed story map that helps teams visualise the full user journey before writing a single line of code.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>User activity → task → story hierarchy</li>
+        <li>Persona & JTBD context columns</li>
+        <li>Release slicing view (MVP vs V2)</li>
+        <li>Story point & sprint tagging</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 5. GTM Strategy Template -->
+    <div class="rcard" data-cat="growth">
+      <div class="rcard-top">
+        <span class="cat-badge cat-growth">Growth</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2V4l-3-2z"/></svg>
+          Google Docs
+        </span>
+      </div>
+      <span class="rcard-icon">🚀</span>
+      <h3 class="rcard-title">GTM Strategy Template</h3>
+      <p class="rcard-desc">A go-to-market playbook template built from real launch experience across Zopping merchants, Oculon beta, and Styldod's viral growth campaign.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Target audience & ICP definition</li>
+        <li>Positioning statement framework</li>
+        <li>Channel strategy & budget allocation</li>
+        <li>Launch timeline & milestone tracker</li>
+        <li>Success metrics & KPI dashboard</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 6. OKR Tracker -->
+    <div class="rcard" data-cat="growth">
+      <div class="rcard-top">
+        <span class="cat-badge cat-growth">Growth</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="6" y1="2" x2="6" y2="14"/></svg>
+          Google Sheets
+        </span>
+      </div>
+      <span class="rcard-icon">🎯</span>
+      <h3 class="rcard-title">OKR Tracker</h3>
+      <p class="rcard-desc">A quarterly OKR tracker with health indicators and auto-calculated progress scores. Built for small product teams and growth squads.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Objective + Key Result structure</li>
+        <li>Weekly check-in columns with RAG status</li>
+        <li>Auto-score calculation (0–1 scale)</li>
+        <li>Team & individual OKR separation</li>
+        <li>Quarter-over-quarter comparison view</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 7. A/B Test Log -->
+    <div class="rcard" data-cat="growth">
+      <div class="rcard-top">
+        <span class="cat-badge cat-growth">Growth</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="6" y1="2" x2="6" y2="14"/></svg>
+          Google Sheets
+        </span>
+      </div>
+      <span class="rcard-icon">🧪</span>
+      <h3 class="rcard-title">A/B Test Log</h3>
+      <p class="rcard-desc">Track every experiment your team runs — hypothesis, sample size, results, and learnings — in one structured log that builds institutional knowledge.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Hypothesis & test design section</li>
+        <li>Sample size calculator (built-in formula)</li>
+        <li>Control vs variant result tracker</li>
+        <li>Statistical significance flag</li>
+        <li>Learnings & next steps log</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 8. AI Prompt Pack -->
+    <div class="rcard" data-cat="ai">
+      <div class="rcard-top">
+        <span class="cat-badge cat-ai">AI PM</span>
+        <span class="format-badge">📝 Notion</span>
+      </div>
+      <span class="rcard-icon">🤖</span>
+      <h3 class="rcard-title">AI Prompt Pack for PMs</h3>
+      <p class="rcard-desc">25+ battle-tested prompts for every stage of the PM workflow — from user research synthesis to PRD drafting, sprint planning, and stakeholder updates.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>User interview synthesis prompts</li>
+        <li>PRD & user story generation prompts</li>
+        <li>Competitive analysis prompts</li>
+        <li>Stakeholder update drafting prompts</li>
+        <li>Sprint retro & OKR writing prompts</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 9. AI Tools Stack -->
+    <div class="rcard" data-cat="ai">
+      <div class="rcard-top">
+        <span class="cat-badge cat-ai">AI PM</span>
+        <span class="format-badge">🌐 Web Page</span>
+      </div>
+      <span class="rcard-icon">⚡</span>
+      <h3 class="rcard-title">AI Tools Stack for PMs</h3>
+      <p class="rcard-desc">A curated, categorised directory of AI and marketing tools actually used in day-to-day PM and growth work — updated regularly.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>AI writing & research tools</li>
+        <li>Analytics & data tools</li>
+        <li>SEO & marketing tools</li>
+        <li>Design & prototyping tools</li>
+        <li>Coding & automation tools</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="https://www.aipmbedanta.com/ai-tools/" class="dl-btn">
+          View Directory
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 10. Product Launch Checklist -->
+    <div class="rcard" data-cat="check">
+      <div class="rcard-top">
+        <span class="cat-badge cat-check">Checklists</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2V4l-3-2z"/></svg>
+          PDF
+        </span>
+      </div>
+      <span class="rcard-icon">✅</span>
+      <h3 class="rcard-title">Product Launch Checklist</h3>
+      <p class="rcard-desc">A 20-point pre- and post-launch checklist for shipping product features without anything slipping through the cracks.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Pre-launch: engineering, QA, analytics</li>
+        <li>Pre-launch: comms, enablement, support</li>
+        <li>Launch day: monitoring & escalation</li>
+        <li>Post-launch: data review & iteration</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn">
+          Download Free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 5 4-5"/><line x1="2" y1="14" x2="14" y2="14"/></svg>
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 11. PM Interview Prep -->
+    <div class="rcard" data-cat="check">
+      <div class="rcard-top">
+        <span class="cat-badge cat-check">Checklists</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2V4l-3-2z"/></svg>
+          PDF
+        </span>
+      </div>
+      <span class="rcard-icon">🎓</span>
+      <h3 class="rcard-title">PM Interview Prep Checklist</h3>
+      <p class="rcard-desc">A structured guide for senior PM interviews — covering product design, estimation, strategy, and behavioural questions with frameworks for each.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>Product design question framework</li>
+        <li>Estimation & metrics approach</li>
+        <li>Strategy & root cause frameworks</li>
+        <li>STAR method for behavioural Qs</li>
+        <li>Questions to ask the interviewer</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn soon">
+          Coming Soon
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+    <!-- 12. Onboarding Audit Checklist -->
+    <div class="rcard" data-cat="check">
+      <div class="rcard-top">
+        <span class="cat-badge cat-check">Checklists</span>
+        <span class="format-badge">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="6" y1="2" x2="6" y2="14"/></svg>
+          Google Sheets
+        </span>
+      </div>
+      <span class="rcard-icon">🧭</span>
+      <h3 class="rcard-title">Onboarding Audit Checklist</h3>
+      <p class="rcard-desc">The audit framework behind Zopping's onboarding revamp that led to 2.5× faster activation. Use it to score and fix your own onboarding flow.</p>
+      <div class="inside-label">What's inside</div>
+      <ul class="inside-list">
+        <li>First-session friction audit (35 checks)</li>
+        <li>Activation milestone identification</li>
+        <li>Aha moment mapping worksheet</li>
+        <li>Drop-off point identification guide</li>
+        <li>Fix prioritisation matrix</li>
+      </ul>
+      <div class="rcard-footer">
+        <a href="#" class="dl-btn soon">
+          Coming Soon
+        </a>
+        <span class="free-tag">Free</span>
+      </div>
+    </div>
+
+  </div><!-- /resource-grid -->
+
+  <!-- Coming Soon / Notify Banner -->
+  <div class="cs-banner sr">
+    <div class="cs-text">
+      <h3>More resources dropping soon</h3>
+      <p>Sprint Retrospective Template, Campaign Brief Template, and a PM Career Roadmap guide are in progress. Drop your email and I'll notify you when they're live.</p>
+    </div>
+    <div class="cs-form">
+      <input class="cs-input" type="email" placeholder="your@email.com">
+      <button class="cs-btn">Notify Me</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ── FOOTER ────────────────────────────────── -->
+<footer>© 2026 Bedanta Gogoi · Product Manager based in India · <a href="https://www.aipmbedanta.com/" style="color:var(--tx3);text-decoration:none">aipmbedanta.com</a></footer>
+
+<script>
+/* ── SCROLL REVEAL ─────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.style.transitionDelay = `${i * 0.06}s`;
+      e.target.classList.add('vis');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin:'0px 0px -30px 0px' });
+
+document.querySelectorAll('.sr, .rcard').forEach(el => io.observe(el));
+
+/* ── FILTER ───────────────────── */
+const btns  = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.rcard');
+
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const f = btn.dataset.filter;
+    cards.forEach(c => {
+      const match = f === 'all' || c.dataset.cat === f;
+      c.classList.toggle('hidden', !match);
+      // re-trigger reveal if coming back into view
+      if (match && !c.classList.contains('vis')) {
+        c.style.transitionDelay = '0s';
+        c.classList.add('vis');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
