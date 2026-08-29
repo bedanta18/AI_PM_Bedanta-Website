@@ -1,0 +1,325 @@
+/* Resources page styles. Layered on top of blog.css, which supplies the
+   shared :root tokens plus .blog-shell / .blog-hero / .eyebrow / .filters /
+   .filter-pill (the last two also used by the AI tools page). */
+
+.resources-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.resources-stats .stat-v {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.resources-stats .stat-l {
+  margin-top: 5px;
+  color: var(--quiet);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(18, 26, 46, 0.04);
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 131, 168, 0.3);
+  background: var(--surface-strong);
+  box-shadow: 0 20px 44px rgba(18, 26, 46, 0.08);
+}
+
+.resource-card[hidden] {
+  display: none;
+}
+
+.resource-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.resource-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.resource-cat-badge.cat-pm {
+  color: var(--accent-2);
+  border-color: rgba(52, 87, 209, 0.3);
+  background: rgba(52, 87, 209, 0.08);
+}
+
+.resource-cat-badge.cat-growth {
+  color: var(--accent);
+  border-color: rgba(0, 131, 168, 0.3);
+  background: rgba(0, 131, 168, 0.08);
+}
+
+.resource-cat-badge.cat-ai {
+  color: #6d43d6;
+  border-color: rgba(109, 67, 214, 0.3);
+  background: rgba(109, 67, 214, 0.08);
+}
+
+.resource-cat-badge.cat-check {
+  color: #1f9d55;
+  border-color: rgba(31, 157, 85, 0.3);
+  background: rgba(31, 157, 85, 0.08);
+}
+
+.resource-format {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--quiet);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.resource-icon {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.resource-title {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.resource-desc {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.resource-inside-label {
+  margin-bottom: 9px;
+  color: var(--quiet);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resource-inside {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.resource-inside li {
+  position: relative;
+  margin-bottom: 5px;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.resource-inside li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent);
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+
+.resource-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.resource-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(130deg, var(--accent-2) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.resource-dl-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.resource-dl-btn.is-soon {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--quiet);
+  pointer-events: none;
+}
+
+.resource-free-tag {
+  color: #1f9d55;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── COMING SOON / NOTIFY BANNER ────────────── */
+.cs-banner {
+  margin-top: 44px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.cs-text h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cs-text p {
+  margin: 0;
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.cs-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.cs-input {
+  width: 220px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.cs-input::placeholder {
+  color: var(--quiet);
+}
+
+.cs-input:focus {
+  border-color: var(--accent);
+}
+
+.cs-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(130deg, var(--accent-2) 0%, var(--accent) 100%);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cs-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+@media (max-width: 900px) {
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resources-stats {
+    gap: 24px;
+  }
+
+  .cs-banner {
+    padding: 28px 24px;
+  }
+
+  .cs-input {
+    width: 100%;
+  }
+}
