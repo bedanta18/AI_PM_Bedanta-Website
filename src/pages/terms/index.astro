@@ -1,0 +1,132 @@
+---
+import SiteNav from '../../components/SiteNav.astro';
+import '../../styles/blog.css';
+
+const lastUpdated = new Date('2026-08-29');
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Use | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="The terms that govern use of this site — content ownership, acceptable use, external links, and liability."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Terms of Use | Bedanta Gogoi" />
+    <meta
+      property="og:description"
+      content="The terms that govern use of this site — content ownership, acceptable use, external links, and liability."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/terms/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="terms" />
+
+      <article class="article">
+        <a class="back-link" href="/">Back to home</a>
+        <header class="article-header">
+          <div class="post-meta">
+            <time datetime={lastUpdated.toISOString()}>Last updated {formatDate(lastUpdated)}</time>
+          </div>
+          <h1>Terms of Use</h1>
+          <p>
+            These terms govern your use of this site, a personal portfolio and blog belonging to Bedanta
+            Gogoi. By browsing this site, you agree to them.
+          </p>
+        </header>
+
+        <div class="article-body">
+          <h2>Acceptance of Terms</h2>
+          <p>
+            By accessing or using this site, you agree to be bound by these Terms of Use. If you don't
+            agree with any part of them, please don't use the site.
+          </p>
+
+          <h2>Content Ownership</h2>
+          <p>
+            All content on this site — including case studies, blog posts, written analysis, graphics,
+            and site design — is the property of Bedanta Gogoi unless otherwise noted, and is protected by
+            applicable copyright and intellectual property laws.
+          </p>
+          <p>
+            You're welcome to read, share, and link to this content for personal or informational use.
+            Reproducing, republishing, or distributing substantial portions of it elsewhere — including for
+            commercial purposes — requires prior written permission. If you'd like to quote or reference
+            something, a credited excerpt with a link back is always appreciated.
+          </p>
+
+          <h2>Case Studies &amp; Confidentiality</h2>
+          <p>
+            Work case studies on this site describe real projects and outcomes. Where an employer or
+            client's confidential or proprietary information could be involved, details have been
+            generalized, approximated, or omitted to respect that confidentiality. These summaries reflect
+            my own perspective on the work and shouldn't be taken as an official statement on behalf of any
+            company mentioned.
+          </p>
+
+          <h2>Acceptable Use</h2>
+          <p>You agree not to use this site to:</p>
+          <ul>
+            <li>Attempt to gain unauthorized access to the site, its infrastructure, or its content</li>
+            <li>Introduce malware, scrape content at scale, or disrupt the site's normal operation</li>
+            <li>Misrepresent your identity when contacting me through the site's email or social links</li>
+          </ul>
+
+          <h2>External Links</h2>
+          <p>
+            This site links to third-party destinations such as LinkedIn, Medium, and other external
+            resources for convenience. I don't control those sites and am not responsible for their
+            content, availability, or privacy practices. Visiting them is at your own discretion and
+            subject to their own terms.
+          </p>
+
+          <h2>No Warranty</h2>
+          <p>
+            This site and its content are provided "as is," without warranties of any kind, express or
+            implied. While I aim for accuracy, I make no guarantee that the information here is complete,
+            current, or error-free, and it shouldn't be relied on as professional advice.
+          </p>
+
+          <h2>Limitation of Liability</h2>
+          <p>
+            To the fullest extent permitted by law, I am not liable for any direct, indirect, incidental,
+            or consequential damages arising from your use of — or inability to use — this site or its
+            content.
+          </p>
+
+          <h2>Changes to These Terms</h2>
+          <p>
+            These terms may be updated occasionally to reflect changes to the site or applicable law. The
+            "Last updated" date at the top of this page always reflects the most recent revision.
+            Continuing to use the site after a change means you accept the updated terms.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions about these terms? Email
+            {' '}<a href="mailto:bedanta.product@gmail.com">bedanta.product@gmail.com</a>.
+          </p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
