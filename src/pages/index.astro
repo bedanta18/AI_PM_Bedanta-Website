@@ -1,5 +1,6 @@
 ---
 import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import GoogleTag from '../components/GoogleTag.astro';
 ---
 
@@ -191,15 +192,6 @@ h2.sec-title{
 }
 .soc:hover{background:rgba(79,142,255,.1);border-color:rgba(79,142,255,.3);color:var(--tx1)}
 
-/* ── FOOTER ─────────────────────────────── */
-footer{
-  text-align:center;padding:28px 6%;
-  border-top:1px solid var(--border);
-  color:var(--tx3);font-size:.76rem;letter-spacing:.03em;
-}
-footer a{color:var(--tx3);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--tx1);text-decoration:underline}
-
 /* ── STICKY CTA ─────────────────────────── */
 .sticky{
   position:fixed;bottom:26px;right:26px;z-index:300;
@@ -320,7 +312,7 @@ footer a:hover{color:var(--tx1);text-decoration:underline}
   </div>
 </section>
 
-<footer>© 2026 Bedanta Gogoi · Designed with intention · Product Manager based in India · <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a></footer>
+<SiteFooter />
 
 <!-- STICKY CTA -->
 <div class="sticky" id="stickyCta">

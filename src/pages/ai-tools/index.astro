@@ -1,5 +1,6 @@
 ---
 import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 import '../../styles/products.css';
@@ -132,6 +133,8 @@ const tools = [
         }
       </section>
     </main>
+
+    <SiteFooter />
 
     <script>
       const pills = Array.from(document.querySelectorAll('.filter-pill'));

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 import '../../styles/work.css';
@@ -71,5 +72,7 @@ const { Content } = await render(item);
         </div>
       </article>
     </main>
+
+    <SiteFooter />
   </body>
 </html>

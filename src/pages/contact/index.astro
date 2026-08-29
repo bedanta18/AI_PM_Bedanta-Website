@@ -1,0 +1,190 @@
+---
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import '../../styles/blog.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="Get in touch with Bedanta Gogoi — Product Manager open to senior PM roles in SaaS, quick commerce, and growth-driven products."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Contact | Bedanta Gogoi" />
+    <meta
+      property="og:description"
+      content="Get in touch with Bedanta Gogoi — Product Manager open to senior PM roles in SaaS, quick commerce, and growth-driven products."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/contact/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="contact" />
+
+      <article class="article">
+        <a class="back-link" href="/">Back to home</a>
+        <header class="article-header">
+          <p class="eyebrow">Contact</p>
+          <h1>Let's Talk</h1>
+          <p>
+            Open to senior PM roles in SaaS, quick commerce, or any domain where user obsession creates
+            measurable growth. Whether it's a role, a collaboration, or just a product question — reach out.
+          </p>
+        </header>
+
+        <div class="contact-card">
+          <div class="contact-primary">
+            <p class="contact-label">Email</p>
+            <a href="mailto:bedanta.product@gmail.com" class="contact-email">bedanta.product@gmail.com</a>
+            <p class="contact-tel">+91 88847 21781</p>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/bedantagogoi/" target="_blank" rel="noopener noreferrer" class="soc">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#0A66C2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://medium.com/@bedanta.gogoi" target="_blank" rel="noopener noreferrer" class="soc">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#12151c"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Medium
+            </a>
+            <a href="mailto:bedanta.product@gmail.com" class="soc">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <div class="article-body">
+          <h2>What I'm Open To</h2>
+          <ul>
+            <li>Senior Product Manager roles — SaaS, quick commerce, marketplaces, or PropTech</li>
+            <li>Founding / early-stage PM roles building zero-to-one products</li>
+            <li>Advisory or consulting conversations on growth, activation, and GTM strategy</li>
+            <li>Guest writing, podcast, or speaking opportunities on product management</li>
+          </ul>
+
+          <h2>Best Way to Reach Me</h2>
+          <p>
+            Email is the fastest way to get a response — <a href="mailto:bedanta.product@gmail.com">bedanta.product@gmail.com</a>.
+            For anything work-related, a short note on the problem you're solving or the role you have in mind helps me
+            respond with something useful rather than a generic reply.
+          </p>
+
+          <h2>Response Time</h2>
+          <p>
+            I typically reply within 1–2 business days. If it's time-sensitive, mention that in your message and
+            I'll try to get back sooner.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  .contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 28px;
+    padding: 32px 36px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+  }
+
+  .contact-label {
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .contact-email {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-email:hover {
+    color: var(--accent);
+  }
+
+  .contact-tel {
+    margin: 6px 0 0;
+    color: var(--quiet);
+    font-size: 0.88rem;
+  }
+
+  .contact-socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .contact-socials .soc {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .contact-socials .soc:hover {
+    border-color: rgba(52, 87, 209, 0.3);
+    color: var(--text);
+    transform: translateY(-2px);
+  }
+
+  .article-body ul {
+    margin: 0 0 1.3em;
+    padding-left: 1.3em;
+  }
+
+  .article-body li {
+    margin-bottom: 0.5em;
+  }
+
+  @media (max-width: 600px) {
+    .contact-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px 24px;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
 import '../../styles/blog.css';
 
@@ -94,6 +95,8 @@ const formatDate = (date: Date) =>
       </section>
       <p class="no-results" hidden>No concepts in this category yet.</p>
     </main>
+
+    <SiteFooter />
 
     <script>
       const chips = document.querySelectorAll<HTMLButtonElement>('.category-chip');
