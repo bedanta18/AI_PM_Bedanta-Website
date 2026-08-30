@@ -12,7 +12,7 @@ keywords:
   - Applied AI PM
   - AI PM skills
   - AI product manager responsibilities
-date: 2026-08-30
+date: 2026-06-14
 ispublished: true
 author: "Bedanta Gogoi"
 categories:
