@@ -2,6 +2,21 @@
    Layered on top of blog.css (shared tokens, .blog-shell/.blog-hero) and
    work.css (.post-grid/.post-card/.work-* used by the Work section here). */
 
+.contact-line {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-line a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
+}
+
 .about-section {
   padding-top: 64px;
   margin-top: 64px;

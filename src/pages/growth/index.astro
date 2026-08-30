@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import '../../styles/blog.css';
+
+const CATEGORY = 'Growth';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.ispublished && post.data.categories.includes(CATEGORY))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Growth | aipmbedanta.</title>
+    <meta
+      name="description"
+      content="Activation, retention, PLG, and the metrics that move the needle."
+    />
+    <meta
+      name="keywords"
+      content="growth, activation, retention, product led growth, growth metrics, bedanta gogoi"
+    />
+    <meta property="og:title" content="Growth | aipmbedanta." />
+    <meta
+      property="og:description"
+      content="Activation, retention, PLG, and the metrics that move the needle."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="aipmbedanta. — Product Management, Marketing, Growth & AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/growth/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="growth" />
+
+      <header class="blog-hero">
+        <p class="eyebrow">Category</p>
+        <h1>Growth</h1>
+        <p>Activation, retention, PLG, and the metrics that move the needle.</p>
+      </header>
+
+      <section class="post-grid" aria-label="Growth articles">
+        {
+          posts.map((post) => (
+            <article class="post-card">
+              <div class="post-meta">
+                <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                <span>{post.data.author}</span>
+              </div>
+              <h2>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h2>
+              <p>{post.data.desc}</p>
+              <a class="read-link" href={`/blog/${post.id}/`}>
+                Read <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))
+        }
+      </section>
+      {posts.length === 0 && <p class="no-results">No posts in this category yet.</p>}
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>

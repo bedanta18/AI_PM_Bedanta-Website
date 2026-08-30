@@ -9,7 +9,10 @@ const posts = (await getCollection('blog'))
   .filter((post) => post.data.ispublished)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const categories = [...new Set(posts.flatMap((post) => post.data.categories))].sort();
+// Fixed to the site's four content pillars so the filter always shows exactly
+// these four, in this order, regardless of which posts currently exist or
+// which incidental tags (e.g. "SEO") show up in post frontmatter.
+const categories = ['Product Management', 'Marketing', 'Growth', 'AI'];
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {

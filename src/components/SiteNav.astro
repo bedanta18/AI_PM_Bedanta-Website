@@ -2,49 +2,33 @@
 interface Props {
   current?:
     | 'home'
-    | 'blog'
+    | 'product-management'
+    | 'marketing'
+    | 'growth'
+    | 'ai'
+    | 'resources'
     | 'about'
+    | 'blog'
     | 'pm-concepts'
     | 'ai-concepts'
     | 'ai-tools'
-    | 'resources'
     | 'contact'
     | 'privacy-policy'
     | 'terms';
 }
 
 const { current = 'home' } = Astro.props;
-const homeHref = current === 'home' ? '#hero' : '/';
-const learnActive = current === 'pm-concepts' || current === 'ai-concepts' || current === 'ai-tools';
 ---
 
 <nav aria-label="Primary navigation">
-  <a class="nav-logo" href="/">BG.</a>
+  <a class="nav-logo" href="/">aipmbedanta.</a>
   <ul class="nav-links">
-    <li><a href={homeHref}>Home</a></li>
-    <li><a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About</a></li>
-    <li><a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a></li>
-    <li class="nav-dropdown">
-      <button
-        type="button"
-        class="nav-dropdown-trigger"
-        aria-haspopup="true"
-        aria-expanded="false"
-        aria-current={learnActive ? 'page' : undefined}
-      >
-        Learn
-        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="/pm-concepts/" aria-current={current === 'pm-concepts' ? 'page' : undefined}>PM Concepts</a></li>
-        <li><a href="/ai-concepts/" aria-current={current === 'ai-concepts' ? 'page' : undefined}>AI Concepts</a></li>
-        <li><a href="/ai-tools/" aria-current={current === 'ai-tools' ? 'page' : undefined}>AI & Marketing Tools</a></li>
-      </ul>
-    </li>
+    <li><a href="/product-management/" aria-current={current === 'product-management' ? 'page' : undefined}>Product Management</a></li>
+    <li><a href="/marketing/" aria-current={current === 'marketing' ? 'page' : undefined}>Marketing</a></li>
+    <li><a href="/growth/" aria-current={current === 'growth' ? 'page' : undefined}>Growth</a></li>
+    <li><a href="/ai/" aria-current={current === 'ai' ? 'page' : undefined}>AI</a></li>
     <li><a href="/resources/" aria-current={current === 'resources' ? 'page' : undefined}>Resources</a></li>
-    <li><a href="https://www.aipmbedanta.com/contact/" class="cta-pill">Hire Me</a></li>
+    <li><a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About</a></li>
   </ul>
 </nav>
 
