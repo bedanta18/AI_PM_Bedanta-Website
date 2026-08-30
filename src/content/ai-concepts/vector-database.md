@@ -1,7 +1,7 @@
 ---
 title: "Vector Database"
 desc: "A database that stores vector representations and enables fast similarity search — the retrieval layer behind most RAG systems."
-date: 2026-08-30
+date: 2026-08-19
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

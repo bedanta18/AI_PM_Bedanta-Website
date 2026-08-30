@@ -1,7 +1,7 @@
 ---
 title: "Context Engineering"
 desc: "The broader practice of assembling and managing everything an AI model needs to produce a useful result — beyond a single prompt."
-date: 2026-08-30
+date: 2026-08-21
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

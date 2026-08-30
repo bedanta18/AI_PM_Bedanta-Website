@@ -1,7 +1,7 @@
 ---
 title: "Tokenization"
 desc: "The process of breaking input text into smaller units, called tokens, before a language model processes it."
-date: 2026-08-30
+date: 2026-08-03
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

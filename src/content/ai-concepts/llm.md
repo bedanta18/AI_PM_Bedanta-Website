@@ -1,7 +1,7 @@
 ---
 title: "Large Language Model (LLM)"
 desc: "A neural network trained to predict the next token in a sequence — the foundation of modern generative AI."
-date: 2026-08-30
+date: 2026-08-07
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

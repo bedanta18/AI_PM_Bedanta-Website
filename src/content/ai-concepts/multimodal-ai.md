@@ -1,7 +1,7 @@
 ---
 title: "Multimodal AI"
 desc: "Models that can work with multiple types of data — text, images, video, and audio — instead of just text."
-date: 2026-08-30
+date: 2026-08-25
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

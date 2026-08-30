@@ -1,7 +1,7 @@
 ---
 title: "Retrieval-Augmented Generation (RAG)"
 desc: "Combining information retrieval with language generation so an LLM can answer using domain-specific context."
-date: 2026-08-30
+date: 2026-08-20
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

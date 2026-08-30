@@ -1,7 +1,7 @@
 ---
 title: "Context Summarization"
 desc: "Compressing older conversation history into a shorter representation to control context size and inference cost."
-date: 2026-08-30
+date: 2026-08-24
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

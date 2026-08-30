@@ -1,7 +1,7 @@
 ---
 title: "Knowledge Distillation"
 desc: "Transferring useful behavior from a larger 'teacher' model into a smaller, cheaper 'student' model."
-date: 2026-08-30
+date: 2026-08-14
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

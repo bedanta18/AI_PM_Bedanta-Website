@@ -1,7 +1,7 @@
 ---
 title: "Vectors"
 desc: "A numerical representation of meaning in multidimensional space — the basis for semantic search and retrieval."
-date: 2026-08-30
+date: 2026-08-04
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

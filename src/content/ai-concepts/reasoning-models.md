@@ -1,7 +1,7 @@
 ---
 title: "Reasoning Models"
 desc: "Models designed to solve problems through additional inference — such as chain-of-thought — rather than an immediate answer."
-date: 2026-08-30
+date: 2026-08-26
 ispublished: true
 author: "Bedanta Gogoi"
 categories:

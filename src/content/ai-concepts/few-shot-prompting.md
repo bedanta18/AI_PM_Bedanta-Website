@@ -1,7 +1,7 @@
 ---
 title: "Few-Shot Prompting"
 desc: "Providing examples inside a prompt so a model understands the expected task or response format — no retraining required."
-date: 2026-08-30
+date: 2026-08-11
 ispublished: true
 author: "Bedanta Gogoi"
 categories:
