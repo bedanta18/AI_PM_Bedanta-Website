@@ -16,7 +16,6 @@ date: 2026-08-14
 ispublished: true
 author: "Bedanta Gogoi"
 categories:
-  - Growth
   - Marketing
 ---
 
