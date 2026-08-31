@@ -1,7 +1,7 @@
 ---
-title: "Traditional PM vs AI PM: Roles, Skills, Responsibilities, and Career Paths"
+title: "How AI Product Manager role is different from Traditional PM?"
 desc: "How an AI Product Manager differs from a traditional PM — responsibilities, AI PM types, overlapping roles, key skills, and a day in the life of an AI PM."
-metaTitle: "Traditional PM vs AI PM: Roles, Skills, Responsibilities, and Career Paths"
+metaTitle: "How AI Product Manager role is different from Traditional PM?"
 metaDescription: "Understand the difference between a Traditional PM and an AI PM — responsibilities, AI PM types, key skills, and career paths."
 keywords:
   - Traditional PM vs AI PM

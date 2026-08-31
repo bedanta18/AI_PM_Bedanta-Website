@@ -15,7 +15,6 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
-  - Growth
 section:
   - Marketing and Growth
 ---
