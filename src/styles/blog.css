@@ -58,7 +58,7 @@ a {
 
 .blog-hero {
   max-width: 760px;
-  padding: 18px 0 50px;
+  padding: 8px 0 32px;
 }
 
 .eyebrow {
@@ -72,20 +72,31 @@ a {
 
 .blog-hero h1 {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(2.25rem, 5.6vw, 4rem);
   line-height: 1.02;
   font-weight: 800;
   letter-spacing: 0;
+  white-space: nowrap;
   background: var(--grad);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Short, fixed headings (page/section names) — safe to keep on one line.
+   Individual post/case-study titles below are NOT given this treatment
+   since post.data.title is variable-length content that can legitimately
+   run long, and forcing nowrap there would overflow instead of wrapping. */
+@media (max-width: 380px) {
+  .blog-hero h1 {
+    white-space: normal;
+  }
+}
+
 .article-header h1 {
   margin: 18px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(2rem, 5vw, 3.35rem);
   line-height: 1.06;
   font-weight: 800;
@@ -99,7 +110,7 @@ a {
 .blog-hero p,
 .article-header p {
   max-width: 680px;
-  margin: 22px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.75;
@@ -229,7 +240,7 @@ a {
 }
 
 .article-header {
-  padding: 34px 0 44px;
+  padding: 20px 0 28px;
   border-bottom: 1px solid var(--border);
 }
 
