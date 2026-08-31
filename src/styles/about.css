@@ -2,6 +2,28 @@
    Layered on top of blog.css (shared tokens, .blog-shell/.blog-hero) and
    work.css (.post-grid/.post-card/.work-* used by the Work section here). */
 
+/* Hero overrides: keep "Bedanta Gogoi" on one line, tighten the
+   surrounding whitespace, and use Arial instead of the display font —
+   scoped to this page only via about.css cascading after blog.css. */
+.blog-hero {
+  padding: 8px 0 32px;
+}
+
+.blog-hero h1 {
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+.blog-hero p {
+  margin-top: 14px;
+}
+
+@media (max-width: 380px) {
+  .blog-hero h1 {
+    white-space: normal;
+  }
+}
+
 .contact-line {
   font-size: 0.95rem;
   font-weight: 600;
