@@ -18,7 +18,8 @@ interface Props {
 }
 
 const { current = 'home' } = Astro.props;
-const resourcesActive = current === 'resources' || current === 'ai-concepts' || current === 'pm-concepts';
+const resourcesActive =
+  current === 'resources' || current === 'ai-concepts' || current === 'pm-concepts' || current === 'ai-tools';
 ---
 
 <nav aria-label="Primary navigation">
@@ -43,6 +44,7 @@ const resourcesActive = current === 'resources' || current === 'ai-concepts' || 
       </button>
       <ul class="dropdown-menu">
         <li><a href="/resources/" aria-current={current === 'resources' ? 'page' : undefined}>Resources</a></li>
+        <li><a href="/ai-tools/" aria-current={current === 'ai-tools' ? 'page' : undefined}>Free Tools</a></li>
         <li><a href="/ai-concepts/" aria-current={current === 'ai-concepts' ? 'page' : undefined}>AI Concepts</a></li>
         <li><a href="/pm-concepts/" aria-current={current === 'pm-concepts' ? 'page' : undefined}>PM Concepts</a></li>
       </ul>
