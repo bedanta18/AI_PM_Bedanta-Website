@@ -61,6 +61,7 @@ const formatDate = (date: Date) =>
     <main class="blog-shell">
       <SiteNav current="marketing" />
 
+      <a class="back-link" href="/blog/">← All Articles</a>
       <header class="blog-hero">
         <p class="eyebrow">Category</p>
         <h1>Marketing</h1>
@@ -87,6 +88,20 @@ const formatDate = (date: Date) =>
         }
       </section>
       {posts.length === 0 && <p class="no-results">No posts in this category yet.</p>}
+
+      <section class="explore-more" aria-label="More Marketing resources">
+        <h2>Explore More</h2>
+        <div class="explore-grid">
+          <a class="explore-card" href="/ai-tools/">
+            <h3>AI &amp; Marketing Tools</h3>
+            <p>A curated toolkit of AI and marketing tools — SEMrush, HubSpot, Canva, and more — used to ship campaigns.</p>
+          </a>
+          <a class="explore-card" href="/resources/">
+            <h3>Free Resources</h3>
+            <p>Free templates for marketers — GTM strategy, OKR trackers, and more.</p>
+          </a>
+        </div>
+      </section>
     </main>
 
     <SiteFooter />

@@ -142,7 +142,8 @@ a {
 
 .category-list a,
 .category-list button,
-.chip-row span {
+.chip-row span,
+.chip-row a {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
@@ -155,6 +156,78 @@ a {
   font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
+}
+
+.chip-row a {
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.chip-row a:hover {
+  background: rgba(52, 87, 209, 0.16);
+  border-color: rgba(52, 87, 209, 0.36);
+}
+
+/* ── EXPLORE MORE (cross-links to related sections) ───── */
+.explore-more {
+  padding: 56px 0 8px;
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.explore-more h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.explore-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 131, 168, 0.3);
+  box-shadow: 0 20px 44px rgba(18, 26, 46, 0.08);
+}
+
+.explore-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.explore-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.explore-card .explore-date {
+  margin-top: 10px;
+  color: var(--quiet);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 760px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .post-grid {

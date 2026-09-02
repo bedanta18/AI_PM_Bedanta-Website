@@ -14,6 +14,16 @@ const posts = (await getCollection('blog'))
 // which incidental tags (e.g. "SEO") show up in post frontmatter.
 const categories = ['Product Management', 'Marketing', 'Growth', 'AI'];
 
+// Maps a post's category tag to its dedicated hub page, when one exists —
+// used to turn category chips into real internal links. Incidental tags
+// (e.g. "SEO") have no hub page and fall back to plain text.
+const categoryHref: Record<string, string> = {
+  'Product Management': '/product-management/',
+  Marketing: '/marketing/',
+  Growth: '/growth/',
+  AI: '/ai/',
+};
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
     month: 'short',
@@ -78,6 +88,16 @@ const formatDate = (date: Date) =>
         </div>
       </section>
 
+      <p class="hub-hint">
+        Prefer a focused view?
+        {categories.map((category, i) => (
+          <>
+            {i > 0 && ' · '}
+            <a href={categoryHref[category]}>{category}</a>
+          </>
+        ))}
+      </p>
+
       <section class="post-grid" aria-label="Published blog posts">
         {
           posts.map((post) => (
@@ -91,7 +111,13 @@ const formatDate = (date: Date) =>
               </h2>
               <p>{post.data.desc}</p>
               <div class="chip-row">
-                {post.data.categories.map((category) => <span>{category}</span>)}
+                {post.data.categories.map((category) =>
+                  categoryHref[category] ? (
+                    <a href={categoryHref[category]}>{category}</a>
+                  ) : (
+                    <span>{category}</span>
+                  )
+                )}
               </div>
             </article>
           ))
@@ -140,6 +166,22 @@ const formatDate = (date: Date) =>
   .blog-shell .category-band {
     border-top: none;
     padding-top: 0;
+  }
+
+  .hub-hint {
+    margin: 14px 0 0;
+    color: var(--quiet);
+    font-size: 0.82rem;
+  }
+
+  .hub-hint a {
+    color: var(--accent-2);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .hub-hint a:hover {
+    text-decoration: underline;
   }
 
   .category-chip {

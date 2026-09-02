@@ -8,17 +8,37 @@ import '../../styles/blog.css';
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (post) => post.data.ispublished);
 
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return posts.map((post) => {
+    // Related = other published posts sharing a category, newest first, capped at 3.
+    const related = posts
+      .filter((p) => p.id !== post.id && p.data.categories.some((c) => post.data.categories.includes(c)))
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .slice(0, 3);
+
+    return {
+      params: { slug: post.id },
+      props: { post, related },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, related } = Astro.props;
 const { Content } = await render(post);
 
 const seoTitle = post.data.metaTitle ?? post.data.title;
 const seoDescription = post.data.metaDescription ?? post.data.desc;
+
+// Maps a post's category tag to its dedicated hub page, when one exists —
+// incidental tags (e.g. "SEO") have no hub page and fall back to plain text.
+const categoryHref: Record<string, string> = {
+  'Product Management': '/product-management/',
+  Marketing: '/marketing/',
+  Growth: '/growth/',
+  AI: '/ai/',
+};
+
+const formatShortDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
@@ -76,12 +96,33 @@ const formatDate = (date: Date) =>
           <h1>{post.data.title}</h1>
           <p>{post.data.desc}</p>
           <div class="chip-row">
-            {post.data.categories.map((category) => <span>{category}</span>)}
+            {post.data.categories.map((category) =>
+              categoryHref[category] ? (
+                <a href={categoryHref[category]}>{category}</a>
+              ) : (
+                <span>{category}</span>
+              )
+            )}
           </div>
         </header>
         <div class="article-body">
           <Content />
         </div>
+
+        {related.length > 0 && (
+          <section class="explore-more" aria-label="Related articles">
+            <h2>Related Articles</h2>
+            <div class="explore-grid">
+              {related.map((r) => (
+                <a class="explore-card" href={`/blog/${r.id}/`}>
+                  <h3>{r.data.title}</h3>
+                  <p>{r.data.desc}</p>
+                  <p class="explore-date">{formatShortDate(r.data.date)}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </article>
     </main>
 
