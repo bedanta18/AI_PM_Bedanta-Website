@@ -116,12 +116,25 @@
   background: rgba(161, 103, 10, 0.09);
 }
 
+.product-tag.tag-books {
+  color: #6d43d6;
+  border-color: rgba(109, 67, 214, 0.3);
+  background: rgba(109, 67, 214, 0.09);
+}
+
 .product-title {
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.02rem;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.product-author {
+  margin: -8px 0 0;
+  color: var(--quiet);
+  font-size: 0.76rem;
+  font-style: italic;
 }
 
 .product-desc {

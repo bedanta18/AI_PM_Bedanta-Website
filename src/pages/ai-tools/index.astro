@@ -39,10 +39,17 @@ const icons: Record<string, string> = {
     '<path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/>',
   meta:
     '<path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/>',
+  // Generic open-book glyph (hand-drawn, not a brand mark — unlike the icons
+  // above, books have no single logo to license).
+  book: '<path d="M12 5.5c-1.6-1.2-4.2-2-7.5-2A1 1 0 0 0 3.5 4.5v13a1 1 0 0 0 1.1 1c2.9-.2 5.4.5 7 1.7V5.5zm1.5 0v14.7c1.6-1.2 4.1-1.9 7-1.7a1 1 0 0 0 1.1-1v-13a1 1 0 0 0-1-1c-3.3 0-5.9.8-7.5 2z"/>',
 };
 
 const aiIcoStyle = 'background:rgba(0,131,168,.1);color:#0083A8';
 const mktIcoStyle = 'background:rgba(161,103,10,.1);color:#A1670A';
+const booksIcoStyle = 'background:rgba(109,67,214,.1);color:#6D43D6';
+
+const catIcoStyle: Record<string, string> = { ai: aiIcoStyle, mkt: mktIcoStyle, books: booksIcoStyle };
+const catTagClass: Record<string, string> = { ai: 'tag-ai', mkt: 'tag-mkt', books: 'tag-books' };
 
 // Logos not on Simple Icons are self-hosted brand favicons in /public/tool-logos.
 const tools = [
@@ -66,6 +73,12 @@ const tools = [
   { cat: 'mkt', name: 'Buffer', tag: 'Social', icon: 'buffer', desc: 'Plan and publish content across social channels.' },
   { cat: 'mkt', name: 'Google Ads', tag: 'Paid Search', icon: 'googleads', desc: "Search and display advertising across Google's network." },
   { cat: 'mkt', name: 'Meta Ads Manager', tag: 'Paid Social', icon: 'meta', desc: 'Campaign management across Facebook and Instagram.' },
+  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.' },
+  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.' },
+  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.' },
+  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.' },
+  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise." },
+  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.' },
 ];
 ---
 
@@ -75,19 +88,19 @@ const tools = [
     <GoogleTag />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI & Marketing Tools for Product Managers | Bedanta Gogoi</title>
+    <title>AI & Marketing Tools + Must-Read Books | Bedanta Gogoi</title>
     <meta
       name="description"
-      content="A curated toolkit of AI and marketing tools — ChatGPT, Claude, SEMrush, HubSpot, and more — used to build products and ship campaigns"
+      content="A curated toolkit of AI and marketing tools — ChatGPT, Claude, SEMrush, HubSpot, and more — plus must-read product, growth, and marketing books."
     />
     <meta
       name="keywords"
-      content="AI tools for product managers, marketing tools, best AI tools, product management tools, growth marketing tools, SEO tools, AI productivity tools, bedanta gogoi"
+      content="AI tools for product managers, marketing tools, best AI tools, product management tools, growth marketing tools, SEO tools, AI productivity tools, product management books, growth books, marketing books, bedanta gogoi"
     />
-    <meta property="og:title" content="AI & Marketing Tools for Product Managers | Bedanta Gogoi" />
+    <meta property="og:title" content="AI & Marketing Tools + Must-Read Books | Bedanta Gogoi" />
     <meta
       property="og:description"
-      content="A curated toolkit of AI and marketing tools — ChatGPT, Claude, SEMrush, HubSpot, and more — that Product Manager Bedanta Gogoi actually uses to build products, run growth experiments, and ship campaigns."
+      content="A curated toolkit of AI and marketing tools — ChatGPT, Claude, SEMrush, HubSpot, and more — plus must-read product, growth, and marketing books."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
@@ -112,28 +125,30 @@ const tools = [
       <SiteNav current="ai-tools" />
 
       <div class="filters" role="group" aria-label="Filter by category">
-        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All Tools</button>
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI</button>
         <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing</button>
+        <button class="filter-pill" type="button" data-filter="books" aria-pressed="false">Books</button>
       </div>
 
-      <section class="product-grid" aria-label="Tools">
+      <section class="product-grid" aria-label="Tools and books">
         {
           tools.map((tool) => (
             <div class="product-card" data-cat={tool.cat}>
               <div class="product-head">
-                <div class="product-ico" style={tool.cat === 'ai' ? aiIcoStyle : mktIcoStyle}>
+                <div class="product-ico" style={catIcoStyle[tool.cat]}>
                   {tool.logoImg ? (
                     <img src={tool.logoImg} alt={`${tool.name} logo`} class="product-ico-img" />
                   ) : (
                     <svg viewBox="0 0 24 24" fill="currentColor" set:html={icons[tool.icon ?? '']} />
                   )}
                 </div>
-                <span class={`product-tag ${tool.cat === 'ai' ? 'tag-ai' : 'tag-mkt'}`}>{tool.tag}</span>
+                <span class={`product-tag ${catTagClass[tool.cat]}`}>{tool.tag}</span>
               </div>
               <h3 class="product-title">{tool.name}</h3>
+              {tool.author && <p class="product-author">by {tool.author}</p>}
               <p class="product-desc">{tool.desc}</p>
-              <div class="product-visit">Visit &rarr;</div>
+              <div class="product-visit">{tool.cat === 'books' ? 'Read' : 'Visit'} &rarr;</div>
             </div>
           ))
         }
