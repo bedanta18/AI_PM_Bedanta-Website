@@ -1,6 +1,6 @@
 ---
 title: "What is a Product?"
-desc: "A short hello from Bedanta Gogoi's new product and growth writing space."
+desc: "What a product really is, using Philip Kotler's Core, Actual, and Augmented product model, explained with a simple washing machine example."
 metaTitle: "What Is a Product? Core, Actual & Augmented Layers (Kotler's Model)"
 metaDescription: "Learn what a product really is using Philip Kotler's Core, Actual, and Augmented product model, explained with a simple washing machine example for product managers."
 keywords:
