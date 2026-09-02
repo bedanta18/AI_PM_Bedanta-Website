@@ -73,12 +73,12 @@ const tools = [
   { cat: 'mkt', name: 'Buffer', tag: 'Social', icon: 'buffer', desc: 'Plan and publish content across social channels.' },
   { cat: 'mkt', name: 'Google Ads', tag: 'Paid Search', icon: 'googleads', desc: "Search and display advertising across Google's network." },
   { cat: 'mkt', name: 'Meta Ads Manager', tag: 'Paid Social', icon: 'meta', desc: 'Campaign management across Facebook and Instagram.' },
-  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.' },
-  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.' },
-  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.' },
-  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.' },
-  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise." },
-  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.' },
+  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.', href: 'https://link.amazon/B0ac6qZm9' },
+  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.', href: 'https://link.amazon/B064oiiSi' },
+  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.', href: 'https://link.amazon/B07zVIUhj' },
+  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.', href: 'https://link.amazon/B0hwZ7Cx9' },
+  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise.", href: 'https://link.amazon/B0hXOoyWt' },
+  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.', href: 'https://link.amazon/B09VbEHWY' },
 ];
 ---
 
@@ -133,24 +133,33 @@ const tools = [
 
       <section class="product-grid" aria-label="Tools and books">
         {
-          tools.map((tool) => (
-            <div class="product-card" data-cat={tool.cat}>
-              <div class="product-head">
-                <div class="product-ico" style={catIcoStyle[tool.cat]}>
-                  {tool.logoImg ? (
-                    <img src={tool.logoImg} alt={`${tool.name} logo`} class="product-ico-img" />
-                  ) : (
-                    <svg viewBox="0 0 24 24" fill="currentColor" set:html={icons[tool.icon ?? '']} />
-                  )}
+          tools.map((tool) => {
+            const Tag = tool.href ? 'a' : 'div';
+            return (
+              <Tag
+                class="product-card"
+                data-cat={tool.cat}
+                href={tool.href}
+                target={tool.href ? '_blank' : undefined}
+                rel={tool.href ? 'noopener noreferrer sponsored' : undefined}
+              >
+                <div class="product-head">
+                  <div class="product-ico" style={catIcoStyle[tool.cat]}>
+                    {tool.logoImg ? (
+                      <img src={tool.logoImg} alt={`${tool.name} logo`} class="product-ico-img" />
+                    ) : (
+                      <svg viewBox="0 0 24 24" fill="currentColor" set:html={icons[tool.icon ?? '']} />
+                    )}
+                  </div>
+                  <span class={`product-tag ${catTagClass[tool.cat]}`}>{tool.tag}</span>
                 </div>
-                <span class={`product-tag ${catTagClass[tool.cat]}`}>{tool.tag}</span>
-              </div>
-              <h3 class="product-title">{tool.name}</h3>
-              {tool.author && <p class="product-author">by {tool.author}</p>}
-              <p class="product-desc">{tool.desc}</p>
-              <div class="product-visit">{tool.cat === 'books' ? 'Read' : 'Visit'} &rarr;</div>
-            </div>
-          ))
+                <h3 class="product-title">{tool.name}</h3>
+                {tool.author && <p class="product-author">by {tool.author}</p>}
+                <p class="product-desc">{tool.desc}</p>
+                <div class="product-visit">{tool.cat === 'books' ? 'Read' : 'Visit'} &rarr;</div>
+              </Tag>
+            );
+          })
         }
       </section>
     </main>

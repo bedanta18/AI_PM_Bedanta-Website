@@ -49,6 +49,10 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  /* Some cards render as <a> (clickable, e.g. affiliate links) and some as
+     <div> (no link yet) — reset link defaults so both look identical. */
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-card:hover {
