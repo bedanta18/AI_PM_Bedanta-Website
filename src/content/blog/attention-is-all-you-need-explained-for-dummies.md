@@ -41,7 +41,6 @@ By the end, you'll understand:
 
 Let's explain it like we're explaining it to a smart 10-year-old.
 
----
 
 ## Why Should You Care About This Paper?
 
@@ -55,7 +54,6 @@ The Transformer didn't create ChatGPT by itself. But it changed the way research
 
 To understand why, we need to go back to the problem that existed before Transformers.
 
----
 
 ## The Problem: AI Had to Read One Word at a Time
 
@@ -87,7 +85,6 @@ The model keeps carrying information from one step to the next.
 
 It works, but it creates two major problems.
 
----
 
 ## Problem 1: Sequential Processing Was Slow
 
@@ -109,7 +106,6 @@ Modern GPUs are extremely good at doing many calculations simultaneously, but se
 
 Researchers wanted a better approach.
 
----
 
 ## Problem 2: Long-Range Relationships Were Difficult
 
@@ -135,7 +131,6 @@ That led researchers to a much bigger question:
 
 And that question led to the Transformer.
 
----
 
 ## The Big Idea: Self-Attention
 
@@ -165,7 +160,6 @@ The model is essentially asking:
 
 That's self-attention.
 
----
 
 ## Self-Attention Explained Like You're 10
 
@@ -187,7 +181,6 @@ It's like giving the AI the ability to say:
 
 > "This word matters a lot for understanding that word."
 
----
 
 ## Why Is It Called "Self"-Attention?
 
@@ -205,7 +198,6 @@ The word **"cross"** can pay attention to **"road."**
 
 The model uses these relationships to create a better understanding of the sentence.
 
----
 
 ## Multi-Head Attention: Looking From Different Perspectives
 
@@ -219,7 +211,6 @@ The original Transformer used **eight attention heads** in its base configuratio
 
 Instead of relying on one attention mechanism, multiple attention heads could examine information from different perspectives.
 
----
 
 ## So What Is a Transformer?
 
@@ -235,7 +226,6 @@ It could use attention to model relationships between different parts of the seq
 
 That was a major breakthrough.
 
----
 
 ## The Transformer Had Two Main Parts
 
@@ -259,7 +249,6 @@ Think:
 
 This made the original architecture particularly useful for tasks such as machine translation.
 
----
 
 ## But How Does the Transformer Know Word Order?
 
@@ -297,7 +286,6 @@ This gives the model information about where each word appears in the sequence.
 
 So the Transformer can benefit from parallel processing without completely losing the concept of order.
 
----
 
 ## Did the Transformer Actually Work?
 
@@ -309,7 +297,6 @@ The Transformer achieved state-of-the-art results on the reported benchmarks whi
 
 The important breakthrough wasn't simply a better score. It demonstrated that **attention could be the main mechanism for sequence modeling without relying on recurrence**—a fundamental change in approach.
 
----
 
 ## Why Parallelization Changed AI
 
@@ -331,7 +318,6 @@ Transformers fit this computing model extremely well during training.
 
 That helped researchers build increasingly large AI models.
 
----
 
 ## From Transformers to Large Language Models
 
@@ -356,7 +342,6 @@ Researchers could combine Transformers with massive datasets, huge amounts of co
 
 The result was a new generation of increasingly capable AI systems.
 
----
 
 ## So Where Does ChatGPT Come In?
 
@@ -394,7 +379,6 @@ So when you use ChatGPT, you're using technology built on top of many years of r
 
 The Transformer is one of the critical milestones in that story.
 
----
 
 ## What Product Managers Can Learn From the Transformer
 
@@ -445,7 +429,6 @@ And perhaps it will begin with another deceptively simple question:
 
 > **"Why do we have to do it this way?"**
 
----
 
 ## Final Takeaway
 
