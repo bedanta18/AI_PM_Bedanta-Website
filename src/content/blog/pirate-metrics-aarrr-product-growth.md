@@ -62,7 +62,6 @@ For example, an e-commerce company may track completed purchases, while a SaaS c
 
 The framework provides the structure. Your product determines the specific metrics.
 
----
 
 ## 1. Acquisition: How Do Users Find You?
 
@@ -116,7 +115,6 @@ Instead, you can say:
 
 That connects design work to measurable business impact.
 
----
 
 ## 2. Activation: Do Users Experience the Value?
 
@@ -177,7 +175,6 @@ The objective is simple:
 
 **Help users reach value faster.**
 
----
 
 ## 3. Retention: Do Users Come Back?
 
@@ -231,7 +228,6 @@ Potential causes of poor retention include:
 
 Notifications, reminders, personalized experiences, and recurring workflows can help create stronger usage habits—but they should provide genuine value rather than simply generate engagement.
 
----
 
 ## 4. Referral: Will Users Recommend You?
 
@@ -276,7 +272,6 @@ This creates a simple relationship:
 
 The best referral systems make sharing easy and make the reward meaningful.
 
----
 
 ## 5. Revenue: Does the Product Make Money?
 
@@ -328,7 +323,6 @@ The important point is that monetization should not be treated as something that
 
 **Pricing, packaging, and the payment experience are all product decisions.**
 
----
 
 ## How the AARRR Framework Helps Product Managers
 
@@ -363,7 +357,6 @@ You can then map initiatives to the AARRR funnel.
 
 This makes roadmap conversations more objective.
 
----
 
 ## AARRR Metrics Example
 
@@ -432,7 +425,6 @@ If engagement is strong but few users pay, investigate:
 
 This is where AARRR becomes more than a framework—it becomes a **diagnostic tool for product growth**.
 
----
 
 ## How to Use Pirate Metrics in Your Product Roadmap
 
@@ -452,7 +444,6 @@ For example:
 
 This approach helps teams focus their limited resources on the area with the greatest potential impact.
 
----
 
 ## AARRR Is for More Than Product Managers
 
@@ -480,7 +471,6 @@ They can connect it to:
 
 This is a much stronger way to communicate product impact.
 
----
 
 ## Final Takeaway
 
