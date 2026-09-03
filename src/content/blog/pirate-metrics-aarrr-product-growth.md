@@ -1,8 +1,12 @@
 ---
 title: "Pirate Metrics (AARRR): A Practical Guide to Product Growth"
-desc: "How the Pirate Metrics (AARRR) framework — acquisition, activation, retention, referral, and revenue — helps product teams connect decisions to business growth."
+
+desc: "Learn how AARRR helps product teams track acquisition, activation, retention, referral, and revenue."
+
 metaTitle: "Pirate Metrics (AARRR): A Practical Guide to Product Growth"
-metaDescription: "Learn how the Pirate Metrics framework (AARRR) helps product teams measure acquisition, activation, retention, referral, and revenue — and connect product decisions to business growth."
+
+metaDescription: "Discover how AARRR helps measure the customer journey and turn product metrics into sustainable business growth."
+
 keywords:
   - Pirate Metrics
   - AARRR framework
