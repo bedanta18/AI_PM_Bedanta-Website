@@ -54,8 +54,6 @@ The result is usually a response that is more relevant, focused, and actionable.
 
 You do not need to use all four elements in every prompt. Even adding one or two relevant elements can significantly improve the usefulness of an AI-generated response.
 
----
-
 ## R — Role: Tell the AI Who It Should Be
 
 The **Role** defines the persona, expertise, or perspective the AI should adopt.
@@ -107,8 +105,6 @@ Ask yourself:
 
 Then tell the AI to adopt that role.
 
----
-
 ## C — Context: Explain the Situation
 
 The **Context** tells the AI what is happening and why you need the answer.
@@ -151,8 +147,6 @@ Good context reduces unnecessary assumptions.
 Ask yourself:
 
 **"What does the AI need to know about my situation to give me a useful answer?"**
-
----
 
 ## T — Task: Clearly State What You Want Done
 
@@ -202,8 +196,6 @@ Use specific verbs such as:
 - Critique
 - Extract
 
----
-
 ## F — Format: Specify How the Answer Should Look
 
 The **Format** defines how you want the AI's response structured.
@@ -246,8 +238,6 @@ Ask yourself:
 
 **"What structure would make this answer easiest for me to understand or use?"**
 
----
-
 ## RCTF in Action: Improving a Simple Prompt
 
 Let's compare a basic prompt with an RCTF-based prompt.
@@ -284,8 +274,6 @@ Now the AI knows exactly what kind of response you need.
 
 Instead of a generic textbook explanation, it can provide a concise teaching explanation, an analogy, and practice questions.
 
----
-
 ## RCTF Prompt Template
 
 You can use this simple template whenever you need more control over an AI response:
@@ -316,8 +304,6 @@ Your task is to [TASK].
 Format the response as [FORMAT].
 ```
 
----
-
 ## Do You Need All Four RCTF Elements Every Time?
 
 No.
@@ -339,8 +325,6 @@ For specialized work, adding a role can help:
 The goal is not to make every prompt longer.
 
 The goal is to provide the **right information** for the task.
-
----
 
 ## RCTF Prompting Examples
 
@@ -375,7 +359,6 @@ The goal is to provide the **right information** for the task.
 
 > Act as a business analyst. Analyze the attached sales data and identify the largest changes in revenue by month and product category. Highlight unusual trends and provide three actionable recommendations. Present the findings as a summary followed by a table.
 
----
 
 ## Common Prompting Mistakes RCTF Helps Prevent
 
@@ -427,7 +410,6 @@ Avoid adding irrelevant instructions that do not affect the desired outcome.
 
 The best prompts are not necessarily the longest. They are the ones that provide the **most relevant information**.
 
----
 
 ## RCTF vs. a Simple AI Prompt
 
@@ -439,7 +421,6 @@ The best prompts are not necessarily the longest. They are the ones that provide
 | Format | Usually unspecified | Controls structure and presentation |
 | Result | Generic response | More targeted response |
 
----
 
 ## How to Write Better RCTF Prompts
 
@@ -465,7 +446,6 @@ Use precise language to explain what the AI should do.
 
 Specify the format, length, tone, structure, or other constraints when they matter.
 
----
 
 ## RCTF Prompting Cheat Sheet
 
@@ -476,7 +456,6 @@ Specify the format, length, tone, structure, or other constraints when they matt
 | **Task** | What should it do? | "Identify the top three product risks." |
 | **Format** | How should the result look? | "Present the answer in a table." |
 
----
 
 ## Final Takeaway
 
