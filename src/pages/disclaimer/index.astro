@@ -1,0 +1,238 @@
+---
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import '../../styles/blog.css';
+
+const lastUpdated = new Date('2026-09-05');
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disclaimer | Bedanta Gogoi</title>
+    <meta
+      name="description"
+      content="The information on this site is provided for educational and informational purposes only — not professional, legal, financial, or career advice."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Disclaimer | Bedanta Gogoi" />
+    <meta
+      property="og:description"
+      content="The information on this site is provided for educational and informational purposes only — not professional, legal, financial, or career advice."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bedanta Gogoi — Product Manager" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/disclaimer/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="disclaimer" />
+
+      <article class="article">
+        <a class="back-link" href="/">Back to home</a>
+        <header class="article-header">
+          <div class="post-meta">
+            <time datetime={lastUpdated.toISOString()}>Last updated {formatDate(lastUpdated)}</time>
+          </div>
+          <h1>Disclaimer</h1>
+          <p>
+            The information on this site is provided for educational, informational, and general
+            knowledge purposes only. By using this site, you agree to the terms below.
+          </p>
+        </header>
+
+        <div class="article-body">
+          <p>
+            Welcome to <strong>AI PM Bedanta</strong> (aipmbedanta.com). The information published on this website is
+            provided for educational, informational, and general knowledge purposes only. By using this
+            website, you acknowledge and agree to the terms of this disclaimer.
+          </p>
+
+          <h2>Educational Content</h2>
+          <p>AI PM Bedanta shares content related to:</p>
+          <ul>
+            <li>Artificial Intelligence and Generative AI</li>
+            <li>AI Product Management</li>
+            <li>Product Management frameworks and methodologies</li>
+            <li>Product strategy, analytics, and growth</li>
+            <li>AI tools, technologies, and trends</li>
+            <li>Tutorials, guides, and learning resources</li>
+            <li>Personal experiences, opinions, and professional learnings</li>
+          </ul>
+          <p>
+            The content is intended to help readers learn and explore these topics. It should
+            {' '}<strong>not be considered professional, legal, financial, investment, medical, technical, or
+            career advice</strong>.
+          </p>
+          <p>
+            You should conduct your own research and, where appropriate, consult a qualified professional
+            before making decisions based on information found on this website.
+          </p>
+
+          <h2>Accuracy of Information</h2>
+          <p>
+            Reasonable efforts are made to ensure that the information published on this website is
+            accurate and useful. However, AI, technology, software products, platforms, pricing, features,
+            regulations, and industry practices can change rapidly.
+          </p>
+          <p>
+            Therefore, <strong>AI PM Bedanta does not guarantee that all information is complete,
+            accurate, current, or error-free</strong>.
+          </p>
+          <p>Readers should independently verify important information with the relevant official sources before relying on it.</p>
+
+          <h2>Artificial Intelligence Content</h2>
+          <p>Some content may discuss or be created with the assistance of artificial intelligence tools.</p>
+          <p>
+            AI-generated or AI-assisted content may contain inaccuracies, omissions, outdated information,
+            or factual errors. Such content should be treated as a starting point for learning and should
+            be independently verified where accuracy is important.
+          </p>
+
+          <h2>Opinions &amp; Personal Experiences</h2>
+          <p>
+            Some articles and recommendations on this website represent the author's
+            {' '}<strong>personal opinions, experiences, interpretations, or perspectives</strong>.
+          </p>
+          <p>
+            These opinions do not necessarily represent the views of any employer, organization, client,
+            or other third party with whom the author may be associated.
+          </p>
+          <p>
+            Examples, case studies, product analyses, and opinions are provided for educational purposes
+            and should not be interpreted as guarantees of particular outcomes.
+          </p>
+
+          <h2>External Links</h2>
+          <p>
+            This website may contain links to third-party websites, tools, products, services, articles,
+            documentation, or other resources.
+          </p>
+          <p>
+            These external websites are not controlled by AI PM Bedanta. We are not responsible for the
+            content, accuracy, availability, security, privacy practices, or policies of third-party
+            websites.
+          </p>
+          <p>
+            Following an external link is done at your own discretion. We recommend reviewing the relevant
+            third party's terms, privacy policy, and other applicable policies.
+          </p>
+
+          <h2>Affiliate Disclosure</h2>
+          <p>Some pages or articles on this website may contain affiliate links.</p>
+          <p>
+            If you purchase a product or service through an affiliate link,
+            {' '}<strong>AI PM Bedanta may receive a commission at no additional cost to you</strong>.
+          </p>
+          <p>
+            Affiliate relationships, where applicable, do not necessarily determine the opinions or
+            recommendations expressed on this website. Products and services should be evaluated based on
+            your own requirements and circumstances.
+          </p>
+
+          <h2>No Guarantee of Results</h2>
+          <p>
+            Information provided on this website may include strategies, frameworks, learning approaches,
+            career suggestions, product ideas, or examples.
+          </p>
+          <p>However, <strong>individual results will vary</strong>.</p>
+          <p>
+            AI PM Bedanta does not guarantee employment, career advancement, business growth, financial
+            returns, increased productivity, or any other specific result from applying information
+            obtained from this website.
+          </p>
+
+          <h2>Financial Disclaimer</h2>
+          <p>
+            Any discussion involving investments, markets, personal finance, financial products, or
+            money-making opportunities is provided for
+            {' '}<strong>general educational and informational purposes only</strong>.
+          </p>
+          <p>Nothing on this website should be considered financial, investment, tax, or securities advice.</p>
+          <p>You should consult an appropriately qualified financial professional before making financial decisions.</p>
+
+          <h2>Technology &amp; Product Recommendations</h2>
+          <p>
+            Technology products, AI tools, software, platforms, and services discussed on this website may
+            change their pricing, features, availability, terms, or functionality without notice.
+          </p>
+          <p>
+            Any recommendation is based on information available at the time the content was created or
+            updated and may become outdated.
+          </p>
+          <p>Always verify important product information directly with the relevant provider.</p>
+
+          <h2>Intellectual Property</h2>
+          <p>
+            Unless otherwise stated, the original written content, graphics, and other materials published
+            on AI PM Bedanta are the property of the website owner and may not be reproduced,
+            republished, or distributed without appropriate permission.
+          </p>
+          <p>
+            Third-party trademarks, logos, product names, screenshots, and other intellectual property
+            remain the property of their respective owners.
+          </p>
+          <p>Their appearance on this website does not imply endorsement, sponsorship, or affiliation unless explicitly stated.</p>
+
+          <h2>Limitation of Liability</h2>
+          <p>
+            To the fullest extent permitted by applicable law, AI PM Bedanta and its owner shall not be
+            liable for any direct, indirect, incidental, consequential, or other losses arising from:
+          </p>
+          <ul>
+            <li>Reliance on information published on this website</li>
+            <li>Errors or omissions in website content</li>
+            <li>Changes to third-party products or services</li>
+            <li>Use of external websites or resources</li>
+            <li>Decisions or actions taken based on information obtained from this website</li>
+          </ul>
+          <p>You use the information provided on this website <strong>at your own discretion and risk</strong>.</p>
+
+          <h2>Changes to This Disclaimer</h2>
+          <p>
+            This disclaimer may be updated from time to time to reflect changes to the website, its
+            content, or applicable requirements. The "Last updated" date at the top of this page always
+            reflects the most recent revision.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions about this disclaimer or the content published on AI PM Bedanta? Email
+            {' '}<a href="mailto:bedanta.product@gmail.com">bedanta.product@gmail.com</a>.
+          </p>
+
+          <p>
+            <em>This disclaimer is intended as general website information and does not constitute legal advice.</em>
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
