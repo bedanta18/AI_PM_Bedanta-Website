@@ -1,6 +1,7 @@
 ---
 title: "Model Context Protocol (MCP)"
 desc: "A protocol for connecting AI systems with external tools and data sources, extending what a model can see and do."
+metaTitle: "What Is MCP? Model Context Protocol Explained Simply"
 date: 2026-08-28
 ispublished: true
 author: "Bedanta Gogoi"
