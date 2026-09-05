@@ -1,6 +1,7 @@
 ---
 title: "AI Agents"
 desc: "A longer-running AI process that uses models, tools, and other systems to take a sequence of actions toward a goal."
+metaTitle: "AI Agents: What They Are, How They Work & Examples"
 date: 2026-08-27
 ispublished: true
 author: "Bedanta Gogoi"
