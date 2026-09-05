@@ -1,6 +1,7 @@
 ---
 title: "Vector Database"
 desc: "A database that stores vector representations and enables fast similarity search — the retrieval layer behind most RAG systems."
+metaTitle: "What Is a Vector Database? Semantic Search Explained"
 date: 2026-08-19
 ispublished: true
 author: "Bedanta Gogoi"

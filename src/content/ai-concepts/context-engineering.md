@@ -1,6 +1,7 @@
 ---
 title: "Context Engineering"
 desc: "The broader practice of assembling and managing everything an AI model needs to produce a useful result — beyond a single prompt."
+metaTitle: "What Is Context Engineering? Beyond Prompt Engineering"
 date: 2026-08-21
 ispublished: true
 author: "Bedanta Gogoi"

@@ -1,6 +1,7 @@
 ---
 title: "Attention"
 desc: "The mechanism that lets a language model use surrounding context to interpret a word or token correctly."
+metaTitle: "What Is Attention in AI? The Mechanism Behind LLMs"
 date: 2026-08-05
 ispublished: true
 author: "Bedanta Gogoi"

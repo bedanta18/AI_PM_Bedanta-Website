@@ -1,6 +1,7 @@
 ---
 title: "Self-Supervised Learning"
 desc: "A training approach where the structure of existing data provides the learning signal, without manual labeling."
+metaTitle: "What Is Self-Supervised Learning? AI Training Explained"
 date: 2026-08-10
 ispublished: true
 author: "Bedanta Gogoi"

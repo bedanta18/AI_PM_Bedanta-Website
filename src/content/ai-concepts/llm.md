@@ -1,6 +1,7 @@
 ---
 title: "Large Language Model (LLM)"
 desc: "A neural network trained to predict the next token in a sequence — the foundation of modern generative AI."
+metaTitle: "What Is an LLM? Large Language Models Explained Simply"
 date: 2026-08-07
 ispublished: true
 author: "Bedanta Gogoi"

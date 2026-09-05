@@ -1,6 +1,7 @@
 ---
 title: "Small Language Models (SLMs)"
 desc: "Smaller models built with fewer parameters and resources than an LLM — cheaper, faster, and often good enough."
+metaTitle: "What Are Small Language Models (SLMs)? SLM vs LLM"
 date: 2026-08-18
 ispublished: true
 author: "Bedanta Gogoi"

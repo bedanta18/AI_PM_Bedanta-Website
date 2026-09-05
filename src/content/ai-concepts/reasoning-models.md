@@ -1,6 +1,7 @@
 ---
 title: "Reasoning Models"
 desc: "Models designed to solve problems through additional inference — such as chain-of-thought — rather than an immediate answer."
+metaTitle: "What Are Reasoning Models? Chain-of-Thought AI Explained"
 date: 2026-08-26
 ispublished: true
 author: "Bedanta Gogoi"

@@ -1,6 +1,7 @@
 ---
 title: "Knowledge Distillation"
 desc: "Transferring useful behavior from a larger 'teacher' model into a smaller, cheaper 'student' model."
+metaTitle: "What Is Knowledge Distillation? Teacher-Student AI Explained"
 date: 2026-08-14
 ispublished: true
 author: "Bedanta Gogoi"

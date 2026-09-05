@@ -1,6 +1,7 @@
 ---
 title: "Context Summarization"
 desc: "Compressing older conversation history into a shorter representation to control context size and inference cost."
+metaTitle: "What Is Context Summarization in AI? Explained Simply"
 date: 2026-08-24
 ispublished: true
 author: "Bedanta Gogoi"

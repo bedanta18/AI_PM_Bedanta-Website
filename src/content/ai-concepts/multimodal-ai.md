@@ -1,6 +1,7 @@
 ---
 title: "Multimodal AI"
 desc: "Models that can work with multiple types of data — text, images, video, and audio — instead of just text."
+metaTitle: "What Is Multimodal AI? Text, Image & Video AI Explained"
 date: 2026-08-25
 ispublished: true
 author: "Bedanta Gogoi"

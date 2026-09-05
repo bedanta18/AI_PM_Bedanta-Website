@@ -1,6 +1,7 @@
 ---
 title: "Vectors"
 desc: "A numerical representation of meaning in multidimensional space — the basis for semantic search and retrieval."
+metaTitle: "What Are Vectors in AI? Embeddings Explained Simply"
 date: 2026-08-04
 ispublished: true
 author: "Bedanta Gogoi"

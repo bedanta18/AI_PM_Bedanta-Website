@@ -1,6 +1,7 @@
 ---
 title: "Reinforcement Learning"
 desc: "Training a system using feedback about the quality of its actions or outputs, reinforcing what works."
+metaTitle: "What Is Reinforcement Learning? RLHF Explained Simply"
 date: 2026-08-13
 ispublished: true
 author: "Bedanta Gogoi"

@@ -1,6 +1,7 @@
 ---
 title: "Quantization"
 desc: "Reducing the numerical precision of a trained model's weights to cut memory and compute needs at inference time."
+metaTitle: "What Is Quantization in AI? Model Compression Explained"
 date: 2026-08-17
 ispublished: true
 author: "Bedanta Gogoi"

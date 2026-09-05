@@ -1,6 +1,7 @@
 ---
 title: "Fine-Tuning"
 desc: "Adapting a pre-trained base model to perform better for a specific task, domain, or response style."
+metaTitle: "What Is Fine-Tuning in AI? Model Adaptation Explained"
 date: 2026-08-12
 ispublished: true
 author: "Bedanta Gogoi"

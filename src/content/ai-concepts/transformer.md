@@ -1,6 +1,7 @@
 ---
 title: "Transformer"
 desc: "The model architecture — built on attention and feedforward layers — behind modern language models."
+metaTitle: "What Is a Transformer? AI Architecture Explained Simply"
 date: 2026-08-06
 ispublished: true
 author: "Bedanta Gogoi"
