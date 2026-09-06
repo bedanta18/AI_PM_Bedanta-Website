@@ -1,5 +1,5 @@
 ---
-title: "Product Design Interview Questions: A Practical Guide to Product Thinking"
+title: "How to Solve Product Design Questions in PM Interviews: CIRCLES Method Explained"
 desc: "Learn how to approach product design interview questions with frameworks, examples, and practical tips for clear, structured answers."
 metaTitle: "How to Solve Product Design Questions in PM Interviews: CIRCLES Method Explained"
 metaDescription: "Learn how to approach product design interview questions with frameworks, examples, and practical tips for clear, structured answers."
