@@ -1,7 +1,7 @@
 ---
 title: "How to Solve RCA Questions in PM Interviews: A Practical Root Cause Analysis Framework"
 desc: "Learn how to solve Root Cause Analysis (RCA) and problem-solving questions in Product Manager interviews with a structured, hypothesis-driven approach."
-metaTitle: "How to Solve RCA Questions in PM Interviews: A Practical Root Cause Analysis Framework"
+metaTitle: "How to Solve RCA Questions in PM Interviews | Root Cause Analysis"
 metaDescription: "Learn how to solve Root Cause Analysis (RCA) and problem-solving questions in Product Manager interviews with a structured, hypothesis-driven approach."
 keywords:
   - RCA questions
