@@ -54,6 +54,7 @@ const pmConcepts = defineCollection({
   schema: z.object({
     title: z.string(),
     desc: z.string(),
+    metaTitle: z.string().optional(),
     date: z.coerce.date(),
     ispublished: z.boolean(),
     author: z.string(),

@@ -1,6 +1,7 @@
 ---
 title: "North Star Metric"
 desc: "The single metric that best captures the core value a product delivers to customers."
+metaTitle: "What Is a North Star Metric? How to Choose One"
 date: 2026-08-28
 ispublished: true
 author: "Bedanta Gogoi"

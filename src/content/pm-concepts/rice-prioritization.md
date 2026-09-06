@@ -1,6 +1,7 @@
 ---
 title: "RICE Prioritization Framework"
 desc: "A scoring model for weighing product bets by Reach, Impact, Confidence, and Effort."
+metaTitle: "RICE Prioritization Framework: Formula & How to Use It"
 date: 2026-08-28
 ispublished: true
 author: "Bedanta Gogoi"

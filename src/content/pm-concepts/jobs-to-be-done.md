@@ -1,6 +1,7 @@
 ---
 title: "Jobs to Be Done"
 desc: "A lens for understanding why customers 'hire' a product, independent of demographics or personas."
+metaTitle: "What Is Jobs to Be Done (JTBD)? Framework Explained"
 date: 2026-08-28
 ispublished: true
 author: "Bedanta Gogoi"
