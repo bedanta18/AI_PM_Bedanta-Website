@@ -1,8 +1,8 @@
 ---
 title: "10 Must-Know AI Product Manager Interview Questions and How to Answer Them"
-desc: "Prepare for AI Product Manager interviews with 10 essential questions covering LLMs, AI roadmaps, prioritization, evaluation, collaboration, feedback, and AI governance."
+desc: "Prepare for AI Product Manager interviews with 10 essential questions on LLMs, roadmaps, prioritization, evaluation, and AI governance."
 metaTitle: "10 Must-Know AI Product Manager Interview Questions and How to Answer Them"
-metaDescription: "Prepare for AI Product Manager interviews with 10 essential questions covering LLMs, AI roadmaps, prioritization, evaluation, collaboration, feedback, and AI governance."
+metaDescription: "Prepare for AI Product Manager interviews with 10 essential questions on LLMs, roadmaps, prioritization, evaluation, and AI governance."
 keywords:
   - AI product manager interview questions
   - AI PM interview
