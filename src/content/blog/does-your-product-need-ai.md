@@ -1,8 +1,8 @@
 ---
 title: "Does Your Product Really Need AI? A Practical Framework for Finding the Right AI Use Case"
-desc: "Learn how to decide whether your product needs AI. Use this practical framework to identify AI use cases, evaluate alternatives, manage risks, and estimate ROI."
+desc: "Does your product need AI? Use this practical framework to identify strong AI use cases, evaluate alternatives, manage risk, and estimate ROI."
 metaTitle: "Does Your Product Need AI? How to Identify the Right AI Use Case"
-metaDescription: "Learn how to decide whether your product needs AI. Use this practical framework to identify AI use cases, evaluate alternatives, manage risks, and estimate ROI."
+metaDescription: "Does your product need AI? Use this practical framework to identify strong AI use cases, evaluate alternatives, manage risk, and estimate ROI."
 keywords:
   - does your product need AI
   - AI use cases
