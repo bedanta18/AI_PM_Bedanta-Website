@@ -1,8 +1,8 @@
 ---
 title: "What Is RAG (Retrieval-Augmented Generation)? A Simple Guide for AI Product Managers"
 desc: "Learn what Retrieval-Augmented Generation (RAG) is, how vector databases and embeddings work, and why RAG helps AI applications provide more current, contextual, and source-grounded answers."
-metaTitle: "What Is RAG (Retrieval-Augmented Generation)? A Simple Guide for AI Product Managers"
-metaDescription: "Learn what Retrieval-Augmented Generation (RAG) is, how vector databases and embeddings work, and why RAG helps AI applications provide more current, contextual, and source-grounded answers."
+metaTitle: "What Is RAG (Retrieval-Augmented Generation)? PM Guide"
+metaDescription: "What is RAG? Learn how vector databases and embeddings help LLMs give current, source-grounded, and more accurate AI answers."
 keywords:
   - Retrieval-Augmented Generation
   - RAG
