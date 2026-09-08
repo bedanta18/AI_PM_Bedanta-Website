@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+relatedSlugs:
+  - about-api
 ---
 As AI agents become more capable, they need more than a language model. They need access to **tools, data, applications, and external systems**. This raises an important question for product managers, developers, and AI engineers:
 

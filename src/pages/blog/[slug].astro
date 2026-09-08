@@ -9,11 +9,22 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog', (post) => post.data.ispublished);
 
   return posts.map((post) => {
-    // Related = other published posts sharing a category, newest first, capped at 3.
-    const related = posts
-      .filter((p) => p.id !== post.id && p.data.categories.some((c) => post.data.categories.includes(c)))
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-      .slice(0, 3);
+    // Related = manually pinned posts (relatedSlugs) first, then other published
+    // posts sharing a category, newest first, capped at 3, de-duplicated.
+    const pinned = (post.data.relatedSlugs ?? [])
+      .map((slug) => posts.find((p) => p.id === slug))
+      .filter((p) => p !== undefined && p.id !== post.id);
+
+    const autoRelated = posts
+      .filter(
+        (p) =>
+          p.id !== post.id &&
+          !pinned.some((pin) => pin.id === p.id) &&
+          p.data.categories.some((c) => post.data.categories.includes(c))
+      )
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+    const related = [...pinned, ...autoRelated].slice(0, 3);
 
     return {
       params: { slug: post.id },

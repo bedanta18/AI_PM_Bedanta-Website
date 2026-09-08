@@ -17,6 +17,7 @@ const blog = defineCollection({
     ispublished: z.boolean(),
     author: z.string(),
     categories: z.array(z.string()).default([]),
+    relatedSlugs: z.array(z.string()).optional(),
   }),
 });
 
