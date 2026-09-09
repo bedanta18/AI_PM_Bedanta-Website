@@ -2,7 +2,7 @@
 title: "About API: Understanding API for a Dummy Like Me"
 desc: "A plain-language walkthrough of what an API actually is, using a waiter analogy, a flight-booking example, and the jargon every PM eventually has to learn."
 metaTitle: "What Is an API? A Plain-English Guide for Product Managers"
-metaDescription: "Understand what an API is, how a request and response actually works, and the key terms (endpoint, payload, status codes) every product manager should know."
+metaDescription: "Understand what an API is, how a request and response works, and the key terms (endpoint, payload, status codes) every PM should know."
 keywords:
   - what is an api
   - api explained for beginners
