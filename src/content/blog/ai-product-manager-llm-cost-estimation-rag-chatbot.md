@@ -1,7 +1,7 @@
 ---
-title: "AI Product Manager Guide to LLM Cost Estimation: How to Calculate RAG Chatbot Costs"
+title: "Guide to LLM Cost Estimation: How to Calculate RAG Chatbot Costs"
 desc: "Learn how AI Product Managers estimate LLM, embedding, RAG, and human-support costs—and build a business case for an AI customer-support chatbot."
-metaTitle: "AI Product Manager Guide to LLM Cost Estimation: How to Calculate RAG Chatbot Costs"
+metaTitle: "Guide to LLM Cost Estimation: How to Calculate RAG Chatbot Costs"
 metaDescription: "Learn how AI Product Managers estimate LLM, embedding, RAG, and human-support costs—and build a business case for an AI customer-support chatbot."
 keywords:
   - AI product manager
@@ -52,8 +52,6 @@ A useful starting equation is:
 
 For a simple RAG chatbot, inference and embedding costs are often the first two components to model.
 
----
-
 ## Step 1: Estimate Your Monthly Query Volume
 
 Start with demand.
@@ -78,8 +76,6 @@ An AI PM should also create scenarios rather than relying on one forecast:
 | High Growth | 10,000 | 300,000 |
 
 This makes the business case more resilient if adoption differs from the original forecast.
-
----
 
 ## Step 2: Calculate Tokens Per Request
 
@@ -118,8 +114,6 @@ An AI PM should not optimize only for model quality. **Prompt and context effici
 
 Reducing unnecessary retrieved content from 1,800 tokens to 1,000 tokens, for example, can reduce input-token consumption across every request.
 
----
-
 ## Step 3: Calculate LLM Inference Cost
 
 LLM providers typically price input and output tokens separately.
@@ -152,8 +146,6 @@ At 150,000 queries per month:
 **Monthly inference cost = $2,430**
 
 This is the number an AI PM should take into the product P&L or unit-economics model.
-
----
 
 ## Step 4: Estimate RAG Embedding Costs
 
@@ -208,8 +200,6 @@ The key product lesson is that embedding costs can be extremely small compared w
 
 However, this depends on the embedding model, document volume, re-indexing frequency, and query volume.
 
----
-
 ## Step 5: Compare AI Cost With Human Support
 
 An AI product should not be evaluated in isolation. Compare it with the existing workflow.
@@ -256,7 +246,6 @@ Potential cost reduction:
 
 This creates a much stronger product case than simply saying, "AI will reduce support costs."
 
----
 
 ## AI PM Metrics You Should Track
 
@@ -290,7 +279,6 @@ Track input and output tokens per successful resolution.
 
 Measure the percentage of support volume handled entirely by AI.
 
----
 
 ## How AI Product Managers Can Reduce LLM Costs
 
@@ -320,7 +308,6 @@ If a support response can be answered in 100 tokens, there is little product val
 
 Do not optimize blindly. Track cost per query, cost per resolution, quality, latency, and escalation rate together.
 
----
 
 ## A Simple AI Product Cost Model
 
@@ -361,7 +348,6 @@ For an AI PM, a practical spreadsheet should contain these sections:
 
 This converts an AI idea into a measurable **product business case**.
 
----
 
 ## Final Takeaway
 
@@ -374,7 +360,3 @@ The bigger lesson is this:
 > **Build AI products around unit economics, not just model capabilities.**
 
 An AI PM who can answer both **"Will users love this?"** and **"Will this scale profitably?"** is much better positioned to make strong AI product decisions.
-
-### SEO Keywords
-
-AI Product Manager, LLM cost estimation, RAG chatbot cost, AI chatbot cost calculator, LLM inference cost, embedding cost, RAG cost, AI product economics, generative AI product management, AI unit economics
