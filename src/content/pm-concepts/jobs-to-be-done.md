@@ -10,8 +10,6 @@ categories:
   - Frameworks
 ---
 
-# Jobs to Be Done
-
 ## What it is
 
 Placeholder content — replace with the full write-up before publishing.

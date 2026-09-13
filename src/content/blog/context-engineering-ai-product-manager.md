@@ -19,8 +19,6 @@ categories:
   - AI
 ---
 
-# Context Engineering for AI Product Managers: RAG, Prompt Engineering and Fine-Tuning
-
 Large language models (LLMs) are powerful, but an LLM alone does not automatically know your company's data, workflows, product context, or preferred way of working.
 
 Ask a general-purpose model about current news and it can often answer. Ask it which Jira tickets are blocking your team's sprint, what is stored in your company's Notion workspace, or which Stripe transactions occurred last month, and the answer is different: **the model needs the right context.**
@@ -102,7 +100,7 @@ A better architecture retrieves only the information relevant to the question an
 
 ---
 
-# What Is RAG?
+## What Is RAG?
 
 **Retrieval-Augmented Generation (RAG)** is an architecture that retrieves relevant information from an external knowledge source and provides it to an LLM before generating an answer.
 
@@ -130,11 +128,11 @@ Examples include:
 - An AI assistant over Jira and Confluence
 - A financial assistant using internal transaction data
 
-## How RAG Works
+### How RAG Works
 
 A typical RAG system has two major stages.
 
-### 1. Build the Knowledge Base
+#### 1. Build the Knowledge Base
 
 The system first processes the organization's data.
 
@@ -148,7 +146,7 @@ Embeddings
 Vector Database
 ```
 
-### Step 1: Collect Data
+#### Step 1: Collect Data
 
 The source can contain:
 
@@ -162,7 +160,7 @@ The source can contain:
 
 The data may be loaded in batches or continuously through APIs.
 
-### Step 2: Chunk the Data
+#### Step 2: Chunk the Data
 
 Large documents are divided into smaller pieces called **chunks**.
 
@@ -184,7 +182,7 @@ The ideal chunking strategy depends on the data.
 
 For text, a system may use fixed-size chunks with overlap. For code, function- or class-level chunking may preserve more meaning.
 
-### Step 3: Generate Embeddings
+#### Step 3: Generate Embeddings
 
 Each chunk can be converted into a numerical representation called an **embedding**.
 
@@ -202,7 +200,7 @@ A good embedding model can represent their meanings as nearby points in vector s
 
 This allows the system to retrieve information based on **meaning**, rather than relying only on exact keyword matches.
 
-### Step 4: Store Embeddings
+#### Step 4: Store Embeddings
 
 The embeddings and associated metadata are stored in a vector-capable database.
 
@@ -220,7 +218,7 @@ Vector Database
 
 ---
 
-# How RAG Answers a User Query
+## How RAG Answers a User Query
 
 Suppose a product manager asks:
 
@@ -280,7 +278,7 @@ These decisions directly affect product quality.
 
 ---
 
-# Prompt Engineering for AI Product Managers
+## Prompt Engineering for AI Product Managers
 
 A strong prompt can improve the reliability and consistency of an AI feature.
 
@@ -375,7 +373,7 @@ The best prompt is usually discovered through iteration rather than written perf
 
 ---
 
-# What Is Fine-Tuning?
+## What Is Fine-Tuning?
 
 **Fine-tuning** involves adapting a pre-trained model using task- or domain-specific training examples.
 
@@ -399,7 +397,7 @@ It is important to distinguish fine-tuning from RAG.
 
 ---
 
-# RAG vs. Prompt Engineering vs. Fine-Tuning
+## RAG vs. Prompt Engineering vs. Fine-Tuning
 
 A simple decision framework for AI PMs is:
 
@@ -430,7 +428,7 @@ Teach it a specialized response style or narrow task behavior when prompting alo
 
 ---
 
-# Context Engineering as a Product Management Skill
+## Context Engineering as a Product Management Skill
 
 For AI Product Managers, context engineering is not just an engineering concept.
 
@@ -464,7 +462,7 @@ High-impact workflows often benefit from **human-in-the-loop design**, where the
 
 ---
 
-# A Practical Mental Model for AI PMs
+## A Practical Mental Model for AI PMs
 
 When designing an AI feature, ask these questions in order:
 
@@ -490,7 +488,7 @@ This mental model helps prevent a common AI product mistake: **starting with the
 
 ---
 
-# Final Takeaway
+## Final Takeaway
 
 If you are an AI Product Manager, you do not need to become an ML engineer to work effectively with LLM products. But you should understand the architecture behind them.
 

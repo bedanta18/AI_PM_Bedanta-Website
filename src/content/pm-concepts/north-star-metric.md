@@ -10,8 +10,6 @@ categories:
   - Growth
 ---
 
-# North Star Metric
-
 ## What it is
 
 Placeholder content — replace with the full write-up before publishing.

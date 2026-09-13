@@ -19,8 +19,6 @@ categories:
   - AI
 ---
 
-# AI Product Manager Guide to LLM Cost Estimation: How to Calculate RAG Chatbot Costs
-
 Building an AI product is not only about choosing the right model. For an **AI Product Manager**, one of the most important responsibilities is understanding whether the product can scale economically.
 
 A RAG-based customer-support chatbot may look inexpensive when you consider the price of a single API call. But at thousands of queries per day, costs from **LLM inference, embeddings, infrastructure, and human support** can materially affect the business case.

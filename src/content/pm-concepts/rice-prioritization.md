@@ -10,8 +10,6 @@ categories:
   - Frameworks
 ---
 
-# RICE Prioritization Framework
-
 ## What it is
 
 Placeholder content — replace with the full write-up before publishing.
