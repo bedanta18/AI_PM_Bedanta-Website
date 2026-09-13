@@ -1,8 +1,8 @@
 ---
 title: "AI Product Manager Metrics: AI, Product, and Business Metrics"
-desc: "Learn the key AI product manager metrics, including accuracy, hallucination, latency, DAU, retention, CAC, LTV, and profit margin, with formulas and examples."
+desc: "Learn key AI Product Manager metrics like accuracy, hallucination, latency, retention, CAC, LTV, and profit margin with formulas and examples"
 metaTitle: "AI Product Manager Metrics: AI, Product & Business Metrics"
-metaDescription: "Learn the key AI product manager metrics, including accuracy, hallucination, latency, DAU, retention, CAC, LTV, and profit margin, with formulas and examples."
+metaDescription: "Learn key AI Product Manager metrics like accuracy, hallucination, latency, retention, CAC, LTV, and profit margin with formulas and examples"
 keywords:
   - AI product manager metrics
   - AI metrics
