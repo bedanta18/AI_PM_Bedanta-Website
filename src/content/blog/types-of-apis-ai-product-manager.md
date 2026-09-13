@@ -19,8 +19,6 @@ categories:
   - Product Management
 ---
 
-# Types of APIs Explained for AI Product Managers
-
 APIs are one of the most important building blocks of modern digital products. For an **AI Product Manager**, understanding APIs is especially valuable because AI applications rarely work in isolation. An AI product may need to connect to an LLM provider, customer database, payment gateway, analytics platform, vector database, CRM, or internal business system.
 
 You do not need to become an API developer to make good product decisions. But you should understand **what type of API you are dealing with, who can access it, what it exposes, and how the API architecture affects your product**.
@@ -177,7 +175,7 @@ However, they can also create more complicated failure handling. If one operatio
 
 ---
 
-# API Architectures
+## API Architectures
 
 API type answers **who can access an API**.
 
@@ -185,7 +183,7 @@ API architecture answers **how the API is designed to communicate**.
 
 Three commonly discussed approaches are **REST, SOAP, and RPC**.
 
-## REST APIs
+### REST APIs
 
 **REST (Representational State Transfer)** is an architectural style widely used for web APIs.
 
@@ -209,7 +207,7 @@ Key REST principles include:
 - **Cacheability:** Responses can indicate whether they may be cached.
 - **Layered architecture:** Requests can pass through intermediaries without the client needing to know the internal architecture.
 
-### REST from an AI PM perspective
+#### REST from an AI PM perspective
 
 REST is often a practical choice when your AI product needs to connect with conventional web services.
 
@@ -227,7 +225,7 @@ When evaluating a REST API, pay attention to endpoint design, authentication, ra
 
 ---
 
-## SOAP APIs
+### SOAP APIs
 
 **SOAP (Simple Object Access Protocol)** is a standardized messaging protocol that commonly uses XML.
 
@@ -235,7 +233,7 @@ SOAP defines a more rigid structure for messages and can support enterprise requ
 
 SOAP is often encountered in large enterprise environments and legacy systems, particularly where strict standards and established integration contracts matter.
 
-### REST vs SOAP for an AI PM
+#### REST vs SOAP for an AI PM
 
 If your AI product needs to integrate with an enterprise system that exposes a SOAP interface, replacing it with REST may not be necessary or practical.
 
@@ -247,7 +245,7 @@ An AI PM should evaluate the business and technical trade-offs rather than assum
 
 ---
 
-## RPC APIs
+### RPC APIs
 
 **RPC (Remote Procedure Call)** APIs focus on invoking actions or procedures on another system.
 
@@ -265,7 +263,7 @@ RPC can be implemented using different serialization and communication technolog
 
 Modern systems also use other RPC technologies, such as gRPC, particularly for service-to-service communication.
 
-### RPC from an AI PM perspective
+#### RPC from an AI PM perspective
 
 RPC can make sense when your product requires fast, structured communication between backend services.
 
@@ -278,7 +276,7 @@ For an AI system with multiple internal services, RPC can be useful for operatio
 
 ---
 
-# API Type vs API Architecture
+## API Type vs API Architecture
 
 One common mistake is treating API types and API architectures as the same thing.
 
@@ -309,7 +307,7 @@ These are not contradictory classifications.
 
 ---
 
-# How AI Product Managers Should Evaluate APIs
+## How AI Product Managers Should Evaluate APIs
 
 When selecting an API for an AI product, do not stop at functionality.
 
@@ -364,7 +362,7 @@ Designing an abstraction layer can sometimes reduce this risk.
 
 ---
 
-# A Practical API Decision Framework for AI PMs
+## A Practical API Decision Framework for AI PMs
 
 When evaluating an API, ask five questions:
 
@@ -387,7 +385,7 @@ This final question is particularly important for AI products. An AI feature sho
 
 ---
 
-# Conclusion
+## Conclusion
 
 APIs are the connective tissue of modern software—and they are especially important in AI product development.
 
