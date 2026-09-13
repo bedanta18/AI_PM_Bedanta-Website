@@ -147,7 +147,7 @@ ${work.map((p) => link(p.data.title, `/work/${p.id}/`, p.data.desc)).join('\n')}
 ${link('Home', '/', 'Overview of all four content pillars and latest articles')}
 ${link('About', '/about/', 'Bio, work experience timeline, and skills')}
 ${link('Resources', '/resources/', 'Free templates for PMs, marketers, and growth teams')}
-${link('AI & Marketing Tools', '/ai-tools/', 'Curated toolkit of AI and marketing tools, plus recommended books')}
+${link('AI & Marketing Tools', '/my-recommendations/', 'Curated toolkit of AI and marketing tools, plus recommended books')}
 ${link('Blog', '/blog/', 'Full article listing with category filters')}
 ${link('Contact', '/contact/', 'Get in touch')}
 
