@@ -42,23 +42,205 @@ const icons: Record<string, string> = {
   // Generic open-book glyph (hand-drawn, not a brand mark — unlike the icons
   // above, books have no single logo to license).
   book: '<path d="M12 5.5c-1.6-1.2-4.2-2-7.5-2A1 1 0 0 0 3.5 4.5v13a1 1 0 0 0 1.1 1c2.9-.2 5.4.5 7 1.7V5.5zm1.5 0v14.7c1.6-1.2 4.1-1.9 7-1.7a1 1 0 0 0 1.1-1v-13a1 1 0 0 0-1-1c-3.3 0-5.9.8-7.5 2z"/>',
+  // Generic open-box glyph (hand-drawn, not a brand mark) shared by every
+  // physical-product category below — desk gear, accessories, electronics.
+  box: '<path d="M12 2 3 6.5v11L12 22l9-4.5v-11L12 2zm0 1.7 6.5 3.25L12 10.2 5.5 6.95 12 3.7zM4.5 8.1l6.75 3.375v8.05L4.5 16.15V8.1zm15 0v8.05l-6.75 3.375v-8.05L19.5 8.1z"/>',
 };
 
 const aiIcoStyle = 'background:rgba(0,131,168,.1);color:#0083A8';
 const mktIcoStyle = 'background:rgba(161,103,10,.1);color:#A1670A';
 const booksIcoStyle = 'background:rgba(109,67,214,.1);color:#6D43D6';
+const physIcoStyle = 'background:rgba(46,125,90,.1);color:#2E7D5A';
 
-const catIcoStyle: Record<string, string> = { ai: aiIcoStyle, mkt: mktIcoStyle, books: booksIcoStyle };
-const catTagClass: Record<string, string> = { ai: 'tag-ai', mkt: 'tag-mkt', books: 'tag-books' };
+// Every book sub-category shares the purple "books" treatment; every physical
+// product category shares the green "phys" treatment — differentiated by tag text.
+const catIcoStyle: Record<string, string> = {
+  ai: aiIcoStyle,
+  mkt: mktIcoStyle,
+  'aipm-books': booksIcoStyle,
+  'pm-books': booksIcoStyle,
+  'aiml-books': booksIcoStyle,
+  'analytics-books': booksIcoStyle,
+  'interview-books': booksIcoStyle,
+  'sql-python-books': booksIcoStyle,
+  'ux-books': booksIcoStyle,
+  'desk-setup': physIcoStyle,
+  productivity: physIcoStyle,
+  electronics: physIcoStyle,
+};
+const catTagClass: Record<string, string> = {
+  ai: 'tag-ai',
+  mkt: 'tag-mkt',
+  'aipm-books': 'tag-books',
+  'pm-books': 'tag-books',
+  'aiml-books': 'tag-books',
+  'analytics-books': 'tag-books',
+  'interview-books': 'tag-books',
+  'sql-python-books': 'tag-books',
+  'ux-books': 'tag-books',
+  'desk-setup': 'tag-phys',
+  productivity: 'tag-phys',
+  electronics: 'tag-phys',
+};
+const bookCats = new Set([
+  'aipm-books',
+  'pm-books',
+  'aiml-books',
+  'analytics-books',
+  'interview-books',
+  'sql-python-books',
+  'ux-books',
+]);
 
 // Logos not on Simple Icons are self-hosted brand favicons in /public/tool-logos.
-const tools = [
-  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.', href: 'https://link.amazon/B0ac6qZm9' },
-  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.', href: 'https://link.amazon/B064oiiSi' },
-  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.', href: 'https://link.amazon/B07zVIUhj' },
-  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.', href: 'https://link.amazon/B0hwZ7Cx9' },
-  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise.", href: 'https://link.amazon/B0hXOoyWt' },
-  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.', href: 'https://link.amazon/B09VbEHWY' },
+interface Tool {
+  cat: string;
+  name: string;
+  author?: string;
+  tag: string;
+  icon?: string;
+  logoImg?: string;
+  desc: string;
+  href?: string;
+}
+
+const tools: Tool[] = [
+  // --- AI Product Management Books ---
+  { cat: 'aipm-books', name: "AI Product Manager's Handbook", author: 'Irene L. Bratsis', tag: 'AI PM', icon: 'book', desc: 'A practical playbook for building, launching, and scaling AI-powered products.' },
+  { cat: 'aipm-books', name: 'AI Engineering', author: 'Chip Huyen', tag: 'AI PM', icon: 'book', desc: 'A hands-on guide to building real-world applications on top of foundation models.' },
+  { cat: 'aipm-books', name: 'Co-Intelligence', author: 'Ethan Mollick', tag: 'AI PM', icon: 'book', desc: 'How to work alongside AI as a creative and strategic partner, not just a tool.' },
+  { cat: 'aipm-books', name: 'Prediction Machines', author: 'Ajay Agrawal, Joshua Gans & Avi Goldfarb', tag: 'AI PM', icon: 'book', desc: 'Reframes AI as a drop in the cost of prediction, and what that means for strategy.' },
+  { cat: 'aipm-books', name: 'The AI Advantage', author: 'Thomas H. Davenport', tag: 'AI PM', icon: 'book', desc: 'How enterprises can identify and execute high-value AI initiatives.' },
+  { cat: 'aipm-books', name: 'Designing Machine Learning Systems', author: 'Chip Huyen', tag: 'AI PM', icon: 'book', desc: 'An end-to-end guide to designing production ML systems, from data to deployment.' },
+  { cat: 'aipm-books', name: 'Building AI-Powered Products', author: 'Various', tag: 'AI PM', icon: 'book', desc: 'A practical guide to shipping AI features, from prototype to production.' },
+  { cat: 'aipm-books', name: 'Competing in the Age of AI', author: 'Marco Iansiti & Karim R. Lakhani', tag: 'AI PM', icon: 'book', desc: 'How AI-driven operating models are reshaping competitive strategy.' },
+  { cat: 'aipm-books', name: 'The Coming Wave', author: 'Mustafa Suleyman', tag: 'AI PM', icon: 'book', desc: "A sobering look at AI's power to reshape society, and how to contain the risks." },
+  { cat: 'aipm-books', name: 'Human + Machine', author: 'Paul R. Daugherty & H. James Wilson', tag: 'AI PM', icon: 'book', desc: 'How companies can redesign work by combining human judgment with AI.' },
+
+  // --- Product Management Books ---
+  { cat: 'pm-books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.' },
+  { cat: 'pm-books', name: 'Empowered', author: 'Marty Cagan & Chris Jones', tag: 'Product', icon: 'book', desc: 'How great product teams are staffed, led, and empowered to solve hard problems.' },
+  { cat: 'pm-books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.' },
+  { cat: 'pm-books', name: 'Escaping the Build Trap', author: 'Melissa Perri', tag: 'Product', icon: 'book', desc: 'Why organizations that ship features without a product strategy get stuck, and how to escape it.' },
+  { cat: 'pm-books', name: 'The Lean Product Playbook', author: 'Dan Olsen', tag: 'Product', icon: 'book', desc: 'A step-by-step process for finding product-market fit using lean and agile principles.' },
+  { cat: 'pm-books', name: 'Lean Startup', author: 'Eric Ries', tag: 'Product', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.' },
+  { cat: 'pm-books', name: 'Hooked', author: 'Nir Eyal', tag: 'Product', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.' },
+  { cat: 'pm-books', name: 'Sprint', author: 'Jake Knapp', tag: 'Product', icon: 'book', desc: 'A five-day process for answering critical business questions through prototyping and testing.' },
+  { cat: 'pm-books', name: 'Product Leadership', author: 'Richard Banfield, Martin Eriksson & Nate Walkingshaw', tag: 'Product', icon: 'book', desc: 'How to build and lead high-performing product teams and set product vision.' },
+  { cat: 'pm-books', name: 'Good Strategy Bad Strategy', author: 'Richard Rumelt', tag: 'Product', icon: 'book', desc: 'Cuts through vague mission statements to show what real strategy looks like.' },
+  { cat: 'pm-books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Product', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise." },
+  { cat: 'pm-books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Product', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.' },
+
+  // --- AI/ML Books ---
+  { cat: 'aiml-books', name: 'Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow', author: 'Aurélien Géron', tag: 'AI/ML', icon: 'book', desc: 'A practical, code-first introduction to building and tuning ML and deep learning models.' },
+  { cat: 'aiml-books', name: 'AI Engineering', author: 'Chip Huyen', tag: 'AI/ML', icon: 'book', desc: 'A hands-on guide to building real-world applications on top of foundation models.' },
+  { cat: 'aiml-books', name: 'Designing Machine Learning Systems', author: 'Chip Huyen', tag: 'AI/ML', icon: 'book', desc: 'An end-to-end guide to designing production ML systems, from data to deployment.' },
+  { cat: 'aiml-books', name: 'Machine Learning Yearning', author: 'Andrew Ng', tag: 'AI/ML', icon: 'book', desc: 'Practical strategy for structuring ML projects and diagnosing model performance.' },
+  { cat: 'aiml-books', name: 'Deep Learning', author: 'Ian Goodfellow, Yoshua Bengio & Aaron Courville', tag: 'AI/ML', icon: 'book', desc: 'The foundational textbook covering the math and theory behind modern deep learning.' },
+  { cat: 'aiml-books', name: 'Natural Language Processing with Transformers', author: 'Lewis Tunstall, Leandro von Werra & Thomas Wolf', tag: 'AI/ML', icon: 'book', desc: 'A hands-on guide to building NLP applications with Hugging Face Transformers.' },
+  { cat: 'aiml-books', name: 'Generative Deep Learning', author: 'David Foster', tag: 'AI/ML', icon: 'book', desc: 'Teaches the models behind generative AI, from GANs to diffusion models, with working code.' },
+  { cat: 'aiml-books', name: 'Pattern Recognition and Machine Learning', author: 'Christopher M. Bishop', tag: 'AI/ML', icon: 'book', desc: 'A rigorous, classic text on the statistical foundations of machine learning.' },
+  { cat: 'aiml-books', name: 'The Hundred-Page Machine Learning Book', author: 'Andriy Burkov', tag: 'AI/ML', icon: 'book', desc: 'A concise, practical summary of the core ideas behind machine learning.' },
+  { cat: 'aiml-books', name: 'Practical Deep Learning for Coders', author: 'Jeremy Howard & Sylvain Gugger', tag: 'AI/ML', icon: 'book', desc: 'A code-first path into deep learning built around the fastai library.' },
+
+  // --- Product Analytics/Data Books ---
+  { cat: 'analytics-books', name: 'Lean Analytics', author: 'Alistair Croll & Benjamin Yoskovitz', tag: 'Analytics', icon: 'book', desc: 'Use analytics to figure out what matters and focus your product and business on it.' },
+  { cat: 'analytics-books', name: 'Storytelling with Data', author: 'Cole Nussbaumer Knaflic', tag: 'Analytics', icon: 'book', desc: 'A practical guide to turning charts and numbers into a clear, persuasive story.' },
+  { cat: 'analytics-books', name: 'Data Science for Business', author: 'Foster Provost & Tom Fawcett', tag: 'Analytics', icon: 'book', desc: 'Explains the fundamental concepts of data science and how they drive business decisions.' },
+  { cat: 'analytics-books', name: 'Measure What Matters', author: 'John Doerr', tag: 'Analytics', icon: 'book', desc: 'How OKRs help teams set and track ambitious, measurable goals.' },
+  { cat: 'analytics-books', name: 'Product Analytics', author: 'Joe Reis', tag: 'Analytics', icon: 'book', desc: 'A practical guide to building an analytics practice that shapes product decisions.' },
+  { cat: 'analytics-books', name: 'Fundamentals of Data Visualization', author: 'Claus O. Wilke', tag: 'Analytics', icon: 'book', desc: 'A guide to choosing and designing the right chart for the data you have.' },
+  { cat: 'analytics-books', name: 'Naked Statistics', author: 'Charles Wheelan', tag: 'Analytics', icon: 'book', desc: 'Makes statistical thinking accessible and shows why it matters in everyday decisions.' },
+  { cat: 'analytics-books', name: 'The Art of Statistics', author: 'David Spiegelhalter', tag: 'Analytics', icon: 'book', desc: 'Uses real-world examples to teach how to think critically about data and evidence.' },
+  { cat: 'analytics-books', name: 'Trustworthy Online Controlled Experiments', author: 'Ron Kohavi, Diane Tang & Ya Xu', tag: 'Analytics', icon: 'book', desc: 'The definitive guide to running rigorous A/B tests at scale.' },
+  { cat: 'analytics-books', name: 'Experimentation Works', author: 'Stefan H. Thomke', tag: 'Analytics', icon: 'book', desc: 'Why building a culture of rapid experimentation drives better business decisions.' },
+
+  // --- PM Interview Books ---
+  { cat: 'interview-books', name: 'Decode and Conquer', author: 'Lewis C. Lin', tag: 'Interview', icon: 'book', desc: 'Frameworks and sample answers for the most common PM interview questions.' },
+  { cat: 'interview-books', name: 'Cracking the PM Interview', author: 'Gayle Laakmann McDowell & Jackie Bavaro', tag: 'Interview', icon: 'book', desc: 'A comprehensive guide to landing a product management role, from resume to offer.' },
+  { cat: 'interview-books', name: 'Swipe to Unlock', author: 'Aditya Agashe, Sriram Krishnan & Nihit Desai', tag: 'Interview', icon: 'book', desc: 'A primer on the technology and business concepts behind PM interview questions.' },
+  { cat: 'interview-books', name: "Product Management's Sacred Seven", author: 'Neel Mehta, Aditya Agashe & Parth Detroja', tag: 'Interview', icon: 'book', desc: 'Seven mental models drawn from psychology, economics, and more to sharpen product thinking.' },
+  { cat: 'interview-books', name: 'The Product Manager Interview', author: 'Lewis C. Lin', tag: 'Interview', icon: 'book', desc: '167 actual interview questions with detailed frameworks for answering them.' },
+  { cat: 'interview-books', name: 'Ace the Product Manager Interview', author: 'Various', tag: 'Interview', icon: 'book', desc: 'Practice questions and structured frameworks for product management interviews.' },
+  { cat: 'interview-books', name: 'PM Interview Questions', author: 'Lewis C. Lin', tag: 'Interview', icon: 'book', desc: 'A companion volume of practice questions across every PM interview category.' },
+  { cat: 'interview-books', name: 'Case Interview Secrets', author: 'Victor Cheng', tag: 'Interview', icon: 'book', desc: "A former McKinsey interviewer's approach to structuring and solving case interviews." },
+  { cat: 'interview-books', name: 'System Design Interview', author: 'Alex Xu', tag: 'Interview', icon: 'book', desc: 'A structured approach to answering system design questions, with worked examples.' },
+
+  // --- SQL/Python Books ---
+  { cat: 'sql-python-books', name: 'SQL for Data Analysis', author: 'Cathy Tanimura', tag: 'SQL/Python', icon: 'book', desc: 'Advanced SQL techniques for analyzing and transforming data at scale.' },
+  { cat: 'sql-python-books', name: 'Practical SQL', author: 'Anthony DeBarros', tag: 'SQL/Python', icon: 'book', desc: 'A beginner-friendly guide to using SQL for real-world data analysis.' },
+  { cat: 'sql-python-books', name: 'Learning SQL', author: 'Alan Beaulieu', tag: 'SQL/Python', icon: 'book', desc: 'A clear introduction to writing and understanding SQL queries.' },
+  { cat: 'sql-python-books', name: 'SQL Cookbook', author: 'Anthony Molinaro', tag: 'SQL/Python', icon: 'book', desc: 'Recipe-style solutions to common SQL query problems.' },
+  { cat: 'sql-python-books', name: 'SQL Queries for Mere Mortals', author: 'John L. Viescas & Michael J. Hernandez', tag: 'SQL/Python', icon: 'book', desc: "A step-by-step guide to writing SQL queries for people who aren't developers." },
+  { cat: 'sql-python-books', name: 'Python Crash Course', author: 'Eric Matthes', tag: 'SQL/Python', icon: 'book', desc: 'A fast-paced introduction to Python fundamentals through hands-on projects.' },
+  { cat: 'sql-python-books', name: 'Automate the Boring Stuff with Python', author: 'Al Sweigart', tag: 'SQL/Python', icon: 'book', desc: 'Practical Python for automating everyday tasks, no CS background required.' },
+  { cat: 'sql-python-books', name: 'Python for Data Analysis', author: 'Wes McKinney', tag: 'SQL/Python', icon: 'book', desc: 'The definitive guide to data wrangling and analysis with pandas.' },
+  { cat: 'sql-python-books', name: 'Fluent Python', author: 'Luciano Ramalho', tag: 'SQL/Python', icon: 'book', desc: 'A deep dive into writing idiomatic, effective Python code.' },
+  { cat: 'sql-python-books', name: 'Hands-On Python Programming', author: 'Various', tag: 'SQL/Python', icon: 'book', desc: 'A practical, project-based introduction to programming in Python.' },
+
+  // --- UX/Product Design Books ---
+  { cat: 'ux-books', name: 'The Design of Everyday Things', author: 'Don Norman', tag: 'UX/Design', icon: 'book', desc: 'The classic on why good design is invisible and bad design is everywhere.' },
+  { cat: 'ux-books', name: "Don't Make Me Think", author: 'Steve Krug', tag: 'UX/Design', icon: 'book', desc: 'A common-sense guide to intuitive web and application usability.' },
+  { cat: 'ux-books', name: 'Lean UX', author: 'Jeff Gothelf & Josh Seiden', tag: 'UX/Design', icon: 'book', desc: 'Integrates UX design with lean and agile product development.' },
+  { cat: 'ux-books', name: 'Sprint', author: 'Jake Knapp', tag: 'UX/Design', icon: 'book', desc: 'A five-day process for answering critical business questions through prototyping and testing.' },
+  { cat: 'ux-books', name: 'Universal Principles of Design', author: 'William Lidwell, Kritina Holden & Jill Butler', tag: 'UX/Design', icon: 'book', desc: '125 cross-disciplinary design principles illustrated with real examples.' },
+  { cat: 'ux-books', name: '100 Things Every Designer Needs to Know About People', author: 'Susan Weinschenk', tag: 'UX/Design', icon: 'book', desc: 'The psychology behind how people perceive, think, and make decisions.' },
+  { cat: 'ux-books', name: 'About Face', author: 'Alan Cooper, Robert Reimann & David Cronin', tag: 'UX/Design', icon: 'book', desc: 'The foundational guide to interaction design principles and patterns.' },
+  { cat: 'ux-books', name: 'Hooked', author: 'Nir Eyal', tag: 'UX/Design', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.' },
+  { cat: 'ux-books', name: 'Designing for Emotion', author: 'Aarron Walter', tag: 'UX/Design', icon: 'book', desc: 'A short guide to building products that connect with users beyond usability.' },
+  { cat: 'ux-books', name: 'UX Strategy', author: 'Jaime Levy', tag: 'UX/Design', icon: 'book', desc: 'How to validate product ideas and align UX with business strategy.' },
+
+  // --- AI PM Desk Setup ---
+  { cat: 'desk-setup', name: 'Laptop Stand', tag: 'Desk Setup', icon: 'box', desc: 'Raises your laptop to eye level to reduce neck strain during long work sessions.' },
+  { cat: 'desk-setup', name: 'Monitor Stand', tag: 'Desk Setup', icon: 'box', desc: 'Adds height and under-desk storage for a cleaner, more ergonomic setup.' },
+  { cat: 'desk-setup', name: 'External Monitor', tag: 'Desk Setup', icon: 'box', desc: 'More screen real estate for juggling docs, dashboards, and decks.' },
+  { cat: 'desk-setup', name: 'Mechanical Keyboard', tag: 'Desk Setup', icon: 'box', desc: 'Tactile, durable typing for long days of writing PRDs and specs.' },
+  { cat: 'desk-setup', name: 'Wireless Mouse', tag: 'Desk Setup', icon: 'box', desc: 'A clutter-free, precise pointer for everyday desk work.' },
+  { cat: 'desk-setup', name: 'USB-C Hub', tag: 'Desk Setup', icon: 'box', desc: 'One cable to connect monitors, storage, and peripherals to a modern laptop.' },
+  { cat: 'desk-setup', name: 'Webcam', tag: 'Desk Setup', icon: 'box', desc: 'Sharper video quality for stakeholder calls and demos.' },
+  { cat: 'desk-setup', name: 'Noise-Cancelling Headphones', tag: 'Desk Setup', icon: 'box', desc: 'Blocks out office noise for focused deep work and calls.' },
+  { cat: 'desk-setup', name: 'Desk Lamp', tag: 'Desk Setup', icon: 'box', desc: 'Adjustable lighting that reduces eye strain during long sessions.' },
+  { cat: 'desk-setup', name: 'Desk Mat', tag: 'Desk Setup', icon: 'box', desc: 'A large mat that protects your desk and anchors your keyboard and mouse.' },
+  { cat: 'desk-setup', name: 'Ergonomic Chair', tag: 'Desk Setup', icon: 'box', desc: 'Proper back and seat support for full workdays at the desk.' },
+  { cat: 'desk-setup', name: 'Footrest', tag: 'Desk Setup', icon: 'box', desc: 'Improves posture and circulation during long sitting sessions.' },
+  { cat: 'desk-setup', name: 'Cable Management Kit', tag: 'Desk Setup', icon: 'box', desc: 'Keeps power and peripheral cables tidy and out of sight.' },
+  { cat: 'desk-setup', name: 'Portable SSD', tag: 'Desk Setup', icon: 'box', desc: 'Fast, compact storage for backups and large files on the go.' },
+  { cat: 'desk-setup', name: 'Power Strip', tag: 'Desk Setup', icon: 'box', desc: 'Extra outlets and surge protection for a multi-device desk setup.' },
+
+  // --- Productivity Accessories ---
+  { cat: 'productivity', name: 'Premium Notebook', tag: 'Productivity', icon: 'box', desc: 'A durable notebook for meeting notes, sketches, and quick thinking.' },
+  { cat: 'productivity', name: 'Weekly Planner', tag: 'Productivity', icon: 'box', desc: 'Structures your week around priorities instead of just your calendar.' },
+  { cat: 'productivity', name: 'Sticky Notes', tag: 'Productivity', icon: 'box', desc: 'Quick, movable notes for brainstorms, reminders, and prioritization.' },
+  { cat: 'productivity', name: 'Index Cards', tag: 'Productivity', icon: 'box', desc: 'Simple cards for story mapping, flashcards, or quick prioritization exercises.' },
+  { cat: 'productivity', name: 'Whiteboard', tag: 'Productivity', icon: 'box', desc: 'A reusable surface for sketching flows, frameworks, and quick diagrams.' },
+  { cat: 'productivity', name: 'Whiteboard Markers', tag: 'Productivity', icon: 'box', desc: 'Smooth, low-odor markers that keep whiteboard sessions moving.' },
+  { cat: 'productivity', name: 'Pens', tag: 'Productivity', icon: 'box', desc: 'Reliable pens for notebooks, sketching, and everyday writing.' },
+  { cat: 'productivity', name: 'Desk Organizer', tag: 'Productivity', icon: 'box', desc: 'Keeps pens, cables, and small essentials off your desk surface.' },
+  { cat: 'productivity', name: 'Document Organizer', tag: 'Productivity', icon: 'box', desc: 'Sorts and stores physical paperwork and printouts by category.' },
+  { cat: 'productivity', name: 'Laptop Sleeve', tag: 'Productivity', icon: 'box', desc: 'Protects your laptop when moving between desk, meetings, and travel.' },
+  { cat: 'productivity', name: 'Phone Stand', tag: 'Productivity', icon: 'box', desc: 'Props up your phone for calls, videos, or notifications while you work.' },
+  { cat: 'productivity', name: 'Tablet Stand', tag: 'Productivity', icon: 'box', desc: 'Holds a tablet upright for note-taking, reading, or video calls.' },
+  { cat: 'productivity', name: 'Timer', tag: 'Productivity', icon: 'box', desc: 'A simple tool for timeboxing focus sessions and meetings.' },
+  { cat: 'productivity', name: 'Cable Organizer', tag: 'Productivity', icon: 'box', desc: 'Bundles and labels cables so your desk stays clutter-free.' },
+  { cat: 'productivity', name: 'Backpack', tag: 'Productivity', icon: 'box', desc: 'A durable daily carry for a laptop, charger, and notebook.' },
+
+  // --- General Electronics (kept deliberately small) ---
+  { cat: 'electronics', name: 'Monitor', tag: 'Electronics', icon: 'box', desc: 'A larger, sharper display for daily desk work.' },
+  { cat: 'electronics', name: 'Laptop', tag: 'Electronics', icon: 'box', desc: 'A reliable machine for daily PM work — docs, decks, and dashboards.' },
+  { cat: 'electronics', name: 'Tablet', tag: 'Electronics', icon: 'box', desc: 'A lightweight device for reading, notes, and quick reviews on the go.' },
+  { cat: 'electronics', name: 'E-reader', tag: 'Electronics', icon: 'box', desc: 'A distraction-free device for reading books and long-form articles.' },
+  { cat: 'electronics', name: 'External SSD', tag: 'Electronics', icon: 'box', desc: 'Fast, portable storage for backups and large files.' },
+  { cat: 'electronics', name: 'Keyboard', tag: 'Electronics', icon: 'box', desc: 'A comfortable keyboard for extended daily typing.' },
+  { cat: 'electronics', name: 'Mouse', tag: 'Electronics', icon: 'box', desc: 'A reliable pointer for everyday desk and design work.' },
+  { cat: 'electronics', name: 'Headphones', tag: 'Electronics', icon: 'box', desc: 'Solid everyday headphones for calls, music, and focus.' },
+  { cat: 'electronics', name: 'Webcam', tag: 'Electronics', icon: 'box', desc: 'Improves video quality for calls and recorded demos.' },
+  { cat: 'electronics', name: 'USB-C Hub', tag: 'Electronics', icon: 'box', desc: 'Expands a single USB-C port into multiple connections.' },
+  { cat: 'electronics', name: 'Power Bank', tag: 'Electronics', icon: 'box', desc: 'Backup power for your phone or laptop while traveling.' },
+  { cat: 'electronics', name: 'Wi-Fi Router', tag: 'Electronics', icon: 'box', desc: 'Reliable home network coverage for video calls and remote work.' },
+  { cat: 'electronics', name: 'Portable Monitor', tag: 'Electronics', icon: 'box', desc: 'A lightweight second screen for working from anywhere.' },
+  { cat: 'electronics', name: 'Smart Speaker', tag: 'Electronics', icon: 'box', desc: 'Voice-controlled music, reminders, and smart-home control at your desk.' },
+
+  // --- AI/Marketing tools (unchanged, kept last) ---
   { cat: 'ai', name: 'Notion AI', tag: 'AI Productivity', icon: 'notion', desc: 'AI-native workspace for notes, roadmaps, and specs.' },
   { cat: 'ai', name: 'GitHub Copilot', tag: 'AI Coding', icon: 'githubcopilot', desc: 'In-editor pair programmer that autocompletes and explains code.' },
   { cat: 'ai', name: 'Cursor', tag: 'AI Coding', icon: 'cursor', desc: 'AI-first code editor built for fast, context-aware iteration.' },
@@ -122,9 +304,18 @@ const tools = [
 
       <div class="filters" role="group" aria-label="Filter by category">
         <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-pill" type="button" data-filter="books" aria-pressed="false">Books</button>
-        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI</button>
-        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing</button>
+        <button class="filter-pill" type="button" data-filter="aipm-books" aria-pressed="false">AI PM Books</button>
+        <button class="filter-pill" type="button" data-filter="pm-books" aria-pressed="false">PM Books</button>
+        <button class="filter-pill" type="button" data-filter="aiml-books" aria-pressed="false">AI/ML Books</button>
+        <button class="filter-pill" type="button" data-filter="analytics-books" aria-pressed="false">Analytics Books</button>
+        <button class="filter-pill" type="button" data-filter="interview-books" aria-pressed="false">Interview Books</button>
+        <button class="filter-pill" type="button" data-filter="sql-python-books" aria-pressed="false">SQL/Python Books</button>
+        <button class="filter-pill" type="button" data-filter="ux-books" aria-pressed="false">UX Books</button>
+        <button class="filter-pill" type="button" data-filter="desk-setup" aria-pressed="false">Desk Setup</button>
+        <button class="filter-pill" type="button" data-filter="productivity" aria-pressed="false">Productivity</button>
+        <button class="filter-pill" type="button" data-filter="electronics" aria-pressed="false">Electronics</button>
+        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI Tools</button>
+        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing Tools</button>
       </div>
 
       <section class="product-grid" aria-label="Tools and books">
@@ -152,7 +343,9 @@ const tools = [
                 <h3 class="product-title">{tool.name}</h3>
                 {tool.author && <p class="product-author">by {tool.author}</p>}
                 <p class="product-desc">{tool.desc}</p>
-                <div class="product-visit">{tool.cat === 'books' ? 'Read' : 'Visit'} &rarr;</div>
+                <div class="product-visit">
+                  {bookCats.has(tool.cat) ? 'Read' : tool.cat === 'ai' || tool.cat === 'mkt' ? 'Visit' : 'View'} &rarr;
+                </div>
               </Tag>
             );
           })

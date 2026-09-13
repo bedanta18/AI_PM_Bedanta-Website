@@ -126,6 +126,12 @@
   background: rgba(109, 67, 214, 0.09);
 }
 
+.product-tag.tag-phys {
+  color: #2e7d5a;
+  border-color: rgba(46, 125, 90, 0.3);
+  background: rgba(46, 125, 90, 0.09);
+}
+
 .product-title {
   margin: 0;
   font-family: var(--font-display);
