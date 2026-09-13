@@ -53,6 +53,12 @@ const catTagClass: Record<string, string> = { ai: 'tag-ai', mkt: 'tag-mkt', book
 
 // Logos not on Simple Icons are self-hosted brand favicons in /public/tool-logos.
 const tools = [
+  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.', href: 'https://link.amazon/B0ac6qZm9' },
+  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.', href: 'https://link.amazon/B064oiiSi' },
+  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.', href: 'https://link.amazon/B07zVIUhj' },
+  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.', href: 'https://link.amazon/B0hwZ7Cx9' },
+  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise.", href: 'https://link.amazon/B0hXOoyWt' },
+  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.', href: 'https://link.amazon/B09VbEHWY' },
   { cat: 'ai', name: 'Notion AI', tag: 'AI Productivity', icon: 'notion', desc: 'AI-native workspace for notes, roadmaps, and specs.' },
   { cat: 'ai', name: 'GitHub Copilot', tag: 'AI Coding', icon: 'githubcopilot', desc: 'In-editor pair programmer that autocompletes and explains code.' },
   { cat: 'ai', name: 'Cursor', tag: 'AI Coding', icon: 'cursor', desc: 'AI-first code editor built for fast, context-aware iteration.' },
@@ -69,12 +75,6 @@ const tools = [
   { cat: 'mkt', name: 'Buffer', tag: 'Social', icon: 'buffer', desc: 'Plan and publish content across social channels.' },
   { cat: 'mkt', name: 'Google Ads', tag: 'Paid Search', icon: 'googleads', desc: "Search and display advertising across Google's network." },
   { cat: 'mkt', name: 'Meta Ads Manager', tag: 'Paid Social', icon: 'meta', desc: 'Campaign management across Facebook and Instagram.' },
-  { cat: 'books', name: 'Inspired', author: 'Marty Cagan', tag: 'Product', icon: 'book', desc: 'The definitive guide to building products customers love, from discovery to delivery.', href: 'https://link.amazon/B0ac6qZm9' },
-  { cat: 'books', name: 'Continuous Discovery Habits', author: 'Teresa Torres', tag: 'Product', icon: 'book', desc: 'A practical framework for weekly customer touchpoints that keep decisions grounded in reality.', href: 'https://link.amazon/B064oiiSi' },
-  { cat: 'books', name: 'Hooked', author: 'Nir Eyal', tag: 'Growth', icon: 'book', desc: 'The four-step Hook Model behind habit-forming products, from trigger to investment.', href: 'https://link.amazon/B07zVIUhj' },
-  { cat: 'books', name: 'The Lean Startup', author: 'Eric Ries', tag: 'Growth', icon: 'book', desc: 'Build-measure-learn: validated learning and rapid iteration for uncertain, high-growth ventures.', href: 'https://link.amazon/B0hwZ7Cx9' },
-  { cat: 'books', name: 'Positioning', author: 'Al Ries & Jack Trout', tag: 'Marketing', icon: 'book', desc: "The classic on owning a distinct place in the customer's mind amid competing noise.", href: 'https://link.amazon/B0hXOoyWt' },
-  { cat: 'books', name: 'Crossing the Chasm', author: 'Geoffrey Moore', tag: 'Marketing', icon: 'book', desc: 'How to take a product from early adopters to the mainstream market without stalling.', href: 'https://link.amazon/B09VbEHWY' },
 ];
 ---
 
@@ -122,9 +122,9 @@ const tools = [
 
       <div class="filters" role="group" aria-label="Filter by category">
         <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-pill" type="button" data-filter="books" aria-pressed="false">Books</button>
         <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI</button>
         <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing</button>
-        <button class="filter-pill" type="button" data-filter="books" aria-pressed="false">Books</button>
       </div>
 
       <section class="product-grid" aria-label="Tools and books">
