@@ -374,7 +374,7 @@ This distinction is critical.
 
 ---
 
-# A Practical SaaS Onboarding Framework
+## A Practical SaaS Onboarding Framework
 
 When reviewing an onboarding flow, I would use this six-part framework.
 
@@ -427,7 +427,7 @@ A 95% completion rate is not useful if users complete onboarding and then never 
 
 ---
 
-# My AI Product Manager Checklist
+## My AI Product Manager Checklist
 
 Before launching or redesigning SaaS onboarding, I would ask:
 
@@ -448,7 +448,7 @@ Before launching or redesigning SaaS onboarding, I would ask:
 
 ---
 
-# Final Takeaway
+## Final Takeaway
 
 Great SaaS onboarding isn't about showing users everything your product can do.
 
