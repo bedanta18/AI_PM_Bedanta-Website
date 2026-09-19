@@ -1,7 +1,7 @@
 ---
-title: "AI Design Sprint: A Practical Framework for AI Product Managers"
+title: "AI Opportunity Mapping for AI Product Managers"
 desc: "Learn how AI Product Managers can use an AI Design Sprint to identify AI opportunities, validate ideas, and turn problems into buildable AI solutions."
-metaTitle: "AI Design Sprint: A Practical Framework for AI Product Managers"
+metaTitle: "AI Opportunity Mapping for AI Product Managers"
 metaDescription: "Learn how AI Product Managers can use an AI Design Sprint to identify AI opportunities, validate ideas, and turn problems into buildable AI solutions."
 keywords:
   - AI design sprint
