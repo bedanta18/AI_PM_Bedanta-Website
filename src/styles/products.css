@@ -1,6 +1,12 @@
 /* Products (toolkit) page styles. Layered on top of blog.css, which supplies
    the shared :root tokens plus .blog-shell / .blog-hero / .eyebrow. */
 
+.filters-heading {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
