@@ -1,0 +1,25 @@
+---
+// Reusable BreadcrumbList JSON-LD. Pass the actual trail of pages a user
+// would click through to reach this one — URLs must be real canonical URLs,
+// not assumed ones.
+import type { BreadcrumbItem } from '../../lib/seo';
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

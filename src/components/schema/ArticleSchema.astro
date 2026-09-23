@@ -1,0 +1,55 @@
+---
+// Reusable Article / BlogPosting JSON-LD. Every field is derived from real
+// content-collection data passed in by the calling page — nothing here is
+// invented. Omit optional props (image, articleSection, keywords,
+// dateModified) rather than passing a fabricated value.
+import { PUBLISHER, getAuthorSchema } from '../../lib/seo';
+
+interface Props {
+  type?: 'BlogPosting' | 'Article';
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: Date;
+  dateModified?: Date;
+  authorName: string;
+  image?: string;
+  articleSection?: string;
+  keywords?: string[];
+}
+
+const {
+  type = 'BlogPosting',
+  headline,
+  description,
+  url,
+  datePublished,
+  dateModified,
+  authorName,
+  image,
+  articleSection,
+  keywords,
+} = Astro.props;
+
+const schema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  headline,
+  description,
+  url,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': url,
+  },
+  datePublished: datePublished.toISOString(),
+  dateModified: (dateModified ?? datePublished).toISOString(),
+  author: getAuthorSchema(authorName),
+  publisher: PUBLISHER,
+};
+
+if (image) schema.image = image;
+if (articleSection) schema.articleSection = articleSection;
+if (keywords && keywords.length > 0) schema.keywords = keywords.join(', ');
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

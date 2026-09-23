@@ -3,6 +3,9 @@ import { getCollection, render } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import { SITE_URL, DEFAULT_ARTICLE_IMAGE } from '../../lib/seo';
 import '../../styles/blog.css';
 
 export async function getStaticPaths() {
@@ -37,6 +40,13 @@ const { Content } = await render(post);
 
 const seoTitle = post.data.metaTitle ?? post.data.title;
 const seoDescription = post.data.metaDescription ?? post.data.desc;
+const canonicalUrl = `${SITE_URL}/marketing/${post.id}/`;
+
+const breadcrumbItems = [
+  { name: 'Home', url: `${SITE_URL}/` },
+  { name: 'Marketing', url: `${SITE_URL}/marketing/` },
+  { name: post.data.title, url: canonicalUrl },
+];
 
 const categoryHref: Record<string, string> = {
   'Product Management': '/product-management/',
@@ -73,7 +83,7 @@ const formatDate = (date: Date) =>
     <meta property="og:title" content={seoTitle} />
     <meta property="og:description" content={seoDescription} />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content={`https://www.aipmbedanta.com/marketing/${post.id}/`} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="aipmbedanta" />
     <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -87,7 +97,19 @@ const formatDate = (date: Date) =>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="canonical" href={`https://www.aipmbedanta.com/marketing/${post.id}/`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <ArticleSchema
+      headline={post.data.title}
+      description={seoDescription}
+      url={canonicalUrl}
+      datePublished={post.data.date}
+      dateModified={post.data.updated}
+      authorName={post.data.author}
+      image={DEFAULT_ARTICLE_IMAGE}
+      articleSection="Marketing"
+      keywords={post.data.keywords}
+    />
+    <BreadcrumbSchema items={breadcrumbItems} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"

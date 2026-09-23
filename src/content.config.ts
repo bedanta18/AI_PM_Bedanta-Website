@@ -14,6 +14,10 @@ const blog = defineCollection({
     metaDescription: z.string().optional(),
     keywords: z.array(z.string()).default([]),
     date: z.coerce.date(),
+    // Set only when a post is meaningfully revised after publishing. Feeds
+    // Article/BlogPosting `dateModified` — falls back to `date` when absent,
+    // rather than fabricating a modification date.
+    updated: z.coerce.date().optional(),
     ispublished: z.boolean(),
     author: z.string(),
     categories: z.array(z.string()).default([]),
