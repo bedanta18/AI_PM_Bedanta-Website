@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 Understanding **needs, wants, and demands in marketing** is fundamental to creating products, services, and campaigns that customers value. Although these three concepts are closely connected, they describe different stages of customer behavior.

@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "RAG"
 ---
 Large language models (LLMs) can generate remarkably useful answers, but they have an important limitation: **they do not automatically know your latest or private information**.
 

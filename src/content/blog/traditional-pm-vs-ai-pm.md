@@ -18,6 +18,9 @@ author: "Bedanta Gogoi"
 categories:
   - Product Management
   - AI
+subcategory:
+  "Product Management": "Product Frameworks"
+  "AI": "AI Product Management"
 ---
 
 Artificial intelligence is changing how digital products are designed, built, and managed. As companies integrate large language models (LLMs), machine learning, and AI-powered features into their products, a new role has become increasingly important: the **AI Product Manager (AI PM)**.

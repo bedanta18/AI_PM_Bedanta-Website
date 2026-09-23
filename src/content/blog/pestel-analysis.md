@@ -21,6 +21,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 **PESTEL analysis** is a strategic management framework used to analyze the **external macro-environmental factors** that can influence an organization, industry, market, or business decision.

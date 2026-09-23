@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "RAG"
 ---
 AI products increasingly need to work with unstructured data such as documents, images, audio, customer conversations, and knowledge bases. Traditional databases are excellent at storing structured information, but they are not designed to answer questions based on **semantic similarity**.
 

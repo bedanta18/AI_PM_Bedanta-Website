@@ -20,6 +20,9 @@ author: "Bedanta Gogoi"
 categories:
   - Product Management
   - AI
+subcategory:
+  "Product Management": "Product Case Studies"
+  "AI": "AI Product Management"
 ---
 
 Financial platforms have made investing and trading more accessible, but accessibility does not automatically mean simplicity. Investors can see portfolio returns, traders can access market data, and users can find large volumes of financial information — but understanding what that information means can still require significant time and expertise.

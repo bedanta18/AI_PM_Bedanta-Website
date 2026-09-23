@@ -6,6 +6,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Case Studies"
 section:
   - Product Management
 ---

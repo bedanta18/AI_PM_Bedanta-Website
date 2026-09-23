@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 A successful marketing strategy begins with a fundamental question: **Who are we trying to serve, and why should they choose us instead of a competitor?**

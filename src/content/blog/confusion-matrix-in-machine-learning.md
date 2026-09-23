@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 When building a machine learning model, training the model is only half the job. You also need to understand **how well it performs on unseen data**.
 

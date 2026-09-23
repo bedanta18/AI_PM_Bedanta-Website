@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Growth
+subcategory:
+  "Growth": "Growth Strategy"
 ---
 Have you ever wondered why some product teams focus on making a product better while another team focuses on getting more people to discover, use, and keep coming back to it?
 

@@ -19,6 +19,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Safety"
 ---
 Generative AI can create useful answers, automate tasks, and power intelligent applications. But without appropriate controls, an AI system can also produce harmful, biased, inaccurate, unsafe, or policy-violating responses.
 

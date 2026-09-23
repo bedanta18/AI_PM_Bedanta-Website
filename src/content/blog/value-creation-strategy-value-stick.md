@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 For many people, **business strategy** sounds complicated. It can seem like something reserved for senior executives, consultants, or people with decades of experience.

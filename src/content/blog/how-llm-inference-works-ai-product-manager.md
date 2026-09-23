@@ -20,6 +20,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "LLMs"
 ---
 Large language models such as ChatGPT and Claude can appear to "understand" questions and produce intelligent answers. But what happens between a user's prompt and the model's response?
 

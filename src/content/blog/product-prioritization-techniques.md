@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 ---
 Prioritization is one of the most challenging responsibilities for product managers and product owners. There are usually more ideas, requests, problems, and opportunities than the team can realistically handle.
 

@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 Product design interviews are not only about coming up with attractive interfaces. Interviewers want to understand how you identify a user problem, define the right audience, prioritize needs, and turn those insights into a practical product solution.
 

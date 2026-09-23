@@ -18,6 +18,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 What if one research paper from 2017 helped create the AI world we live in today?
 

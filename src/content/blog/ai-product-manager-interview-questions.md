@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 AI Product Management sits at the intersection of **artificial intelligence, product strategy, business outcomes, and user needs**. As more companies build AI-powered products, interviews for AI Product Manager roles increasingly test more than traditional product management skills.
 

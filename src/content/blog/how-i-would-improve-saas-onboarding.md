@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Growth"
 ---
 For a SaaS product, onboarding is often the first real product experience after acquisition.
 

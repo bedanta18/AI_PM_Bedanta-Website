@@ -18,6 +18,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 ---
 Large Language Models (LLMs) have become one of the most important technologies in modern AI. Tools such as ChatGPT can generate text, answer questions, summarize documents, write code, and support many other product use cases.
 

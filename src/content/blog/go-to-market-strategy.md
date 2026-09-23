@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "GTM"
 ---
 ## What Is a Go-to-Market Strategy?
 

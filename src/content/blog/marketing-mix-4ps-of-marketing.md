@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 The **marketing mix** is one of the most widely used frameworks for understanding how businesses bring products and services to market. It helps marketers make strategic decisions around four core areas: **Product, Price, Place, and Promotion** — commonly known as the **4Ps of marketing**.

@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 ---
 Building an AI product is different from building a traditional software product. A conventional PRD can describe what a feature should do, its functional requirements, and how success will be measured. An **AI PRD** needs to go further.
 

@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Product Management"
 ---
 AI is everywhere. Product teams are under increasing pressure to add AI features, launch AI assistants, build agents, or make existing products "AI-powered."
 

@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 When a company operates across multiple products, brands, or business units, one of the biggest strategic challenges is deciding **where to invest, where to maintain resources, and where to reduce investment**.

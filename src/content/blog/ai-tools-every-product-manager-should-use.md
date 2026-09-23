@@ -18,6 +18,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Operations"
 ---
 Artificial intelligence is changing how product managers research problems, document requirements, analyze customer feedback, communicate with stakeholders, and automate repetitive work.
 

@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 The **normal distribution** is one of the most important concepts in statistics, data analysis, machine learning, and probability. You have probably seen its familiar **bell-shaped curve**, even if you did not know what it was called.
 

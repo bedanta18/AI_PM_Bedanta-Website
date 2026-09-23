@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "RAG"
 ---
 
 Building an AI product is not only about choosing the right model. For an **AI Product Manager**, one of the most important responsibilities is understanding whether the product can scale economically.

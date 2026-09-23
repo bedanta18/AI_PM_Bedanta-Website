@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 section:
   - Product Management
 ---

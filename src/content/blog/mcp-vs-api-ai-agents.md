@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Agents"
 relatedSlugs:
   - about-api
 ---

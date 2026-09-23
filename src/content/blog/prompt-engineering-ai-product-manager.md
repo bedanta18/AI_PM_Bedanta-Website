@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 ---
 AI Product Managers increasingly work directly with large language models (LLMs). You may not build the model itself, but you need to understand how to communicate with it, evaluate its behavior, improve outputs, and design reliable AI-powered product experiences.
 

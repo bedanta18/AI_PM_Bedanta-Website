@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Growth
+subcategory:
+  "Growth": "Growth Metrics"
 ---
 SaaS businesses can generate a huge amount of data, but data alone does not tell you whether the business is healthy. The right **SaaS metrics** turn that data into a clearer picture of growth, retention, customer behavior, and revenue.
 

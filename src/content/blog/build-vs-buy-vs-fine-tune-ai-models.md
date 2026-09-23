@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Strategy"
 ---
 Launching an AI feature often starts with a deceptively simple question:
 

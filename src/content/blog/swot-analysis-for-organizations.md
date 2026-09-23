@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 A **SWOT analysis** is a strategic planning framework used to evaluate an organization's current position by examining four factors:

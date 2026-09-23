@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Growth
+subcategory:
+  "Growth": "Growth Marketing"
 ---
 Marketing has evolved significantly over the past few years. Businesses are no longer looking only for marketers who can launch campaigns and generate leads. They increasingly need professionals who can understand the entire customer journey, identify growth opportunities, run experiments, and directly influence business outcomes.
 

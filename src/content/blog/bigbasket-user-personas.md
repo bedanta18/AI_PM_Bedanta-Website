@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Discovery"
 ---
 User persona building is one of the tasks to achieve during user research for a product. A well-defined user persona pays off well to all the stakeholders across Design, Engineering, Marketing, Strategy, and Sales. User persona answers three critical questions about the product:
 

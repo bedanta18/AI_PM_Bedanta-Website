@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "Generative AI"
 ---
 Have you ever asked an AI chatbot a question and received an answer that technically made sense but completely missed what you actually needed?
 

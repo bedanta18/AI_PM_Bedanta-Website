@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Product Management"
 ---
 Building an AI product does not start with choosing an LLM, writing a prompt, or selecting a vector database. It starts with understanding the problem and systematically identifying where AI can create value.
 

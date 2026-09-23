@@ -15,6 +15,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 Metrics-based questions are a common part of Product Manager interviews. Interviewers use them to understand whether you can translate a business or customer problem into measurable outcomes, choose the right product metrics, and distinguish meaningful signals from misleading ones.
 

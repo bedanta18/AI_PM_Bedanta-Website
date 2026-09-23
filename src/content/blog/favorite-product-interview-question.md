@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 **"What's your favorite product, and why?"** is one of the most common questions in a product management interview.
 

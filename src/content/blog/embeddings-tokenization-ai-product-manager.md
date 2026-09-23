@@ -18,6 +18,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 If you are becoming an **AI Product Manager**, you do not need to memorize every machine learning formula. But you should understand what happens between a user's prompt and an AI model's response.
 

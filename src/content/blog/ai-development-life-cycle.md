@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Product Management"
 ---
 Artificial intelligence can look like magic from the outside. A user enters a prompt, receives a prediction, or gets an automated recommendation in seconds. But behind that experience is a structured process involving **problem definition, data, model development, deployment, monitoring, and continuous improvement**.
 

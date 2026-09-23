@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 
 Large language models (LLMs) are powerful, but an LLM alone does not automatically know your company's data, workflows, product context, or preferred way of working.

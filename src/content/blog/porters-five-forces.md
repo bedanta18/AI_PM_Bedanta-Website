@@ -13,6 +13,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Marketing Strategy"
 ---
 
 **Porter's Five Forces** is one of the most widely used strategic management frameworks for understanding competition, industry attractiveness, and long-term profitability. Developed by **Michael Porter**, the model helps businesses look beyond direct competitors and identify the broader forces that shape competitive intensity within an industry.

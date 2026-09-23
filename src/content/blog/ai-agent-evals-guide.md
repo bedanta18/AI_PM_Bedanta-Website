@@ -24,6 +24,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Evaluation"
 ---
 AI agents can produce different outputs for the same or similar inputs, making traditional software testing techniques insufficient on their own. This is where **AI evaluations (evals)** come in.
 

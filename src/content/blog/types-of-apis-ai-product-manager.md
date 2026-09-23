@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Frameworks"
 ---
 
 APIs are one of the most important building blocks of modern digital products. For an **AI Product Manager**, understanding APIs is especially valuable because AI applications rarely work in isolation. An AI product may need to connect to an LLM provider, customer database, payment gateway, analytics platform, vector database, CRM, or internal business system.

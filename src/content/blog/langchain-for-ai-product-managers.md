@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Agents"
 ---
 If you are moving into **AI Product Management**, you will quickly encounter tools and frameworks that sit between large language models (LLMs) and the products built around them. One name that comes up frequently is **LangChain**.
 

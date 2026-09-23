@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Growth
+subcategory:
+  "Growth": "SEO"
 ---
 Search engine optimization (SEO) can feel complicated because it covers many different activities. But at its core, SEO can be understood through three major areas:
 

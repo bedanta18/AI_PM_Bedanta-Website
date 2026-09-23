@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 Guesstimate questions are a common part of **Product Management (PM) interviews**. Interviewers may ask questions such as:
 

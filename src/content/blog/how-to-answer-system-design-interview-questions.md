@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 System design interviews are common for software engineers, technical product managers, technical program managers, and increasingly **AI Product Managers** working closely with engineering teams.
 

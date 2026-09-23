@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 Product sense interview questions are among the most common and challenging questions in **Product Manager (PM) interviews**.
 

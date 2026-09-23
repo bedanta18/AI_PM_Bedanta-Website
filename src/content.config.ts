@@ -17,6 +17,9 @@ const blog = defineCollection({
     ispublished: z.boolean(),
     author: z.string(),
     categories: z.array(z.string()).default([]),
+    // Maps each entry in `categories` to a finer-grained subcategory shown on
+    // that category's hub page, e.g. { "Product Management": "Product Frameworks" }.
+    subcategory: z.record(z.string(), z.string()).default({}),
     relatedSlugs: z.array(z.string()).optional(),
   }),
 });

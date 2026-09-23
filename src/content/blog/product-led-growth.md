@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Growth
+subcategory:
+  "Growth": "PLG"
 ---
 **Product-Led Growth (PLG)** has become one of the most talked-about growth strategies in B2B SaaS. Companies such as Slack, Zoom, Calendly, Datadog, Snowflake, and AWS have demonstrated how a great product can become more than just something customers buy—it can become the primary engine for acquiring, converting, and retaining customers.
 

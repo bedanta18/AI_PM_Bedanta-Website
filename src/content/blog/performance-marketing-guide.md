@@ -17,6 +17,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Marketing
+subcategory:
+  "Marketing": "Performance Marketing"
 ---
 Performance marketing is a **measurable, data-driven approach to marketing** where campaign decisions are guided by specific outcomes, metrics, and key performance indicators (KPIs).
 

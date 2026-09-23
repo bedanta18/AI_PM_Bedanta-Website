@@ -19,6 +19,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Metrics"
 ---
 
 > A practical study guide for AI Product Managers covering AI quality metrics, product metrics, and business metrics—with formulas and examples.

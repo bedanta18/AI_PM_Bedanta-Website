@@ -16,6 +16,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - Product Management
+subcategory:
+  "Product Management": "Product Interviews"
 ---
 **Root Cause Analysis (RCA) questions** are common problem-solving questions in Product Manager interviews. They test whether you can move beyond the obvious symptom, structure an ambiguous problem, identify the most likely cause, and recommend a practical solution.
 

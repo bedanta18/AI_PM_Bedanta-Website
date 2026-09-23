@@ -18,6 +18,8 @@ ispublished: true
 author: "Bedanta Gogoi"
 categories:
   - AI
+subcategory:
+  "AI": "AI Concepts"
 ---
 Artificial intelligence can sometimes feel like magic.
 
