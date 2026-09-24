@@ -344,6 +344,8 @@ Researchers could combine Transformers with massive datasets, huge amounts of co
 
 The result was a new generation of increasingly capable AI systems.
 
+In real products, these LLMs are rarely used on their own. They're often paired with **[Retrieval-Augmented Generation (RAG)](/blog/what-is-rag-retrieval-augmented-generation/)** so the model can answer using a company's own documents instead of only what it learned during training. That retrieval step is usually powered by a **[vector database](/blog/what-is-a-vector-database-ai-product-manager/)**, which stores and searches the embeddings RAG depends on.
+
 
 ## So Where Does ChatGPT Come In?
 
@@ -379,7 +381,7 @@ Modern generative AI systems emerge
 
 So when you use ChatGPT, you're using technology built on top of many years of research and engineering.
 
-The Transformer is one of the critical milestones in that story.
+The Transformer is one of the critical milestones in that story. If you want to see what happens after that — how a model like this actually becomes a shipped product — our guide to the **[AI Development Life Cycle](/blog/ai-development-life-cycle/)** walks through the six stages involved.
 
 
 ## What Product Managers Can Learn From the Transformer
