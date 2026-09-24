@@ -1,7 +1,7 @@
 ---
 title: "RCTF Prompting Framework: A Practical Guide to Better AI Prompts"
 desc: "Learn the RCTF prompting framework — Role, Context, Task, and Format — to write clearer AI prompts and get more useful responses."
-metaTitle: "RCTF Prompting Framework: Write Better AI Prompts"
+metaTitle: "What Is the RCTF Prompting Framework? A PM's Guide"
 metaDescription: "Learn RCTF prompting — Role, Context, Task, and Format — to create clearer prompts and get more useful AI responses."
 keywords:
   - RCTF framework
