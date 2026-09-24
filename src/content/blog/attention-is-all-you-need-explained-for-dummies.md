@@ -2,7 +2,7 @@
 title: "Attention Is All You Need Explained for Dummies: The 2017 Paper That Changed AI"
 desc: "What if one research paper from 2017 helped create the AI world we live in today? A plain-language walkthrough of self-attention, Transformers, and how they led to ChatGPT."
 metaTitle: "Attention Is All You Need Explained for Dummies: The 2017 Paper That Changed AI"
-metaDescription: "Attention Is All You Need explained simply. Learn how self-attention and Transformers solved key problems in AI and helped enable modern large language models."
+metaDescription: "Attention Is All You Need, explained simply: how self-attention and Transformers solved AI's biggest bottleneck and enabled modern LLMs."
 keywords:
   - Attention Is All You Need explained
   - Transformer explained
