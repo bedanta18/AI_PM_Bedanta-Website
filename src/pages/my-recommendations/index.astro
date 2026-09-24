@@ -260,6 +260,11 @@ const tools: Tool[] = [
   { cat: 'mkt', name: 'Google Ads', tag: 'Paid Search', icon: 'googleads', desc: "Search and display advertising across Google's network." },
   { cat: 'mkt', name: 'Meta Ads Manager', tag: 'Paid Social', icon: 'meta', desc: 'Campaign management across Facebook and Instagram.' },
 ];
+
+const catCounts: Record<string, number> = {};
+for (const tool of tools) {
+  catCounts[tool.cat] = (catCounts[tool.cat] ?? 0) + 1;
+}
 ---
 
 <!doctype html>
@@ -312,19 +317,19 @@ const tools: Tool[] = [
 
       <h2 class="filters-heading">Browse Tools & Books by Category</h2>
       <div class="filters" role="group" aria-label="Filter by category">
-        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-pill" type="button" data-filter="aipm-books" aria-pressed="false">AI PM Books</button>
-        <button class="filter-pill" type="button" data-filter="pm-books" aria-pressed="false">PM Books</button>
-        <button class="filter-pill" type="button" data-filter="aiml-books" aria-pressed="false">AI/ML Books</button>
-        <button class="filter-pill" type="button" data-filter="analytics-books" aria-pressed="false">Analytics Books</button>
-        <button class="filter-pill" type="button" data-filter="interview-books" aria-pressed="false">Interview Books</button>
-        <button class="filter-pill" type="button" data-filter="sql-python-books" aria-pressed="false">SQL/Python Books</button>
-        <button class="filter-pill" type="button" data-filter="ux-books" aria-pressed="false">UX Books</button>
-        <button class="filter-pill" type="button" data-filter="desk-setup" aria-pressed="false">Desk Setup</button>
-        <button class="filter-pill" type="button" data-filter="productivity" aria-pressed="false">Productivity</button>
-        <button class="filter-pill" type="button" data-filter="electronics" aria-pressed="false">Electronics</button>
-        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI Tools</button>
-        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing Tools</button>
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All ({tools.length})</button>
+        <button class="filter-pill" type="button" data-filter="aipm-books" aria-pressed="false">AI PM Books ({catCounts['aipm-books']})</button>
+        <button class="filter-pill" type="button" data-filter="pm-books" aria-pressed="false">PM Books ({catCounts['pm-books']})</button>
+        <button class="filter-pill" type="button" data-filter="aiml-books" aria-pressed="false">AI/ML Books ({catCounts['aiml-books']})</button>
+        <button class="filter-pill" type="button" data-filter="analytics-books" aria-pressed="false">Analytics Books ({catCounts['analytics-books']})</button>
+        <button class="filter-pill" type="button" data-filter="interview-books" aria-pressed="false">Interview Books ({catCounts['interview-books']})</button>
+        <button class="filter-pill" type="button" data-filter="sql-python-books" aria-pressed="false">SQL/Python Books ({catCounts['sql-python-books']})</button>
+        <button class="filter-pill" type="button" data-filter="ux-books" aria-pressed="false">UX Books ({catCounts['ux-books']})</button>
+        <button class="filter-pill" type="button" data-filter="desk-setup" aria-pressed="false">Desk Setup ({catCounts['desk-setup']})</button>
+        <button class="filter-pill" type="button" data-filter="productivity" aria-pressed="false">Productivity ({catCounts['productivity']})</button>
+        <button class="filter-pill" type="button" data-filter="electronics" aria-pressed="false">Electronics ({catCounts['electronics']})</button>
+        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI Tools ({catCounts['ai']})</button>
+        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing Tools ({catCounts['mkt']})</button>
       </div>
 
       <section class="product-grid" aria-label="Tools and books">

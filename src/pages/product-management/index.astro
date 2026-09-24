@@ -98,11 +98,11 @@ const formatDate = (date: Date) =>
       <section class="category-band" aria-labelledby="subcat-title">
         <h2 id="subcat-title">Browse by Topic</h2>
         <div class="category-list" role="group" aria-label="Filter by subtopic">
-          <button type="button" class="category-chip is-active" data-subcat="all" aria-pressed="true">All</button>
+          <button type="button" class="category-chip is-active" data-subcat="all" aria-pressed="true">All ({posts.length})</button>
           {
             groups.map((group) => (
               <button type="button" class="category-chip" data-subcat={group.name} aria-pressed="false">
-                {group.name}
+                {group.name} ({group.posts.length})
               </button>
             ))
           }

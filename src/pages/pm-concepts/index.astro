@@ -11,6 +11,10 @@ const posts = (await getCollection('pmConcepts'))
 
 const categories = [...new Set(posts.flatMap((post) => post.data.categories))].sort();
 
+const categoryCounts: Record<string, number> = Object.fromEntries(
+  categories.map((c) => [c, posts.filter((post) => post.data.categories.includes(c)).length])
+);
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
     month: 'short',
@@ -72,7 +76,7 @@ const formatDate = (date: Date) =>
       <section class="category-band" aria-labelledby="categories-title">
         <h2 id="categories-title">Categories</h2>
         <div class="category-list">
-          {categories.map((category) => <a href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>{category}</a>)}
+          {categories.map((category) => <a href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>{category} ({categoryCounts[category]})</a>)}
         </div>
       </section>
 

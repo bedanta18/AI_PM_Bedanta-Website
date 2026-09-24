@@ -276,11 +276,11 @@ const resources = [
 
       <h2 class="filters-heading">Browse Free PM Templates by Category</h2>
       <div class="filters" role="group" aria-label="Filter by category">
-        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All Resources</button>
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All Resources ({resources.length})</button>
         {
           Object.entries(catLabels).map(([key, label]) => (
             <button class="filter-pill" type="button" data-filter={key} aria-pressed="false">
-              {label}
+              {label} ({resources.filter((r) => r.cat === key).length})
             </button>
           ))
         }

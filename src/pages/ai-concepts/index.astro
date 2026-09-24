@@ -11,6 +11,10 @@ const posts = (await getCollection('aiConcepts'))
 
 const categories = [...new Set(posts.flatMap((post) => post.data.categories))].sort();
 
+const categoryCounts: Record<string, number> = Object.fromEntries(
+  categories.map((c) => [c, posts.filter((post) => post.data.categories.includes(c)).length])
+);
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
     month: 'short',
@@ -70,11 +74,11 @@ const formatDate = (date: Date) =>
       </header>
 
       <div class="category-list" role="group" aria-label="Filter posts by category">
-        <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All</button>
+        <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All ({posts.length})</button>
         {
           categories.map((category) => (
             <button type="button" class="category-chip" data-category={category} aria-pressed="false">
-              {category}
+              {category} ({categoryCounts[category]})
             </button>
           ))
         }
