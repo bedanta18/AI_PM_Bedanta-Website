@@ -1,8 +1,8 @@
 ---
 title: "Agentic AI Explained for AI Product Managers: Agents, Workflows, Tools and Planning"
 desc: "Learn what agentic AI is, how it differs from RAG and tool-augmented chatbots, and how AI agents use planning, reasoning, tools, knowledge, and memory to achieve complex goals."
-metaTitle: "Agentic AI Explained for AI Product Managers: Agents, Workflows, Tools and Planning"
-metaDescription: "Learn what agentic AI is, how it differs from RAG and tool-augmented chatbots, and how AI agents use planning, reasoning, tools, knowledge, and memory to achieve complex goals."
+metaTitle: "Agentic AI Explained for AI Product Managers"
+metaDescription: "Learn what agentic AI is, how it differs from RAG and tool-augmented chatbots, and how AI agents plan, use tools, and pursue goals."
 keywords:
   - agentic AI
   - AI agents

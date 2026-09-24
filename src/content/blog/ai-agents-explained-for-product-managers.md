@@ -1,8 +1,8 @@
 ---
 title: "AI Agents Explained for Product Managers: LLMs vs AI Workflows vs AI Agents"
 desc: "Learn the difference between LLMs, AI workflows, and AI agents with practical examples. A beginner-friendly guide for AI Product Managers covering RAG, ReAct, tools, reasoning, and autonomous iteration."
-metaTitle: "AI Agents Explained for Product Managers: LLMs vs AI Workflows vs AI Agents"
-metaDescription: "Learn the difference between LLMs, AI workflows, and AI agents with practical examples. A beginner-friendly guide for AI Product Managers covering RAG, ReAct, tools, reasoning, and autonomous iteration."
+metaTitle: "AI Agents Explained for Product Managers"
+metaDescription: "Learn the difference between LLMs, AI workflows, and AI agents for Product Managers, covering RAG, ReAct, tools, and reasoning."
 keywords:
   - AI agents
   - AI agents for product managers
