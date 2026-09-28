@@ -1,7 +1,7 @@
 ---
 title: "AI Training vs Inference: A Practical Guide for AI Product Managers"
 desc: "Understand the difference between AI training and inference, how models learn and serve predictions, the role of pre-training and post-training, and why compute costs matter for AI product managers."
-metaTitle: "AI Training vs Inference: A Guide for AI Product Managers"
+metaTitle: "AI Training vs Inference: What's the Difference?"
 metaDescription: "Learn the difference between AI training and inference, including pre-training, post-training, model serving, and inference costs for AI PMs."
 keywords:
   - AI training vs inference
