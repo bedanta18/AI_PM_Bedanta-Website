@@ -1,7 +1,7 @@
 ---
 title: "What Is an AI-Native Product? A Guide for AI Product Managers"
 desc: "Learn what an AI-native product means, how it differs from AI-enabled software, and how AI Product Managers can design products around tools, orchestration, context, and action."
-metaTitle: "What Is an AI-Native Product? A Guide for AI PMs"
+metaTitle: "What Is an AI-Native Product? A PM's Guide"
 metaDescription: "Learn what an AI-native product means, how it differs from AI-enabled software, and how AI PMs can design around tools and context."
 keywords:
   - AI-native product
