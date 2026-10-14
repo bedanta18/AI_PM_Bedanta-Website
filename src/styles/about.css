@@ -2,6 +2,18 @@
    Layered on top of blog.css (shared tokens, .blog-shell/.blog-hero) and
    work.css (.post-grid/.post-card/.work-* used by the Work section here). */
 
+.project-card {
+  max-width: 640px;
+}
+
+.project-card p {
+  margin: 0 0 18px;
+}
+
+.project-card .pills {
+  margin-bottom: 20px;
+}
+
 .contact-line {
   font-size: 0.95rem;
   font-weight: 600;

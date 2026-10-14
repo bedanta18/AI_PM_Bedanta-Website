@@ -1,0 +1,105 @@
+---
+import SiteNav from '../../../components/SiteNav.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import GoogleTag from '../../../components/GoogleTag.astro';
+import '../../../styles/blog.css';
+
+const title = 'Message-to-Task — AI-Powered Agency Action Hub';
+const description =
+  'An AI product that converts client emails into actionable, trackable tasks — built by Bedanta Gogoi.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aipmbedanta.com/projects/message-to-task/" />
+    <meta property="og:site_name" content="aipmbedanta" />
+    <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bedanta Gogoi — Product Manager" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/projects/message-to-task/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="about" />
+
+      <article class="article">
+        <a class="back-link" href="/about/">Back to About</a>
+        <header class="article-header">
+          <p class="eyebrow">Side Project</p>
+          <h1>Message-to-Task | AI-Powered Agency Action Hub</h1>
+          <p>An AI product that converts client emails into actionable, trackable tasks.</p>
+        </header>
+
+        <div class="article-body">
+          <h2>Project Overview</h2>
+          <p>
+            Message-to-Task is an AI-powered productivity tool designed to help marketing agency heads
+            manage client requirements received through email. Important deadlines, revisions,
+            follow-ups, and action items can easily get buried in email threads, leading to missed
+            tasks and delayed execution.
+          </p>
+          <p>
+            The tool uses AI to identify emails that require action, extract key requirements, and
+            generate structured task recommendations with details such as the task description,
+            client, deadline, priority, team, and suggested assignee.
+          </p>
+
+          <h2>How It Works</h2>
+          <ul>
+            <li><strong>AI Email Analysis:</strong> Classifies incoming emails into actionable, non-actionable, or uncertain categories.</li>
+            <li><strong>Requirement Extraction:</strong> Converts unstructured email content into structured task recommendations.</li>
+            <li><strong>Smart Assignment Suggestions:</strong> Recommends a team or assignee based on the available information.</li>
+            <li><strong>Human-in-the-Loop Review:</strong> Allows users to review, edit, approve, or reject AI-generated tasks before creation.</li>
+            <li><strong>Task Tracking:</strong> Helps users monitor task status, deadlines, and overdue items.</li>
+          </ul>
+
+          <h2>AI &amp; Product Management</h2>
+          <p>
+            The project combines LLM-based email analysis, structured information extraction, workflow
+            automation, and human oversight. It also incorporates evaluation metrics such as
+            classification precision and recall, extraction accuracy, and assignment quality to assess
+            the reliability of AI-generated recommendations.
+          </p>
+
+          <h2>Product Objective</h2>
+          <p>
+            Reduce manual task-capture effort, improve visibility into client requirements, and help
+            agency teams follow through on important actions without relying solely on memory or
+            manual email review.
+          </p>
+
+          <p>
+            <strong>My focus:</strong> AI product discovery, PRD development, workflow design, LLM
+            integration, human-in-the-loop controls, evaluation metrics, and MVP development.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
