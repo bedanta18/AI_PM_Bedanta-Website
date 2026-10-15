@@ -18,6 +18,8 @@ categories:
 subcategory:
   "Product Management": "Product Strategy"
 ---
+![Build, Buy, or Fine-Tune AI Models — a cost, speed, control, and risk framework for AI Product Managers](/blog-images/build-vs-buy-vs-fine-tune-hero.webp)
+
 Launching an AI feature often starts with a deceptively simple question:
 
 **Should we build the model, buy access to one, or fine-tune an existing model?**
