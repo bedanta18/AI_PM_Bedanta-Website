@@ -17,6 +17,7 @@ categories:
   - Product Management
 subcategory:
   "Product Management": "Product Strategy"
+---
 
 ![Build, Buy, or Fine-Tune AI Models — a cost, speed, control, and risk framework for AI Product Managers](/blog-images/build-vs-buy-vs-fine-tune-hero.webp)
 
