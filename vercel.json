@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/tools/agency-action-hub", "destination": "https://message-to-task.vercel.app/tools/agency-action-hub" },
+    { "source": "/tools/agency-action-hub/:path*", "destination": "https://message-to-task.vercel.app/tools/agency-action-hub/:path*" }
+  ]
+}
