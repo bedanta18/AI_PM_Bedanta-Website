@@ -51,6 +51,9 @@ const description =
         <header class="article-header">
           <h1>Message-to-Task | AI-Powered Agency Action Hub</h1>
           <p>An AI product that converts client emails into actionable, trackable tasks.</p>
+          <a class="tool-cta" href="/tools/agency-action-hub">
+            Try the live tool <span aria-hidden="true">→</span>
+          </a>
         </header>
 
         <div class="article-body">
@@ -101,10 +104,44 @@ const description =
             <strong>My focus:</strong> AI product discovery, PRD development, workflow design, LLM
             integration, human-in-the-loop controls, evaluation metrics, and MVP development.
           </p>
+
+          <h2>Try It Yourself</h2>
+          <p>
+            The Agency Action Hub is live. Open it to see how client emails are classified, turned
+            into task recommendations, and sent for review before any task is created.
+          </p>
+          <a class="tool-cta" href="/tools/agency-action-hub">
+            Open Agency Action Hub <span aria-hidden="true">→</span>
+          </a>
         </div>
       </article>
     </main>
 
     <SiteFooter />
   </body>
+
+  <style>
+    .tool-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 26px;
+      border-radius: 100px;
+      background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
+      box-shadow: 0 8px 28px rgba(79, 142, 255, 0.28);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .tool-cta:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(79, 142, 255, 0.4);
+    }
+  </style>
 </html>
