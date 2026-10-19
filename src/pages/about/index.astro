@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
+import { projects } from '../../data/projects';
 import '../../styles/blog.css';
 import '../../styles/work.css';
 import '../../styles/about.css';
@@ -70,28 +71,32 @@ const workItems = (await getCollection('work'))
       </header>
 
       <section id="projects" class="about-section" aria-label="AI Projects">
-        <h2>AI Projects</h2>
+        <h2>
+          <a class="section-heading-link" href="/projects/">AI Projects <span aria-hidden="true">→</span></a>
+        </h2>
         <p class="section-sub">
           Hands-on AI product work outside my day job — testing ideas by shipping them.
         </p>
 
-        <a class="explore-card project-card" href="/projects/message-to-task/">
-          <h3>Message-to-Task — AI-Powered Agency Action Hub</h3>
-          <p>
-            Built an AI-powered tool that transforms client emails into structured, trackable tasks.
-            Using LLM-based classification and information extraction, it identifies actionable
-            requirements, captures deadlines and priorities, and suggests team assignments. A
-            human-in-the-loop workflow ensures users review and approve tasks before creation.
-          </p>
-          <div class="pills">
-            <span class="pill">AI Product Management</span>
-            <span class="pill">LLMs</span>
-            <span class="pill">Prompt Engineering</span>
-            <span class="pill">Workflow Automation</span>
-            <span class="pill">Human-in-the-Loop AI</span>
-            <span class="pill">Product Metrics</span>
-          </div>
-          <span class="read-link">Read full project <span aria-hidden="true">→</span></span>
+        {
+          projects.map((project) => (
+            <a class="explore-card project-card" href={`/projects/${project.slug}/`}>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <div class="pills">
+                {project.tags.map((tag) => (
+                  <span class="pill">{tag}</span>
+                ))}
+              </div>
+              <span class="read-link">
+                Read full project <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          ))
+        }
+
+        <a class="read-link view-all-link" href="/projects/">
+          View all projects <span aria-hidden="true">→</span>
         </a>
       </section>
 

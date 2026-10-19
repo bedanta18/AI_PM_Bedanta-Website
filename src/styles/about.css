@@ -14,6 +14,59 @@
   margin-bottom: 20px;
 }
 
+/* /projects/ listing */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding-top: 42px;
+}
+
+.project-grid .project-card {
+  max-width: none;
+}
+
+.project-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Section heading that links to its full listing page */
+.section-heading-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-heading-link span {
+  color: var(--accent-2);
+  transition: margin-left 0.2s ease;
+}
+
+.section-heading-link:hover {
+  color: var(--accent-2);
+}
+
+.section-heading-link:hover span {
+  margin-left: 6px;
+}
+
+.view-all-link {
+  display: inline-flex;
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-line {
   font-size: 0.95rem;
   font-weight: 600;

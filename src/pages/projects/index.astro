@@ -1,0 +1,90 @@
+---
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import GoogleTag from '../../components/GoogleTag.astro';
+import { projects } from '../../data/projects';
+import '../../styles/blog.css';
+import '../../styles/about.css';
+
+const title = 'AI Projects by Bedanta Gogoi';
+const description =
+  'Hands-on AI product work by Bedanta Gogoi — LLM-powered tools built, shipped, and measured to test ideas in practice.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aipmbedanta.com/projects/" />
+    <meta property="og:site_name" content="aipmbedanta" />
+    <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AI Projects by Bedanta Gogoi" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/projects/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell">
+      <SiteNav current="about" />
+
+      <header class="blog-hero">
+        <p class="eyebrow">AI Projects</p>
+        <h1>Things I've Built with AI</h1>
+        <p>
+          Hands-on AI product work outside my day job — testing ideas by shipping them. Each project
+          covers the problem, the product decisions, and how I measured whether it worked.
+        </p>
+      </header>
+
+      <section class="project-grid" aria-label="AI Projects">
+        {
+          projects.map((project) => (
+            <a class="explore-card project-card" href={`/projects/${project.slug}/`}>
+              {project.image && (
+                <img
+                  class="project-thumb"
+                  src={project.image}
+                  alt={project.imageAlt ?? ''}
+                  loading="lazy"
+                />
+              )}
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <div class="pills">
+                {project.tags.map((tag) => (
+                  <span class="pill">{tag}</span>
+                ))}
+              </div>
+              <span class="read-link">
+                Read full project <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          ))
+        }
+      </section>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
