@@ -21,141 +21,240 @@ interface Props {
 const { current = 'home' } = Astro.props;
 const resourcesActive =
   current === 'resources' || current === 'ai-concepts' || current === 'pm-concepts' || current === 'my-recommendations';
+
+const primary = [
+  { href: '/product-management/', label: 'Product Management', key: 'product-management' },
+  { href: '/marketing/', label: 'Marketing', key: 'marketing' },
+  { href: '/growth/', label: 'Growth', key: 'growth' },
+  { href: '/ai/', label: 'AI', key: 'ai' },
+];
+
+const resources = [
+  { href: '/resources/', label: 'Free Resources', hint: 'Templates & toolkits', key: 'resources' },
+  { href: '/my-recommendations/', label: 'Recommendations', hint: 'Tools I use', key: 'my-recommendations' },
+  { href: '/ai-concepts/', label: 'AI Concepts', hint: 'Glossary for AI PMs', key: 'ai-concepts' },
+  { href: '/pm-concepts/', label: 'PM Concepts', hint: 'Frameworks explained', key: 'pm-concepts' },
+];
 ---
 
-<nav aria-label="Primary navigation">
-  <a class="nav-logo" href="/">aipmbedanta</a>
-  <ul class="nav-links">
-    <li><a href="/product-management/" aria-current={current === 'product-management' ? 'page' : undefined}>Product Management</a></li>
-    <li><a href="/marketing/" aria-current={current === 'marketing' ? 'page' : undefined}>Marketing</a></li>
-    <li><a href="/growth/" aria-current={current === 'growth' ? 'page' : undefined}>Growth</a></li>
-    <li><a href="/ai/" aria-current={current === 'ai' ? 'page' : undefined}>AI</a></li>
-    <li class="nav-dropdown">
-      <button
-        type="button"
-        class="nav-dropdown-trigger"
-        aria-haspopup="true"
-        aria-expanded="false"
-        aria-current={resourcesActive ? 'page' : undefined}
-      >
-        Resources
-        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<header class="site-nav">
+  <nav aria-label="Primary navigation">
+    <a class="nav-logo" href="/" aria-label="aipmbedanta home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">aipm<span>bedanta</span></span>
+    </a>
+
+    <ul class="nav-links">
+      {
+        primary.map((item) => (
+          <li>
+            <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="nav-dropdown">
+        <button
+          type="button"
+          class="nav-dropdown-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-current={resourcesActive ? 'page' : undefined}
+        >
+          Resources
+          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu">
+          {
+            resources.map((item) => (
+              <li>
+                <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>
+                  <span>{item.label}</span>
+                  <small>{item.hint}</small>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
+      <li>
+        <a href="/projects/">Projects</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button type="button" class="icon-btn theme-toggle" aria-label="Toggle colour theme" title="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
         </svg>
       </button>
-      <ul class="dropdown-menu">
-        <li><a href="/resources/" aria-current={current === 'resources' ? 'page' : undefined}>Resources</a></li>
-        <li><a href="/my-recommendations/" aria-current={current === 'my-recommendations' ? 'page' : undefined}>My Recommendations</a></li>
-        <li><a href="/ai-concepts/" aria-current={current === 'ai-concepts' ? 'page' : undefined}>AI Concepts</a></li>
-        <li><a href="/pm-concepts/" aria-current={current === 'pm-concepts' ? 'page' : undefined}>PM Concepts</a></li>
-      </ul>
-    </li>
-    <li><a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About Me</a></li>
-  </ul>
-</nav>
+      <a class="nav-cta" href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About me</a>
+      <button
+        type="button"
+        class="icon-btn menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="burger" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul>
+      {
+        primary.map((item) => (
+          <li>
+            <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>About me</a></li>
+    </ul>
+    <p class="mobile-label">Resources</p>
+    <ul class="mobile-sub">
+      {
+        resources.map((item) => (
+          <li>
+            <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
 
 <style>
-  nav {
+  .site-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 200;
+    border-bottom: 1px solid var(--border);
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+  }
+
+  nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 18px 6%;
-    background: rgba(250, 251, 255, 0.8);
-    border-bottom: 1px solid rgba(18, 26, 46, 0.08);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    transition: background 0.3s;
+    gap: 24px;
+    width: min(1180px, calc(100% - 40px));
+    height: 64px;
+    margin: 0 auto;
   }
 
+  /* ── Wordmark ── */
   .nav-logo {
-    font-family: "Syne", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 800;
-    letter-spacing: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+    color: var(--text);
     text-decoration: none;
-    background: linear-gradient(130deg, #2647c2 0%, #2f83d6 45%, #00a3c4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
+  .logo-mark {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background: var(--accent);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 5px 5px auto auto;
+    width: 5px;
+    height: 5px;
+    border-radius: 1.5px;
+    background: var(--accent-ink);
+  }
+
+  .logo-word {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-word span {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ── Desktop links ── */
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .nav-links > li > a {
-    background: linear-gradient(130deg, #2647c2 0%, #2f83d6 45%, #00a3c4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0.7;
-    font-size: 0.82rem;
-    font-weight: 400;
-    letter-spacing: 0.01em;
+  .nav-links > li > a,
+  .nav-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: opacity 0.2s;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
   }
 
   .nav-links > li > a:hover,
-  .nav-links > li > a[aria-current="page"] {
-    opacity: 1;
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown.is-open .nav-dropdown-trigger {
+    background: var(--surface-strong);
+    color: var(--text);
   }
 
-  .nav-links .cta-pill {
-    padding: 7px 20px;
-    border-radius: 100px;
-    background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
-    color: #fff;
-    font-size: 0.78rem;
-    font-weight: 600;
-    transition: opacity 0.2s, transform 0.2s;
+  .nav-links > li > a[aria-current='page'],
+  .nav-dropdown-trigger[aria-current='page'] {
+    color: var(--text);
   }
 
-  .nav-links .cta-pill:hover {
-    opacity: 0.85;
-    transform: scale(1.04);
+  .nav-links > li > a[aria-current='page']::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
   }
 
   .nav-dropdown {
     position: relative;
   }
 
-  .nav-dropdown-trigger {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: transparent;
-    background-image: linear-gradient(130deg, #2647c2 0%, #2f83d6 45%, #00a3c4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: none;
-    padding: 0;
-    font: inherit;
-    color: #2f83d6;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .nav-dropdown-trigger:hover,
-  .nav-dropdown-trigger[aria-current="page"],
-  .nav-dropdown.is-open .nav-dropdown-trigger {
-    opacity: 1;
-  }
-
-  .nav-dropdown-trigger .chevron {
-    transition: transform 0.2s;
+  .chevron {
+    transition: transform 0.2s ease;
   }
 
   .nav-dropdown.is-open .chevron {
@@ -164,20 +263,20 @@ const resourcesActive =
 
   .dropdown-menu {
     position: absolute;
-    top: calc(100% + 16px);
+    top: calc(100% + 12px);
     left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    min-width: 190px;
+    min-width: 240px;
     margin: 0;
-    padding: 8px;
+    padding: 6px;
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    background: var(--bg-elev);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
     list-style: none;
-    background: #fff;
-    border: 1px solid rgba(18, 26, 46, 0.08);
-    border-radius: 12px;
-    box-shadow: 0 16px 40px rgba(18, 26, 46, 0.14);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
   }
 
   .nav-dropdown.is-open .dropdown-menu {
@@ -187,36 +286,178 @@ const resourcesActive =
   }
 
   .dropdown-menu a {
-    display: block;
-    padding: 9px 12px;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    white-space: nowrap;
-    background-image: linear-gradient(130deg, #2647c2 0%, #2f83d6 45%, #00a3c4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0.7;
-    transition: opacity 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .dropdown-menu a small {
+    color: var(--quiet);
+    font-size: 0.76rem;
+    font-weight: 400;
   }
 
   .dropdown-menu a:hover,
-  .dropdown-menu a[aria-current="page"] {
-    opacity: 1;
-    /* box-shadow, not background — background is reserved for the text-clip
-       gradient above; a background here would get clipped to the text too
-       and (at low opacity) make the text nearly invisible on hover. */
-    box-shadow: inset 0 0 0 999px rgba(52, 87, 209, 0.08);
+  .dropdown-menu a[aria-current='page'] {
+    background: var(--surface-strong);
   }
 
-  @media (max-width: 900px) {
-    nav .nav-links li:not(:last-child) {
+  /* ── Actions ── */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .icon-btn:hover {
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+
+  :global([data-theme='light']) .icon-sun,
+  :global([data-theme='dark']) .icon-moon,
+  :global(:root:not([data-theme])) .icon-moon {
+    display: none;
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+    background: var(--text);
+    color: var(--bg);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.86;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .burger {
+    display: grid;
+    gap: 5px;
+    width: 16px;
+  }
+
+  .burger span {
+    display: block;
+    height: 1.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease;
+  }
+
+  .menu-toggle[aria-expanded='true'] .burger span:first-child {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded='true'] .burger span:last-child {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu ── */
+  .mobile-menu {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 8px 0 22px;
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .mobile-menu a[aria-current='page'] {
+    color: var(--accent-text);
+  }
+
+  .mobile-label {
+    margin: 20px 0 4px;
+    color: var(--quiet);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mobile-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+  }
+
+  .mobile-sub a {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 920px) {
+    .nav-links,
+    .nav-cta {
       display: none;
+    }
+
+    .menu-toggle {
+      display: inline-grid;
+    }
+  }
+
+  @media (max-width: 760px) {
+    nav,
+    .mobile-menu {
+      width: calc(100% - 32px);
     }
   }
 </style>
 
 <script>
+  // Resources dropdown
   document.querySelectorAll<HTMLLIElement>('.nav-dropdown').forEach((dropdown) => {
     const trigger = dropdown.querySelector<HTMLButtonElement>('.nav-dropdown-trigger');
     if (!trigger) return;
@@ -248,4 +489,36 @@ const resourcesActive =
       }
     });
   });
+
+  // Theme toggle — ThemeInit sets the initial value before paint.
+  document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+    });
+  });
+
+  // Mobile menu
+  const menuBtn = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', () => {
+      const open = menuBtn.getAttribute('aria-expanded') !== 'true';
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.hidden = !open;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hidden) {
+        menu.hidden = true;
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Open menu');
+        menuBtn.focus();
+      }
+    });
+  }
 </script>

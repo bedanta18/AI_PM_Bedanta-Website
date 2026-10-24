@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
+import ThemeInit from '../../components/ThemeInit.astro';
 import '../../styles/blog.css';
 import '../../styles/work.css';
 
@@ -23,6 +24,7 @@ const { Content } = await render(item);
 <html lang="en">
   <head>
     <GoogleTag />
+    <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{item.data.title}</title>
@@ -41,11 +43,6 @@ const { Content } = await render(item);
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={`https://www.aipmbedanta.com/work/${item.id}/`} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <main class="blog-shell article-shell">

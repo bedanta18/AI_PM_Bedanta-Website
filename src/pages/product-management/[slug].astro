@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
+import ThemeInit from '../../components/ThemeInit.astro';
 import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { SITE_URL, DEFAULT_ARTICLE_IMAGE } from '../../lib/seo';
@@ -70,6 +71,7 @@ const formatDate = (date: Date) =>
 <html lang="en">
   <head>
     <GoogleTag />
+    <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{seoTitle}</title>
@@ -110,11 +112,6 @@ const formatDate = (date: Date) =>
       keywords={post.data.keywords}
     />
     <BreadcrumbSchema items={breadcrumbItems} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <main class="blog-shell article-shell">

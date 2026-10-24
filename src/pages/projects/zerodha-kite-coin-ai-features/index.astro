@@ -2,6 +2,7 @@
 import SiteNav from '../../../components/SiteNav.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import GoogleTag from '../../../components/GoogleTag.astro';
+import ThemeInit from '../../../components/ThemeInit.astro';
 import '../../../styles/blog.css';
 
 const title = 'Zerodha Kite & Coin AI Features: AI PM Case Study';
@@ -225,6 +226,7 @@ const tests = [
 <html lang="en">
   <head>
     <GoogleTag />
+    <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -248,11 +250,6 @@ const tests = [
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href="https://www.aipmbedanta.com/projects/zerodha-kite-coin-ai-features/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <main class="blog-shell article-shell cs-shell">
@@ -731,7 +728,7 @@ const tests = [
       padding: 7px 14px;
       border: 1px solid var(--border);
       border-radius: 100px;
-      background: #fff;
+      background: var(--bg-elev);
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 600;
@@ -1103,7 +1100,7 @@ const tests = [
       display: block;
       height: 100%;
       border-radius: 100px;
-      background: rgba(18, 26, 46, 0.25);
+      background: var(--quiet);
     }
 
     .cs-rice tr.top .cs-bar span {
@@ -1156,7 +1153,7 @@ const tests = [
       padding: 3px 10px;
       border: 1px solid var(--border);
       border-radius: 100px;
-      background: #fff;
+      background: var(--bg-elev);
       color: var(--muted);
       font-size: 0.76rem;
       font-weight: 500;

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import GoogleTag from '../../components/GoogleTag.astro';
+import ThemeInit from '../../components/ThemeInit.astro';
 import '../../styles/blog.css';
 
 const posts = (await getCollection('blog'))
@@ -40,6 +41,7 @@ const formatDate = (date: Date) =>
 <html lang="en">
   <head>
     <GoogleTag />
+    <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Management & Growth Blog</title>
@@ -68,11 +70,6 @@ const formatDate = (date: Date) =>
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href="https://www.aipmbedanta.com/blog/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <main class="blog-shell">

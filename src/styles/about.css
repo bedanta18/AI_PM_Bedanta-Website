@@ -289,7 +289,7 @@
 .pill:hover {
   background: rgba(79, 142, 255, 0.1);
   border-color: rgba(79, 142, 255, 0.32);
-  color: #2647c2;
+  color: var(--accent-text);
 }
 
 @media (max-width: 760px) {
