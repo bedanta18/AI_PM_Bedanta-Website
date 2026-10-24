@@ -8,101 +8,215 @@ const title = 'Zerodha Kite & Coin AI Features: AI PM Case Study';
 const description =
   'AI features for Zerodha Kite & Coin: a design-thinking case study with personas, RICE prioritization, feature specs, and success criteria.';
 
+const pdfUrl = '/case-studies/zerodha-kite-coin-ai-features-case-study.pdf';
+const pdfName = 'Zerodha-Kite-Coin-AI-Features-Case-Study-Bedanta-Gogoi.pdf';
+const blogUrl = '/blog/ai-features-zerodha-kite-coin-smarter-investing/';
+
+const stats = [
+  { value: '2', label: 'User personas' },
+  { value: '5', label: 'Core problems' },
+  { value: '13', label: 'AI ideas scored' },
+  { value: '5', label: 'Features specced' },
+];
+
+const steps = [
+  { id: 'context', label: 'Context' },
+  { id: 'empathize', label: 'Empathize' },
+  { id: 'define', label: 'Define' },
+  { id: 'ideate', label: 'Ideate' },
+  { id: 'features', label: 'Specify' },
+  { id: 'test', label: 'Test' },
+];
+
+const productLine = [
+  { name: 'Kite', role: 'Active trading & delivery stock buying', focus: true },
+  { name: 'Coin', role: 'Mutual fund investing', focus: true },
+  { name: 'Console', role: 'Portfolio, reporting & analytics' },
+  { name: 'Kite Connect', role: 'APIs & developer ecosystem' },
+  { name: 'Varsity', role: 'Investor education' },
+  { name: 'Zerodha Capital', role: 'Lending & credit' },
+  { name: 'Zerodha Fund House', role: 'Asset management' },
+];
+
+const revenue = [
+  {
+    q: 'Who pays?',
+    a: 'Zerodha’s customers — primarily active traders, investors using demat services, MTF users, API users, and customers using paid or value-added services.',
+  },
+  {
+    q: 'What’s paid?',
+    a: 'Brokerage, DP charges, MTF interest, AMC, API subscriptions, and fees for certain value-added services.',
+  },
+  {
+    q: 'For what?',
+    a: 'Executing trades, maintaining demat accounts, borrowing funds through MTF, accessing paid APIs and data, and using premium services.',
+  },
+  {
+    q: 'How?',
+    a: 'Per-order transaction charges, recurring account and service fees, interest on funded MTF amounts, and subscription fees.',
+  },
+];
+
+const pricing = [
+  { value: '₹0', label: 'Equity delivery' },
+  { value: '₹20', label: 'or 0.03% per order — intraday & futures' },
+  { value: '₹20', label: 'per executed order — options' },
+  { value: '0.04%', label: 'per day on MTF-funded amount' },
+  { value: '₹500', label: 'per month per Kite Connect API key' },
+];
+
+const personas = [
+  {
+    initial: 'M',
+    name: 'Manish',
+    role: 'Product Manager',
+    meta: '32 · Married, 1 child · ₹35 LPA',
+    frustration:
+      'Has invested in mutual funds since his first job eight years ago. With a stagnant market and negative returns, he is unsure about continuing — and is considering swing trading.',
+    behaviour: 'Checks his portfolio size and volatility every week.',
+    goal: '₹2 crore for an apartment, his child’s education, and a car.',
+  },
+  {
+    initial: 'R',
+    name: 'Rohan',
+    role: 'Trader',
+    meta: '40 · Married, 2 children · ₹20 LPA',
+    frustration:
+      'Constant regulatory change — he recently lost ₹2 lakh after a new SEBI market-closing-price rule.',
+    behaviour: 'A seasoned trader of 10 years who studies the market on weekends and in his spare time.',
+    goal: 'Turn his proprietorship trading firm into a private limited company with a friend, offering broking, asset management, research and stock recommendations.',
+  },
+];
+
+const problems = [
+  {
+    title: 'Portfolio understanding',
+    body: 'Investors can see holdings and returns but struggle with the bigger picture: diversification, concentration, sector exposure and overlapping mutual-fund holdings.',
+    persona: 'Manish',
+    evidence: 'Holds three flexi-cap funds, each with 7%+ allocated to HDFC Bank.',
+  },
+  {
+    title: 'Trading behaviour',
+    body: 'Active traders may not recognise when their trading becomes excessive or unusually risky, especially after losses — a real concern given the risks of retail F&O trading.',
+    persona: 'Manish',
+    evidence: 'Is considering swing trading after weak mutual-fund returns.',
+  },
+  {
+    title: 'Investment research',
+    body: 'Turning filings, results, annual reports and announcements into useful insight takes time and expertise.',
+    persona: 'Rohan',
+    evidence: 'His career is built on trading, not fundamental research.',
+  },
+  {
+    title: 'Customer support',
+    body: 'Customers frequently need help with account, order, margin, charge and transaction issues, creating support workload and delays.',
+    persona: 'Rohan',
+    evidence: 'Paid ₹5 lakh after an income-tax notice for an incorrectly filed ITR, following informal advice from a relative.',
+  },
+  {
+    title: 'Long-term investment planning',
+    body: 'Coin investors can run SIPs across multiple funds but lack personalised visibility into whether their behaviour matches their goals.',
+    persona: 'Rohan',
+    evidence: 'Sees trading as his income source and has no long-term investments.',
+  },
+];
+
 // RICE = Reach (lakh users) × Impact × Confidence ÷ Effort, sorted by score.
 const rice = [
-  { name: 'Portfolio Health & Risk Analyzer', reach: '20L', impact: 3, confidence: '90%', effort: 8, score: '6.75' },
-  { name: 'Fundamental Research Copilot', reach: '15L', impact: 3, confidence: '85%', effort: 8, score: '4.78' },
-  { name: 'Financial Concept Explainer', reach: '20L', impact: 1, confidence: '95%', effort: 4, score: '4.75' },
-  { name: 'Portfolio Overlap Detector', reach: '12L', impact: 3, confidence: '90%', effort: 7, score: '4.63' },
-  { name: 'Earnings & Filing Summarizer', reach: '12L', impact: 2, confidence: '90%', effort: 5, score: '4.32' },
-  { name: 'Financial & Tax Education Assistant', reach: '25L', impact: 2, confidence: '90%', effort: 12, score: '3.75' },
-  { name: '“Teach Me This Stock”', reach: '10L', impact: 2, confidence: '90%', effort: 5, score: '3.60' },
-  { name: 'P&L / Tax Report Interpreter', reach: '12L', impact: 2, confidence: '90%', effort: 6, score: '3.60' },
-  { name: 'Portfolio Explainability Copilot', reach: '15L', impact: 3, confidence: '80%', effort: 10, score: '3.60' },
-  { name: 'Company Comparison', reach: '8L', impact: 2, confidence: '85%', effort: 5, score: '2.72' },
-  { name: 'Trading Behaviour Coach', reach: '8L', impact: 3, confidence: '80%', effort: 8, score: '2.40' },
-  { name: 'Wealth & Goal Coach', reach: '10L', impact: 3, confidence: '70%', effort: 10, score: '2.10' },
-  { name: 'Trading vs Investing Coach', reach: '8L', impact: 2, confidence: '75%', effort: 6, score: '2.00' },
+  { name: 'Portfolio Health & Risk Analyzer', reach: '20L', impact: 3, confidence: '90%', effort: 8, score: 6.75 },
+  { name: 'Fundamental Research Copilot', reach: '15L', impact: 3, confidence: '85%', effort: 8, score: 4.78 },
+  { name: 'Financial Concept Explainer', reach: '20L', impact: 1, confidence: '95%', effort: 4, score: 4.75 },
+  { name: 'Portfolio Overlap Detector', reach: '12L', impact: 3, confidence: '90%', effort: 7, score: 4.63 },
+  { name: 'Earnings & Filing Summarizer', reach: '12L', impact: 2, confidence: '90%', effort: 5, score: 4.32 },
+  { name: 'Financial & Tax Education Assistant', reach: '25L', impact: 2, confidence: '90%', effort: 12, score: 3.75 },
+  { name: '“Teach Me This Stock”', reach: '10L', impact: 2, confidence: '90%', effort: 5, score: 3.6 },
+  { name: 'P&L / Tax Report Interpreter', reach: '12L', impact: 2, confidence: '90%', effort: 6, score: 3.6 },
+  { name: 'Portfolio Explainability Copilot', reach: '15L', impact: 3, confidence: '80%', effort: 10, score: 3.6 },
+  { name: 'Company Comparison', reach: '8L', impact: 2, confidence: '85%', effort: 5, score: 2.72 },
+  { name: 'Trading Behaviour Coach', reach: '8L', impact: 3, confidence: '80%', effort: 8, score: 2.4 },
+  { name: 'Wealth & Goal Coach', reach: '10L', impact: 3, confidence: '70%', effort: 10, score: 2.1 },
+  { name: 'Trading vs Investing Coach', reach: '8L', impact: 2, confidence: '75%', effort: 6, score: 2.0 },
 ];
+const maxScore = rice[0].score;
 
 const features = [
   {
     name: 'Portfolio Health & Risk Analyzer',
     problem: 'Investors can see their returns but may not understand how diversified or risky their overall portfolio is.',
-    ai: 'Rule-based + statistical ML + generative AI',
+    ai: ['Rule-based', 'Statistical ML', 'Generative AI'],
     data: 'Kite holdings, Coin MF holdings, transactions, portfolio history, stock/fund holdings, sector and market data',
     improves: 'Helps users understand the overall health and risk of their portfolio',
     money: 'Paid or freemium feature — one free check per quarter',
-    metrics: 'Portfolio review frequency, customer LTV',
+    metrics: ['Portfolio review frequency', 'Customer LTV'],
   },
   {
     name: 'Fundamental Research Copilot',
     problem: 'Rohan knows how to trade but struggles to analyse companies from a fundamental and financial perspective.',
-    ai: 'RAG + generative AI + text analysis',
+    ai: ['RAG', 'Generative AI', 'Text analysis'],
     data: 'Annual reports, financial statements, earnings calls, exchange filings, investor presentations, corporate announcements, financial ratios',
     improves: 'Makes fundamental research faster and easier; improves investment understanding',
     money: 'Paid insights tier based on research usage',
-    metrics: 'Research adoption, research time, sessions per user',
+    metrics: ['Research adoption', 'Research time', 'Sessions per user'],
   },
   {
     name: 'Financial Concept Explainer',
     problem: 'Users may know how to trade but struggle to understand complex financial and tax concepts.',
-    ai: 'RAG + generative AI',
+    ai: ['RAG', 'Generative AI'],
     data: 'Zerodha help articles, Varsity content, official SEBI/NSE/BSE information, tax rules and regulatory documentation',
     improves: 'Improves financial literacy and reduces dependence on informal or inaccurate advice',
     money: 'Reduces support cost while improving customer trust, engagement and retention',
-    metrics: 'Support tickets, support cost per customer, self-service resolution rate',
+    metrics: ['Support tickets', 'Support cost per customer', 'Self-service resolution'],
   },
   {
     name: 'Portfolio Overlap Detector',
     problem: 'Manish owns three flexi-cap funds but doesn’t realise they overlap significantly, including 7%+ exposure to HDFC Bank in each.',
-    ai: 'Rule-based + statistical analysis',
+    ai: ['Rule-based', 'Statistical analysis'],
     data: 'Mutual-fund portfolio holdings, Kite holdings, stock weights, sector classifications, historical holdings',
     improves: 'Surfaces hidden stock and fund overlap for a more accurate picture of diversification',
     money: 'Bundled with a premium plan',
-    metrics: 'Overlap detection, portfolio review frequency, feature usage',
+    metrics: ['Overlap detection', 'Portfolio review frequency', 'Feature usage'],
   },
   {
     name: 'Earnings & Filing Summarizer',
     problem: 'Investors struggle to understand what has changed in earnings reports and regulatory filings, and why it matters.',
-    ai: 'Text analysis + generative AI',
+    ai: ['Text analysis', 'Generative AI'],
     data: 'Quarterly results, annual reports, exchange filings, earnings-call transcripts, investor presentations, corporate announcements',
     improves: 'Reduces information overload and the time needed to understand company updates',
     money: 'Freemium feature',
-    metrics: 'Time-to-insight, feature adoption, engagement, retention',
+    metrics: ['Time-to-insight', 'Feature adoption', 'Engagement', 'Retention'],
   },
 ];
 
 const tests = [
   {
     name: 'Portfolio Health & Risk Analyzer',
-    what: 'Users can understand the overall health, concentration and risk of their portfolio',
-    metrics: 'Portfolio understanding, task completion rate, time-to-insight, usefulness score',
-    criteria: '≥80% correctly identify their biggest portfolio risk; ≥20% reduction in time-to-insight; ≥4/5 usefulness score',
+    what: 'Users can understand the overall health, concentration and risk of their portfolio.',
+    metrics: ['Portfolio understanding', 'Task completion rate', 'Time-to-insight', 'Usefulness score'],
+    criteria: ['≥80% correctly identify their biggest portfolio risk', '≥20% reduction in time-to-insight', '≥4/5 usefulness score'],
   },
   {
     name: 'Fundamental Research Copilot',
-    what: 'Users understand a company’s fundamentals faster, without manually analysing multiple documents',
-    metrics: 'Research completion time, research accuracy',
-    criteria: '≥30% reduction in research time; ≥90% factual accuracy; ≥95% of material claims supported by source documents',
+    what: 'Users understand a company’s fundamentals faster, without manually analysing multiple documents.',
+    metrics: ['Research completion time', 'Research accuracy'],
+    criteria: ['≥30% reduction in research time', '≥90% factual accuracy', '≥95% of material claims supported by source documents'],
   },
   {
     name: 'Earnings & Filing Summarizer',
-    what: 'Users can identify what matters most in lengthy earnings reports and filings',
-    metrics: 'Time-to-insight, summary accuracy, feature adoption',
-    criteria: '≥90% accuracy in identifying material information',
+    what: 'Users can identify what matters most in lengthy earnings reports and filings.',
+    metrics: ['Time-to-insight', 'Summary accuracy', 'Feature adoption'],
+    criteria: ['≥90% accuracy in identifying material information'],
   },
   {
     name: 'Portfolio Overlap Detector',
-    what: 'Users realise that owning multiple funds does not necessarily mean they are diversified',
-    metrics: 'Overlap comprehension, overlap detection accuracy, task completion rate, user trust',
-    criteria: '≥80% correctly identify significant overlap; ≥80% correctly understand their effective exposure; ≥4/5 trust score',
+    what: 'Users realise that owning multiple funds does not necessarily mean they are diversified.',
+    metrics: ['Overlap comprehension', 'Detection accuracy', 'Task completion rate', 'User trust'],
+    criteria: ['≥80% correctly identify significant overlap', '≥80% correctly understand their effective exposure', '≥4/5 trust score'],
   },
   {
     name: 'Financial Concept Explainer',
-    what: 'Users understand complex financial and tax concepts more easily than through traditional help content',
-    metrics: 'Comprehension score, time-to-understanding, follow-up questions, self-service resolution rate',
-    criteria: '≥80% correctly explain the concept after using it; ≥30% reduction in time-to-understanding; ≥20% reduction in related support queries',
+    what: 'Users understand complex financial and tax concepts more easily than through traditional help content.',
+    metrics: ['Comprehension score', 'Time-to-understanding', 'Follow-up questions', 'Self-service resolution rate'],
+    criteria: ['≥80% correctly explain the concept after using it', '≥30% reduction in time-to-understanding', '≥20% reduction in related support queries'],
   },
 ];
 ---
@@ -141,232 +255,321 @@ const tests = [
     />
   </head>
   <body>
-    <main class="blog-shell article-shell">
+    <main class="blog-shell article-shell cs-shell">
       <SiteNav current="about" />
 
       <article class="article">
-        <a class="back-link" href="/projects/">Back to Projects</a>
-        <header class="article-header">
-          <h1>AI Features for Zerodha Kite &amp; Coin | Design Thinking Case Study</h1>
+        <a class="back-link" href="/projects/">← Back to Projects</a>
+
+        <header class="article-header cs-hero">
+          <p class="cs-eyebrow">Case Study · Fintech · Design Thinking</p>
+          <h1>AI Features for Zerodha Kite &amp; Coin</h1>
           <p>
             Where AI can help traders and long-term investors — taken from user personas to
             prioritized, testable feature specs.
           </p>
-          <a
-            class="case-study-cta"
-            href="/case-studies/zerodha-kite-coin-ai-features-case-study.pdf"
-            download="Zerodha-Kite-Coin-AI-Features-Case-Study-Bedanta-Gogoi.pdf"
-          >
-            Download Case Study <span aria-hidden="true">↓</span>
-          </a>
-          <span class="case-study-meta">PDF · 6 pages · 342 KB</span>
+
+          <div class="cs-actions">
+            <a class="cs-btn cs-btn--primary" href={pdfUrl} download={pdfName}>
+              Download Case Study <span aria-hidden="true">↓</span>
+            </a>
+            <a class="cs-btn cs-btn--ghost" href={blogUrl}>
+              Read the full write-up <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <p class="cs-file-meta">PDF · 6 pages · 342 KB · includes prototype screens</p>
+
+          <dl class="cs-stats">
+            {
+              stats.map((s) => (
+                <div>
+                  <dt>{s.label}</dt>
+                  <dd>{s.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
         </header>
 
-        <div class="article-body">
-          <h2>Picking the Product</h2>
-          <p>I chose <strong>Zerodha</strong> and mapped its product line:</p>
-          <ul>
-            <li><strong>Kite:</strong> active trading and delivery (cash-and-carry) stock buying</li>
-            <li><strong>Coin:</strong> mutual fund investing</li>
-            <li><strong>Console:</strong> portfolio, reporting and analytics</li>
-            <li><strong>Kite Connect:</strong> APIs and the developer ecosystem</li>
-            <li><strong>Varsity:</strong> investor education</li>
-            <li><strong>Zerodha Capital:</strong> lending and credit</li>
-            <li><strong>Zerodha Fund House:</strong> asset management</li>
-          </ul>
-          <p>The case study focuses on <strong>Kite</strong> and <strong>Coin</strong>, which serve two distinct user groups:</p>
-          <div class="two-col">
-            <div class="col-card">
-              <h3>Kite users</h3>
-              <ul>
-                <li>Active traders</li>
-                <li>Intraday and F&amp;O traders</li>
-                <li>Investors who trade occasionally</li>
-              </ul>
-            </div>
-            <div class="col-card">
-              <h3>Coin users</h3>
-              <ul>
-                <li>Long-term mutual-fund investors</li>
-                <li>SIP investors</li>
-                <li>Investors building wealth over many years</li>
-              </ul>
-            </div>
-          </div>
-
-          <h2>Understanding the Revenue Model</h2>
-          <div class="table-wrap">
-            <table>
-              <tbody>
-                <tr>
-                  <th scope="row">Who pays?</th>
-                  <td>Zerodha’s customers — primarily active traders, investors using demat services, MTF users, API users, and customers using paid or value-added services.</td>
-                </tr>
-                <tr>
-                  <th scope="row">What’s paid?</th>
-                  <td>Brokerage, DP charges, MTF interest, AMC, API subscriptions, and fees for certain value-added services.</td>
-                </tr>
-                <tr>
-                  <th scope="row">For what?</th>
-                  <td>Executing trades, maintaining demat accounts, borrowing funds through MTF, accessing paid APIs and data, and using premium services.</td>
-                </tr>
-                <tr>
-                  <th scope="row">How?</th>
-                  <td>Per-order transaction charges, recurring account and service fees, interest on funded MTF amounts, and subscription fees.</td>
-                </tr>
-                <tr>
-                  <th scope="row">How much?</th>
-                  <td>For retail customers at the time of the analysis: ₹0 for equity delivery; 0.03% or ₹20 per executed order (whichever is lower) for intraday and futures; ₹20 per executed order for options; 0.04% per day on the MTF-funded amount; and ₹500/month per Kite Connect API key.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2>Empathize: User Personas</h2>
-          <div class="two-col">
-            <div class="col-card">
-              <h3>Manish · Product Manager</h3>
-              <p class="persona-meta">32 · Married, 1 child · ₹35 LPA</p>
-              <p><strong>Fear / frustration:</strong> Has invested in mutual funds since his first job eight years ago. With a stagnant market and negative returns, he is unsure about continuing — and is considering swing trading.</p>
-              <p><strong>Behaviour:</strong> Checks his portfolio size and volatility every week.</p>
-              <p><strong>Goal:</strong> ₹2 crore for an apartment, his child’s education, and a car.</p>
-            </div>
-            <div class="col-card">
-              <h3>Rohan · Trader</h3>
-              <p class="persona-meta">40 · Married, 2 children · ₹20 LPA</p>
-              <p><strong>Fear / frustration:</strong> Constant regulatory change — he recently lost ₹2 lakh after a new SEBI market-closing-price rule.</p>
-              <p><strong>Behaviour:</strong> A seasoned trader of 10 years who studies the market on weekends and in his spare time.</p>
-              <p><strong>Goal:</strong> Turn his proprietorship trading firm into a private limited company with a friend, offering broking, asset management, research and stock recommendations.</p>
-            </div>
-          </div>
-
-          <h2>Define: Five Core Problems</h2>
-          <ol class="spaced">
-            <li>
-              <strong>Portfolio understanding.</strong> Investors can see holdings and returns but
-              struggle with the bigger picture: diversification, concentration, sector exposure and
-              overlapping mutual-fund holdings. <em>Manish holds three flexi-cap funds, each with 7%+
-              allocated to HDFC Bank.</em>
-            </li>
-            <li>
-              <strong>Trading behaviour.</strong> Active traders may not recognise when their trading
-              becomes excessive or unusually risky, especially after losses — a real concern given the
-              risks of retail F&amp;O trading. <em>Manish is considering swing trading.</em>
-            </li>
-            <li>
-              <strong>Investment research.</strong> Turning filings, results, annual reports and
-              announcements into useful insight takes time and expertise. <em>Rohan’s career is built
-              on trading, not fundamental research.</em>
-            </li>
-            <li>
-              <strong>Customer support.</strong> Customers frequently need help with account, order,
-              margin, charge and transaction issues, creating support workload and delays. <em>Rohan
-              paid ₹5 lakh after an income-tax notice for an incorrectly filed ITR, following informal
-              advice from a relative.</em>
-            </li>
-            <li>
-              <strong>Long-term investment planning.</strong> Coin investors can run SIPs across
-              multiple funds but lack personalised visibility into whether their behaviour matches
-              their goals. <em>Rohan sees trading as his income source and has no long-term
-              investments.</em>
-            </li>
+        <nav class="cs-steps" aria-label="Case study sections">
+          <ol>
+            {
+              steps.map((s, i) => (
+                <li>
+                  <a href={`#${s.id}`}>
+                    <span class="cs-step-num">{String(i + 1).padStart(2, '0')}</span>
+                    {s.label}
+                  </a>
+                </li>
+              ))
+            }
           </ol>
+        </nav>
 
-          <h2>Ideate: Solutions and RICE Prioritization</h2>
-          <p>
-            I generated 13 AI feature ideas and scored each with RICE — Reach (lakh users) × Impact ×
-            Confidence ÷ Effort.
-          </p>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Solution</th>
-                  <th>Reach</th>
-                  <th>Impact</th>
-                  <th>Confidence</th>
-                  <th>Effort</th>
-                  <th>RICE</th>
-                </tr>
-              </thead>
-              <tbody>
+        <div class="article-body cs-body">
+          <!-- 01 · CONTEXT -->
+          <section id="context" class="cs-section">
+            <p class="cs-kicker">01 · Context</p>
+            <h2>Picking the Product</h2>
+            <p class="cs-lead">
+              I mapped Zerodha’s product line and focused on <strong>Kite</strong> and
+              <strong>Coin</strong>, which serve two very different users: active traders and
+              long-term investors.
+            </p>
+
+            <ul class="cs-products">
+              {
+                productLine.map((p) => (
+                  <li class:list={{ focus: p.focus }}>
+                    <span class="cs-product-name">
+                      {p.name}
+                      {p.focus && <span class="cs-badge">Focus</span>}
+                    </span>
+                    <span class="cs-product-role">{p.role}</span>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <div class="cs-grid-2">
+              <div class="cs-card">
+                <h3>Kite users</h3>
+                <ul class="cs-ticks">
+                  <li>Active traders</li>
+                  <li>Intraday and F&amp;O traders</li>
+                  <li>Investors who trade occasionally</li>
+                </ul>
+              </div>
+              <div class="cs-card">
+                <h3>Coin users</h3>
+                <ul class="cs-ticks">
+                  <li>Long-term mutual-fund investors</li>
+                  <li>SIP investors</li>
+                  <li>Investors building wealth over many years</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 class="cs-subhead">Understanding the revenue model</h3>
+            <div class="cs-grid-2">
+              {
+                revenue.map((r) => (
+                  <div class="cs-card cs-qa">
+                    <h4>{r.q}</h4>
+                    <p>{r.a}</p>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="cs-card cs-pricing">
+              <h4>How much? <span>Retail pricing at the time of the analysis</span></h4>
+              <ul>
                 {
-                  rice.map((row, i) => (
-                    <tr class:list={{ top: i < 5 }}>
-                      <td>{i + 1}</td>
-                      <td>{row.name}</td>
-                      <td>{row.reach}</td>
-                      <td>{row.impact}</td>
-                      <td>{row.confidence}</td>
-                      <td>{row.effort}</td>
-                      <td><strong>{row.score}</strong></td>
-                    </tr>
+                  pricing.map((p) => (
+                    <li>
+                      <strong>{p.value}</strong>
+                      <span>{p.label}</span>
+                    </li>
                   ))
                 }
-              </tbody>
-            </table>
-          </div>
-          <p>The five highest-scoring ideas (highlighted) moved forward to specification.</p>
+              </ul>
+            </div>
+          </section>
 
-          <h2>The Top 5 AI Features</h2>
-          {
-            features.map((f, i) => (
-              <section class="feature-card">
-                <h3>{i + 1}. {f.name}</h3>
-                <dl>
-                  <dt>Problem it solves</dt>
-                  <dd>{f.problem}</dd>
-                  <dt>Type of AI</dt>
-                  <dd>{f.ai}</dd>
-                  <dt>Data needed</dt>
-                  <dd>{f.data}</dd>
-                  <dt>What it improves</dt>
-                  <dd>{f.improves}</dd>
-                  <dt>How Zerodha benefits</dt>
-                  <dd>{f.money}</dd>
-                  <dt>Metrics it will impact</dt>
-                  <dd>{f.metrics}</dd>
-                </dl>
-              </section>
-            ))
-          }
+          <!-- 02 · EMPATHIZE -->
+          <section id="empathize" class="cs-section">
+            <p class="cs-kicker">02 · Empathize</p>
+            <h2>User Personas</h2>
+            <div class="cs-grid-2">
+              {
+                personas.map((p) => (
+                  <div class="cs-card cs-persona">
+                    <div class="cs-persona-head">
+                      <span class="cs-avatar" aria-hidden="true">{p.initial}</span>
+                      <div>
+                        <h3>
+                          {p.name} <span>· {p.role}</span>
+                        </h3>
+                        <p class="cs-persona-meta">{p.meta}</p>
+                      </div>
+                    </div>
+                    <dl>
+                      <dt>Fear / frustration</dt>
+                      <dd>{p.frustration}</dd>
+                      <dt>Behaviour</dt>
+                      <dd>{p.behaviour}</dd>
+                      <dt>Goal</dt>
+                      <dd>{p.goal}</dd>
+                    </dl>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
 
-          <h2>Test: Validating Usefulness</h2>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>AI feature</th>
-                  <th>What to test</th>
-                  <th>Success metrics</th>
-                  <th>Proposed success criteria</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  tests.map((t) => (
-                    <tr>
-                      <td><strong>{t.name}</strong></td>
-                      <td>{t.what}</td>
-                      <td>{t.metrics}</td>
-                      <td>{t.criteria}</td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
-          </div>
+          <!-- 03 · DEFINE -->
+          <section id="define" class="cs-section">
+            <p class="cs-kicker">03 · Define</p>
+            <h2>Five Core Problems</h2>
+            <div class="cs-problems">
+              {
+                problems.map((p, i) => (
+                  <div class="cs-card cs-problem">
+                    <span class="cs-problem-num">{i + 1}</span>
+                    <h3>{p.title}</h3>
+                    <p>{p.body}</p>
+                    <p class="cs-evidence">
+                      <span class="cs-tag">{p.persona}</span>
+                      {p.evidence}
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
 
-          <p>
-            <strong>My focus:</strong> product and revenue-model analysis, user personas, problem
-            definition, AI opportunity ideation, RICE prioritization, AI feature specification,
-            prototyping, and success-criteria design.
-          </p>
-          <p>
-            For a deeper write-up — including AI architecture, product risks, and a rollout plan — read
-            <a href="/blog/ai-features-zerodha-kite-coin-smarter-investing/">How AI Can Transform Zerodha’s Kite &amp; Coin</a>.
-          </p>
+          <!-- 04 · IDEATE -->
+          <section id="ideate" class="cs-section">
+            <p class="cs-kicker">04 · Ideate</p>
+            <h2>Solutions and RICE Prioritization</h2>
+            <p class="cs-lead">
+              I generated 13 AI feature ideas and scored each with RICE —
+              <strong>Reach</strong> (lakh users) × <strong>Impact</strong> ×
+              <strong>Confidence</strong> ÷ <strong>Effort</strong>. The top five moved forward to
+              specification.
+            </p>
+            <div class="cs-table-wrap">
+              <table class="cs-rice">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Solution</th>
+                    <th>Reach</th>
+                    <th>Impact</th>
+                    <th>Conf.</th>
+                    <th>Effort</th>
+                    <th class="cs-score-col">RICE score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    rice.map((row, i) => (
+                      <tr class:list={{ top: i < 5 }}>
+                        <td>{i + 1}</td>
+                        <td>
+                          {row.name}
+                          {i < 5 && <span class="cs-badge">Top 5</span>}
+                        </td>
+                        <td>{row.reach}</td>
+                        <td>{row.impact}</td>
+                        <td>{row.confidence}</td>
+                        <td>{row.effort}</td>
+                        <td class="cs-score-col">
+                          <span class="cs-bar">
+                            <span style={`width: ${(row.score / maxScore) * 100}%`} />
+                          </span>
+                          <strong>{row.score.toFixed(2)}</strong>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 05 · SPECIFY -->
+          <section id="features" class="cs-section">
+            <p class="cs-kicker">05 · Specify</p>
+            <h2>The Top 5 AI Features</h2>
+            <div class="cs-features">
+              {
+                features.map((f, i) => (
+                  <div class="cs-card cs-feature">
+                    <div class="cs-feature-head">
+                      <span class="cs-feature-num">{String(i + 1).padStart(2, '0')}</span>
+                      <h3>{f.name}</h3>
+                    </div>
+                    <p class="cs-feature-problem">{f.problem}</p>
+                    <div class="cs-chips" aria-label="Type of AI">
+                      {f.ai.map((t) => (
+                        <span class="cs-chip cs-chip--ai">{t}</span>
+                      ))}
+                    </div>
+                    <dl>
+                      <dt>Data needed</dt>
+                      <dd>{f.data}</dd>
+                      <dt>What it improves</dt>
+                      <dd>{f.improves}</dd>
+                      <dt>How Zerodha benefits</dt>
+                      <dd>{f.money}</dd>
+                      <dt>Metrics it will impact</dt>
+                      <dd>
+                        <div class="cs-chips">
+                          {f.metrics.map((m) => (
+                            <span class="cs-chip">{m}</span>
+                          ))}
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
+
+          <!-- 06 · TEST -->
+          <section id="test" class="cs-section">
+            <p class="cs-kicker">06 · Test</p>
+            <h2>Validating Usefulness</h2>
+            <p class="cs-lead">
+              Each feature gets a clear hypothesis, the metrics to watch, and a pass/fail bar set
+              before testing begins.
+            </p>
+            <div class="cs-grid-2 cs-tests">
+              {
+                tests.map((t) => (
+                  <div class="cs-card cs-test">
+                    <h3>{t.name}</h3>
+                    <p class="cs-test-what">{t.what}</p>
+                    <div class="cs-chips">
+                      {t.metrics.map((m) => (
+                        <span class="cs-chip">{m}</span>
+                      ))}
+                    </div>
+                    <ul class="cs-criteria">
+                      {t.criteria.map((c) => (
+                        <li>{c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
+
+          <section class="cs-section cs-outro">
+            <p>
+              <strong>My focus:</strong> product and revenue-model analysis, user personas, problem
+              definition, AI opportunity ideation, RICE prioritization, AI feature specification,
+              prototyping, and success-criteria design.
+            </p>
+
+            <div class="cs-cta-band">
+              <div>
+                <h3>Want the full case study?</h3>
+                <p>Download the PDF with the prototype screens, or read the deeper write-up covering AI architecture, product risks, and a rollout plan.</p>
+              </div>
+              <div class="cs-actions">
+                <a class="cs-btn cs-btn--primary" href={pdfUrl} download={pdfName}>
+                  Download Case Study <span aria-hidden="true">↓</span>
+                </a>
+                <a class="cs-btn cs-btn--ghost" href={blogUrl}>
+                  Read the write-up <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </article>
     </main>
@@ -375,158 +578,728 @@ const tests = [
   </body>
 
   <style>
-    .case-study-cta {
+    /* Wider canvas than a regular article: this page is mostly cards and tables. */
+    .cs-shell {
+      max-width: 1040px;
+    }
+
+    .cs-body {
+      max-width: none;
+      padding-top: 8px;
+    }
+
+    .cs-body p {
+      max-width: 760px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ── HERO ─────────────────────────────── */
+    .cs-hero {
+      padding-bottom: 36px;
+    }
+
+    .cs-eyebrow {
+      margin: 22px 0 0 !important;
+      color: var(--accent) !important;
+      font-size: 0.74rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cs-hero h1 {
+      margin-top: 10px;
+    }
+
+    .cs-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .cs-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 20px;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 100px;
-      background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
-      box-shadow: 0 8px 28px rgba(79, 142, 255, 0.28);
-      color: #fff;
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.2s ease;
     }
 
-    .case-study-cta:hover {
-      color: #fff;
-      text-decoration: none;
+    .cs-btn:hover {
       transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .cs-btn--primary {
+      background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
+      box-shadow: 0 8px 28px rgba(79, 142, 255, 0.28);
+      color: #fff;
+    }
+
+    .cs-btn--primary:hover {
+      color: #fff;
       box-shadow: 0 16px 48px rgba(79, 142, 255, 0.4);
     }
 
-    .case-study-meta {
-      display: inline-block;
-      margin-left: 14px;
-      color: var(--quiet);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
+    .cs-btn--ghost {
+      border: 1px solid var(--border);
+      background: var(--glass-bg);
+      color: var(--text);
     }
 
-    .two-col {
+    .cs-btn--ghost:hover {
+      color: var(--accent-2);
+      background: var(--glass-bg-hi);
+    }
+
+    .cs-file-meta {
+      margin: 12px 0 0 !important;
+      color: var(--quiet) !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.03em;
+    }
+
+    .cs-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 32px 0 0;
+    }
+
+    .cs-stats div {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 16px 18px;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      background: var(--glass-bg);
+      box-shadow: var(--glass-shadow);
+    }
+
+    .cs-stats dt {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .cs-stats dd {
+      margin: 0 0 2px;
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.1;
+      background: var(--grad);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* ── STEP NAV ─────────────────────────── */
+    .cs-steps {
+      position: sticky;
+      top: 72px;
+      z-index: 5;
+      margin: 0 -8px;
+      padding: 12px 8px;
+      background: rgba(250, 251, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-steps ol {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      list-style: none;
+      scrollbar-width: none;
+    }
+
+    .cs-steps a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cs-steps a:hover {
+      border-color: rgba(52, 87, 209, 0.4);
+      color: var(--accent-2);
+    }
+
+    .cs-step-num {
+      color: var(--accent-2);
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    /* ── SECTIONS ─────────────────────────── */
+    .cs-section {
+      padding-top: 56px;
+      scroll-margin-top: 130px;
+    }
+
+    .cs-kicker {
+      margin: 0 0 6px !important;
+      color: var(--accent-2);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cs-section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    }
+
+    .cs-lead {
+      color: var(--muted);
+    }
+
+    .cs-subhead {
+      margin: 40px 0 14px !important;
+      font-size: 1.2rem;
+    }
+
+    .cs-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 0 0 1.3em;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .col-card,
-    .feature-card {
-      padding: 18px 22px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface);
-    }
-
-    .col-card h3,
-    .feature-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-    }
-
-    .col-card ul {
-      margin: 0;
-      padding-left: 1.2em;
-    }
-
-    .col-card p {
-      margin: 0 0 0.6em;
+    .cs-card {
+      padding: 22px 24px;
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      background: var(--glass-bg);
+      box-shadow: var(--glass-shadow);
       font-size: 0.95rem;
       line-height: 1.6;
     }
 
-    .persona-meta {
+    .cs-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .cs-card h4 {
+      margin: 0 0 6px;
       color: var(--accent-2);
-      font-size: 0.8rem !important;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .spaced li {
-      margin-bottom: 0.9em;
+    .cs-card p {
+      margin: 0;
     }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin: 0 0 1.3em;
+    .cs-badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: rgba(52, 87, 209, 0.12);
+      color: var(--accent-2);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    /* Product line */
+    .cs-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 8px 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cs-products li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 12px 16px;
       border: 1px solid var(--border);
       border-radius: 14px;
+      background: var(--surface);
     }
 
-    table {
+    .cs-products li.focus {
+      border-color: rgba(52, 87, 209, 0.35);
+      background: rgba(52, 87, 209, 0.06);
+    }
+
+    .cs-product-name {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .cs-product-role {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .cs-ticks {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cs-ticks li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 4px;
+    }
+
+    .cs-ticks li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-2);
+    }
+
+    /* Revenue */
+    .cs-pricing h4 span {
+      margin-left: 6px;
+      color: var(--quiet);
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .cs-pricing ul {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cs-pricing li {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .cs-pricing strong {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .cs-pricing li span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    /* Personas */
+    .cs-persona-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .cs-avatar {
+      display: grid;
+      place-items: center;
+      flex: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--grad);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .cs-persona h3 {
+      margin: 0;
+    }
+
+    .cs-persona h3 span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .cs-persona-meta {
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .cs-persona dl,
+    .cs-feature dl {
+      margin: 0;
+    }
+
+    .cs-persona dt,
+    .cs-feature dt {
+      margin-top: 12px;
+      color: var(--quiet);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cs-persona dd,
+    .cs-feature dd {
+      margin: 2px 0 0;
+    }
+
+    /* Problems */
+    .cs-problems {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .cs-problem {
+      position: relative;
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cs-problem:nth-child(4),
+    .cs-problem:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .cs-problem h3 {
+      margin: 0;
+      padding-right: 36px;
+    }
+
+    .cs-problem-num {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: rgba(52, 87, 209, 0.22);
+    }
+
+    .cs-evidence {
+      margin-top: auto !important;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-style: italic;
+    }
+
+    .cs-tag {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 1px 8px;
+      border-radius: 100px;
+      background: var(--grad);
+      color: #fff;
+      font-size: 0.7rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* RICE table */
+    .cs-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      background: var(--glass-bg);
+      box-shadow: var(--glass-shadow);
+    }
+
+    .cs-rice {
       width: 100%;
       border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .cs-rice th,
+    .cs-rice td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .cs-rice tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cs-rice thead th {
+      color: var(--quiet);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cs-rice tr.top td {
+      background: rgba(52, 87, 209, 0.05);
+      color: var(--text);
+    }
+
+    .cs-rice tr.top td:nth-child(2) {
+      font-weight: 600;
+    }
+
+    .cs-score-col {
+      width: 200px;
+    }
+
+    td.cs-score-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cs-bar {
+      flex: 1;
+      height: 6px;
+      border-radius: 100px;
+      background: var(--surface-strong);
+      overflow: hidden;
+    }
+
+    .cs-bar span {
+      display: block;
+      height: 100%;
+      border-radius: 100px;
+      background: rgba(18, 26, 46, 0.25);
+    }
+
+    .cs-rice tr.top .cs-bar span {
+      background: var(--grad);
+    }
+
+    /* Features */
+    .cs-features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .cs-feature:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .cs-feature-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .cs-feature-head h3 {
+      margin: 0;
+    }
+
+    .cs-feature-num {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .cs-feature-problem {
+      margin: 0 0 12px !important;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent);
+      color: var(--text);
+    }
+
+    .cs-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cs-chip {
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+    }
+
+    .cs-chip--ai {
+      border-color: rgba(0, 131, 168, 0.3);
+      background: rgba(0, 131, 168, 0.08);
+      color: #006a88;
+      font-weight: 600;
+    }
+
+    /* Tests */
+    .cs-test {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cs-test:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    .cs-test h3 {
+      margin: 0;
+    }
+
+    .cs-test-what {
+      color: var(--muted);
+    }
+
+    .cs-criteria {
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(22, 163, 74, 0.06);
+      list-style: none;
+    }
+
+    .cs-criteria li {
+      position: relative;
+      padding-left: 24px;
       font-size: 0.88rem;
       line-height: 1.5;
     }
 
-    th,
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
+    .cs-criteria li + li {
+      margin-top: 6px;
     }
 
-    tr:last-child th,
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    thead th {
-      background: var(--surface);
-      color: var(--text);
+    .cs-criteria li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #16a34a;
       font-weight: 700;
-      white-space: nowrap;
     }
 
-    tbody th {
-      width: 130px;
-      color: var(--text);
-      white-space: nowrap;
+    /* Outro */
+    .cs-outro {
+      padding-top: 48px;
     }
 
-    tr.top td {
-      background: rgba(79, 142, 255, 0.08);
+    .cs-cta-band {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 28px;
+      padding: 28px 32px;
+      border-radius: 22px;
+      background: linear-gradient(130deg, rgba(52, 87, 209, 0.1) 0%, rgba(0, 131, 168, 0.08) 100%);
+      border: 1px solid rgba(52, 87, 209, 0.18);
     }
 
-    .feature-card {
-      margin: 0 0 14px;
+    .cs-cta-band h3 {
+      margin: 0 0 6px !important;
+      font-size: 1.3rem;
     }
 
-    .feature-card dl {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      gap: 6px 16px;
+    .cs-cta-band p {
       margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .feature-card dt {
-      color: var(--accent-2);
-      font-weight: 600;
+    .cs-cta-band .cs-actions {
+      flex: none;
+      margin-top: 0;
     }
 
-    .feature-card dd {
-      margin: 0;
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 900px) {
+      .cs-pricing ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cs-problems {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cs-problem,
+      .cs-problem:nth-child(4),
+      .cs-problem:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .cs-problem:nth-child(5) {
+        grid-column: 1 / -1;
+      }
+
+      .cs-cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 760px) {
-      .two-col {
+      .cs-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cs-steps {
+        top: 60px;
+      }
+
+      .cs-grid-2,
+      .cs-features,
+      .cs-problems {
         grid-template-columns: 1fr;
       }
 
-      .feature-card dl {
-        grid-template-columns: 1fr;
-        gap: 2px;
+      .cs-problem:nth-child(5) {
+        grid-column: auto;
       }
 
-      .feature-card dd {
-        margin-bottom: 8px;
+      .cs-card {
+        padding: 18px;
+      }
+
+      .cs-cta-band {
+        padding: 22px 20px;
       }
     }
   </style>
