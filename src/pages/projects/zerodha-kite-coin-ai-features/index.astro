@@ -152,6 +152,14 @@ const tests = [
             Where AI can help traders and long-term investors — taken from user personas to
             prioritized, testable feature specs.
           </p>
+          <a
+            class="case-study-cta"
+            href="/case-studies/zerodha-kite-coin-ai-features-case-study.pdf"
+            download="Zerodha-Kite-Coin-AI-Features-Case-Study-Bedanta-Gogoi.pdf"
+          >
+            Download Case Study <span aria-hidden="true">↓</span>
+          </a>
+          <span class="case-study-meta">PDF · 6 pages · 342 KB</span>
         </header>
 
         <div class="article-body">
@@ -367,6 +375,37 @@ const tests = [
   </body>
 
   <style>
+    .case-study-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 26px;
+      border-radius: 100px;
+      background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
+      box-shadow: 0 8px 28px rgba(79, 142, 255, 0.28);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .case-study-cta:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(79, 142, 255, 0.4);
+    }
+
+    .case-study-meta {
+      display: inline-block;
+      margin-left: 14px;
+      color: var(--quiet);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
     .two-col {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
