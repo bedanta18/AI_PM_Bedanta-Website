@@ -128,6 +128,23 @@ const resources = [
   },
   {
     cat: 'ai',
+    format: '📄 PDF',
+    icon: '🧭',
+    title: 'AI Opportunity Mapping Template',
+    desc: 'Map a workflow step by step, spot where AI can help, and plan risk mitigations before you build. Includes a worked example on an email-to-task workflow.',
+    inside: [
+      'Process board: steps, actors, tools & pain points',
+      'Step-by-step AI opportunity mapping',
+      'Risk mitigation cards for each step',
+      'Worked example: assign tasks from emails',
+      '10-page PDF, free to download',
+    ],
+    href: '/templates/ai-opportunity-mapping-template.pdf',
+    download: 'AI-Opportunity-Mapping-Template-Bedanta-Gogoi.pdf',
+    cta: 'Download Free',
+  },
+  {
+    cat: 'ai',
     format: '📝 Notion',
     icon: '🤖',
     title: 'AI Prompt Pack for PMs',
@@ -302,7 +319,7 @@ const resources = [
                 {item.comingSoon ? (
                   <span class="resource-dl-btn is-soon">Coming Soon</span>
                 ) : (
-                  <a href={item.href} class="resource-dl-btn">
+                  <a href={item.href} class="resource-dl-btn" download={item.download}>
                     {item.cta}
                     {item.isInternalLink ? (
                       <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

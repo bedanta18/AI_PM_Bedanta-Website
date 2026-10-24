@@ -737,6 +737,65 @@ a {
   background: var(--surface);
 }
 
+/* Download / call-to-action panel, usable as raw HTML inside Markdown posts. */
+.download-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+  margin: 2.2em 0;
+  padding: 24px 26px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(420px 200px at 0% 0%, var(--halo-1), transparent 70%),
+    radial-gradient(360px 180px at 100% 100%, var(--halo-2), transparent 70%),
+    var(--bg-elev);
+  line-height: 1.5;
+}
+
+.download-cta-text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.article-body .download-cta p {
+  margin: 0;
+}
+
+.download-cta-label {
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.article-body .download-cta-title {
+  margin-top: 6px;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.article-body .download-cta-desc {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+/* Buttons placed inside article prose keep button styling, not link styling. */
+.article-body .btn {
+  flex: none;
+  text-decoration: none;
+}
+
+.article-body .btn-primary {
+  color: var(--accent-ink);
+}
+
 /* ── BUTTONS (shared) ───────────────────────────────────────── */
 .btn {
   display: inline-flex;
