@@ -26,4 +26,18 @@ export const projects: Project[] = [
       'Product Metrics',
     ],
   },
+  {
+    slug: 'zerodha-kite-coin-ai-features',
+    title: 'AI Features for Zerodha Kite & Coin — Design Thinking Case Study',
+    summary:
+      'A design-thinking case study on where AI can help Zerodha’s traders and long-term investors. Starting from the revenue model and two user personas, I defined five core problems, scored 13 AI feature ideas with RICE, specified the top five — from a Portfolio Health & Risk Analyzer to a Fundamental Research Copilot — and set measurable success criteria to validate each one.',
+    tags: [
+      'AI Product Management',
+      'Design Thinking',
+      'User Personas',
+      'RICE Prioritization',
+      'RAG & Generative AI',
+      'Success Metrics',
+    ],
+  },
 ];

@@ -1,0 +1,494 @@
+---
+import SiteNav from '../../../components/SiteNav.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import GoogleTag from '../../../components/GoogleTag.astro';
+import '../../../styles/blog.css';
+
+const title = 'Zerodha Kite & Coin AI Features: AI PM Case Study';
+const description =
+  'A design-thinking case study on AI features for Zerodha Kite and Coin — personas, problem definition, RICE prioritization, feature specs, and success criteria — by Bedanta Gogoi.';
+
+// RICE = Reach (lakh users) × Impact × Confidence ÷ Effort, sorted by score.
+const rice = [
+  { name: 'Portfolio Health & Risk Analyzer', reach: '20L', impact: 3, confidence: '90%', effort: 8, score: '6.75' },
+  { name: 'Fundamental Research Copilot', reach: '15L', impact: 3, confidence: '85%', effort: 8, score: '4.78' },
+  { name: 'Financial Concept Explainer', reach: '20L', impact: 1, confidence: '95%', effort: 4, score: '4.75' },
+  { name: 'Portfolio Overlap Detector', reach: '12L', impact: 3, confidence: '90%', effort: 7, score: '4.63' },
+  { name: 'Earnings & Filing Summarizer', reach: '12L', impact: 2, confidence: '90%', effort: 5, score: '4.32' },
+  { name: 'Financial & Tax Education Assistant', reach: '25L', impact: 2, confidence: '90%', effort: 12, score: '3.75' },
+  { name: '“Teach Me This Stock”', reach: '10L', impact: 2, confidence: '90%', effort: 5, score: '3.60' },
+  { name: 'P&L / Tax Report Interpreter', reach: '12L', impact: 2, confidence: '90%', effort: 6, score: '3.60' },
+  { name: 'Portfolio Explainability Copilot', reach: '15L', impact: 3, confidence: '80%', effort: 10, score: '3.60' },
+  { name: 'Company Comparison', reach: '8L', impact: 2, confidence: '85%', effort: 5, score: '2.72' },
+  { name: 'Trading Behaviour Coach', reach: '8L', impact: 3, confidence: '80%', effort: 8, score: '2.40' },
+  { name: 'Wealth & Goal Coach', reach: '10L', impact: 3, confidence: '70%', effort: 10, score: '2.10' },
+  { name: 'Trading vs Investing Coach', reach: '8L', impact: 2, confidence: '75%', effort: 6, score: '2.00' },
+];
+
+const features = [
+  {
+    name: 'Portfolio Health & Risk Analyzer',
+    problem: 'Investors can see their returns but may not understand how diversified or risky their overall portfolio is.',
+    ai: 'Rule-based + statistical ML + generative AI',
+    data: 'Kite holdings, Coin MF holdings, transactions, portfolio history, stock/fund holdings, sector and market data',
+    improves: 'Helps users understand the overall health and risk of their portfolio',
+    money: 'Paid or freemium feature — one free check per quarter',
+    metrics: 'Portfolio review frequency, customer LTV',
+  },
+  {
+    name: 'Fundamental Research Copilot',
+    problem: 'Rohan knows how to trade but struggles to analyse companies from a fundamental and financial perspective.',
+    ai: 'RAG + generative AI + text analysis',
+    data: 'Annual reports, financial statements, earnings calls, exchange filings, investor presentations, corporate announcements, financial ratios',
+    improves: 'Makes fundamental research faster and easier; improves investment understanding',
+    money: 'Paid insights tier based on research usage',
+    metrics: 'Research adoption, research time, sessions per user',
+  },
+  {
+    name: 'Financial Concept Explainer',
+    problem: 'Users may know how to trade but struggle to understand complex financial and tax concepts.',
+    ai: 'RAG + generative AI',
+    data: 'Zerodha help articles, Varsity content, official SEBI/NSE/BSE information, tax rules and regulatory documentation',
+    improves: 'Improves financial literacy and reduces dependence on informal or inaccurate advice',
+    money: 'Reduces support cost while improving customer trust, engagement and retention',
+    metrics: 'Support tickets, support cost per customer, self-service resolution rate',
+  },
+  {
+    name: 'Portfolio Overlap Detector',
+    problem: 'Manish owns three flexi-cap funds but doesn’t realise they overlap significantly, including 7%+ exposure to HDFC Bank in each.',
+    ai: 'Rule-based + statistical analysis',
+    data: 'Mutual-fund portfolio holdings, Kite holdings, stock weights, sector classifications, historical holdings',
+    improves: 'Surfaces hidden stock and fund overlap for a more accurate picture of diversification',
+    money: 'Bundled with a premium plan',
+    metrics: 'Overlap detection, portfolio review frequency, feature usage',
+  },
+  {
+    name: 'Earnings & Filing Summarizer',
+    problem: 'Investors struggle to understand what has changed in earnings reports and regulatory filings, and why it matters.',
+    ai: 'Text analysis + generative AI',
+    data: 'Quarterly results, annual reports, exchange filings, earnings-call transcripts, investor presentations, corporate announcements',
+    improves: 'Reduces information overload and the time needed to understand company updates',
+    money: 'Freemium feature',
+    metrics: 'Time-to-insight, feature adoption, engagement, retention',
+  },
+];
+
+const tests = [
+  {
+    name: 'Portfolio Health & Risk Analyzer',
+    what: 'Users can understand the overall health, concentration and risk of their portfolio',
+    metrics: 'Portfolio understanding, task completion rate, time-to-insight, usefulness score',
+    criteria: '≥80% correctly identify their biggest portfolio risk; ≥20% reduction in time-to-insight; ≥4/5 usefulness score',
+  },
+  {
+    name: 'Fundamental Research Copilot',
+    what: 'Users understand a company’s fundamentals faster, without manually analysing multiple documents',
+    metrics: 'Research completion time, research accuracy',
+    criteria: '≥30% reduction in research time; ≥90% factual accuracy; ≥95% of material claims supported by source documents',
+  },
+  {
+    name: 'Earnings & Filing Summarizer',
+    what: 'Users can identify what matters most in lengthy earnings reports and filings',
+    metrics: 'Time-to-insight, summary accuracy, feature adoption',
+    criteria: '≥90% accuracy in identifying material information',
+  },
+  {
+    name: 'Portfolio Overlap Detector',
+    what: 'Users realise that owning multiple funds does not necessarily mean they are diversified',
+    metrics: 'Overlap comprehension, overlap detection accuracy, task completion rate, user trust',
+    criteria: '≥80% correctly identify significant overlap; ≥80% correctly understand their effective exposure; ≥4/5 trust score',
+  },
+  {
+    name: 'Financial Concept Explainer',
+    what: 'Users understand complex financial and tax concepts more easily than through traditional help content',
+    metrics: 'Comprehension score, time-to-understanding, follow-up questions, self-service resolution rate',
+    criteria: '≥80% correctly explain the concept after using it; ≥30% reduction in time-to-understanding; ≥20% reduction in related support queries',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <GoogleTag />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aipmbedanta.com/projects/zerodha-kite-coin-ai-features/" />
+    <meta property="og:site_name" content="aipmbedanta" />
+    <meta property="og:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AI Features for Zerodha Kite & Coin — design thinking case study" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.aipmbedanta.com/og-image.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.aipmbedanta.com/projects/zerodha-kite-coin-ai-features/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="blog-shell article-shell">
+      <SiteNav current="about" />
+
+      <article class="article">
+        <a class="back-link" href="/projects/">Back to Projects</a>
+        <header class="article-header">
+          <h1>AI Features for Zerodha Kite &amp; Coin | Design Thinking Case Study</h1>
+          <p>
+            Where AI can help traders and long-term investors — taken from user personas to
+            prioritized, testable feature specs.
+          </p>
+        </header>
+
+        <div class="article-body">
+          <h2>Picking the Product</h2>
+          <p>I chose <strong>Zerodha</strong> and mapped its product line:</p>
+          <ul>
+            <li><strong>Kite:</strong> active trading and delivery (cash-and-carry) stock buying</li>
+            <li><strong>Coin:</strong> mutual fund investing</li>
+            <li><strong>Console:</strong> portfolio, reporting and analytics</li>
+            <li><strong>Kite Connect:</strong> APIs and the developer ecosystem</li>
+            <li><strong>Varsity:</strong> investor education</li>
+            <li><strong>Zerodha Capital:</strong> lending and credit</li>
+            <li><strong>Zerodha Fund House:</strong> asset management</li>
+          </ul>
+          <p>The case study focuses on <strong>Kite</strong> and <strong>Coin</strong>, which serve two distinct user groups:</p>
+          <div class="two-col">
+            <div class="col-card">
+              <h3>Kite users</h3>
+              <ul>
+                <li>Active traders</li>
+                <li>Intraday and F&amp;O traders</li>
+                <li>Investors who trade occasionally</li>
+              </ul>
+            </div>
+            <div class="col-card">
+              <h3>Coin users</h3>
+              <ul>
+                <li>Long-term mutual-fund investors</li>
+                <li>SIP investors</li>
+                <li>Investors building wealth over many years</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Understanding the Revenue Model</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="row">Who pays?</th>
+                  <td>Zerodha’s customers — primarily active traders, investors using demat services, MTF users, API users, and customers using paid or value-added services.</td>
+                </tr>
+                <tr>
+                  <th scope="row">What’s paid?</th>
+                  <td>Brokerage, DP charges, MTF interest, AMC, API subscriptions, and fees for certain value-added services.</td>
+                </tr>
+                <tr>
+                  <th scope="row">For what?</th>
+                  <td>Executing trades, maintaining demat accounts, borrowing funds through MTF, accessing paid APIs and data, and using premium services.</td>
+                </tr>
+                <tr>
+                  <th scope="row">How?</th>
+                  <td>Per-order transaction charges, recurring account and service fees, interest on funded MTF amounts, and subscription fees.</td>
+                </tr>
+                <tr>
+                  <th scope="row">How much?</th>
+                  <td>For retail customers at the time of the analysis: ₹0 for equity delivery; 0.03% or ₹20 per executed order (whichever is lower) for intraday and futures; ₹20 per executed order for options; 0.04% per day on the MTF-funded amount; and ₹500/month per Kite Connect API key.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Empathize: User Personas</h2>
+          <div class="two-col">
+            <div class="col-card">
+              <h3>Manish · Product Manager</h3>
+              <p class="persona-meta">32 · Married, 1 child · ₹35 LPA</p>
+              <p><strong>Fear / frustration:</strong> Has invested in mutual funds since his first job eight years ago. With a stagnant market and negative returns, he is unsure about continuing — and is considering swing trading.</p>
+              <p><strong>Behaviour:</strong> Checks his portfolio size and volatility every week.</p>
+              <p><strong>Goal:</strong> ₹2 crore for an apartment, his child’s education, and a car.</p>
+            </div>
+            <div class="col-card">
+              <h3>Rohan · Trader</h3>
+              <p class="persona-meta">40 · Married, 2 children · ₹20 LPA</p>
+              <p><strong>Fear / frustration:</strong> Constant regulatory change — he recently lost ₹2 lakh after a new SEBI market-closing-price rule.</p>
+              <p><strong>Behaviour:</strong> A seasoned trader of 10 years who studies the market on weekends and in his spare time.</p>
+              <p><strong>Goal:</strong> Turn his proprietorship trading firm into a private limited company with a friend, offering broking, asset management, research and stock recommendations.</p>
+            </div>
+          </div>
+
+          <h2>Define: Five Core Problems</h2>
+          <ol class="spaced">
+            <li>
+              <strong>Portfolio understanding.</strong> Investors can see holdings and returns but
+              struggle with the bigger picture: diversification, concentration, sector exposure and
+              overlapping mutual-fund holdings. <em>Manish holds three flexi-cap funds, each with 7%+
+              allocated to HDFC Bank.</em>
+            </li>
+            <li>
+              <strong>Trading behaviour.</strong> Active traders may not recognise when their trading
+              becomes excessive or unusually risky, especially after losses — a real concern given the
+              risks of retail F&amp;O trading. <em>Manish is considering swing trading.</em>
+            </li>
+            <li>
+              <strong>Investment research.</strong> Turning filings, results, annual reports and
+              announcements into useful insight takes time and expertise. <em>Rohan’s career is built
+              on trading, not fundamental research.</em>
+            </li>
+            <li>
+              <strong>Customer support.</strong> Customers frequently need help with account, order,
+              margin, charge and transaction issues, creating support workload and delays. <em>Rohan
+              paid ₹5 lakh after an income-tax notice for an incorrectly filed ITR, following informal
+              advice from a relative.</em>
+            </li>
+            <li>
+              <strong>Long-term investment planning.</strong> Coin investors can run SIPs across
+              multiple funds but lack personalised visibility into whether their behaviour matches
+              their goals. <em>Rohan sees trading as his income source and has no long-term
+              investments.</em>
+            </li>
+          </ol>
+
+          <h2>Ideate: Solutions and RICE Prioritization</h2>
+          <p>
+            I generated 13 AI feature ideas and scored each with RICE — Reach (lakh users) × Impact ×
+            Confidence ÷ Effort.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Solution</th>
+                  <th>Reach</th>
+                  <th>Impact</th>
+                  <th>Confidence</th>
+                  <th>Effort</th>
+                  <th>RICE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  rice.map((row, i) => (
+                    <tr class:list={{ top: i < 5 }}>
+                      <td>{i + 1}</td>
+                      <td>{row.name}</td>
+                      <td>{row.reach}</td>
+                      <td>{row.impact}</td>
+                      <td>{row.confidence}</td>
+                      <td>{row.effort}</td>
+                      <td><strong>{row.score}</strong></td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+          <p>The five highest-scoring ideas (highlighted) moved forward to specification.</p>
+
+          <h2>The Top 5 AI Features</h2>
+          {
+            features.map((f, i) => (
+              <section class="feature-card">
+                <h3>{i + 1}. {f.name}</h3>
+                <dl>
+                  <dt>Problem it solves</dt>
+                  <dd>{f.problem}</dd>
+                  <dt>Type of AI</dt>
+                  <dd>{f.ai}</dd>
+                  <dt>Data needed</dt>
+                  <dd>{f.data}</dd>
+                  <dt>What it improves</dt>
+                  <dd>{f.improves}</dd>
+                  <dt>How Zerodha benefits</dt>
+                  <dd>{f.money}</dd>
+                  <dt>Metrics it will impact</dt>
+                  <dd>{f.metrics}</dd>
+                </dl>
+              </section>
+            ))
+          }
+
+          <h2>Test: Validating Usefulness</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>AI feature</th>
+                  <th>What to test</th>
+                  <th>Success metrics</th>
+                  <th>Proposed success criteria</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  tests.map((t) => (
+                    <tr>
+                      <td><strong>{t.name}</strong></td>
+                      <td>{t.what}</td>
+                      <td>{t.metrics}</td>
+                      <td>{t.criteria}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            <strong>My focus:</strong> product and revenue-model analysis, user personas, problem
+            definition, AI opportunity ideation, RICE prioritization, AI feature specification,
+            prototyping, and success-criteria design.
+          </p>
+          <p>
+            For a deeper write-up — including AI architecture, product risks, and a rollout plan — read
+            <a href="/blog/ai-features-zerodha-kite-coin-smarter-investing/">How AI Can Transform Zerodha’s Kite &amp; Coin</a>.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <SiteFooter />
+  </body>
+
+  <style>
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 1.3em;
+    }
+
+    .col-card,
+    .feature-card {
+      padding: 18px 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .col-card h3,
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .col-card ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .col-card p {
+      margin: 0 0 0.6em;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .persona-meta {
+      color: var(--accent-2);
+      font-size: 0.8rem !important;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .spaced li {
+      margin-bottom: 0.9em;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 0 0 1.3em;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    th,
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    thead th {
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tbody th {
+      width: 130px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    tr.top td {
+      background: rgba(79, 142, 255, 0.08);
+    }
+
+    .feature-card {
+      margin: 0 0 14px;
+    }
+
+    .feature-card dl {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 6px 16px;
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .feature-card dt {
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .feature-card dd {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card dl {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .feature-card dd {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</html>

@@ -23,7 +23,19 @@
 }
 
 .project-grid .project-card {
+  display: flex;
+  flex-direction: column;
   max-width: none;
+}
+
+/* Keep "Read full project" aligned at the bottom of equal-height cards */
+.project-grid .project-card .read-link {
+  margin-top: auto;
+}
+
+/* Grid placed directly under a .section-sub, which already provides spacing */
+.project-grid--inline {
+  padding-top: 0;
 }
 
 .project-thumb {

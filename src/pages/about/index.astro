@@ -78,22 +78,24 @@ const workItems = (await getCollection('work'))
           Hands-on AI product work outside my day job — testing ideas by shipping them.
         </p>
 
-        {
-          projects.map((project) => (
-            <a class="explore-card project-card" href={`/projects/${project.slug}/`}>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
-              <div class="pills">
-                {project.tags.map((tag) => (
-                  <span class="pill">{tag}</span>
-                ))}
-              </div>
-              <span class="read-link">
-                Read full project <span aria-hidden="true">→</span>
-              </span>
-            </a>
-          ))
-        }
+        <div class="project-grid project-grid--inline">
+          {
+            projects.map((project) => (
+              <a class="explore-card project-card" href={`/projects/${project.slug}/`}>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                <div class="pills">
+                  {project.tags.map((tag) => (
+                    <span class="pill">{tag}</span>
+                  ))}
+                </div>
+                <span class="read-link">
+                  Read full project <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            ))
+          }
+        </div>
 
         <a class="read-link view-all-link" href="/projects/">
           View all projects <span aria-hidden="true">→</span>
