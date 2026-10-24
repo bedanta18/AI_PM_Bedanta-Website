@@ -84,11 +84,11 @@ const formatDate = (date: Date) =>
       <section class="category-band" aria-labelledby="categories-title">
         <h2 id="categories-title">Categories</h2>
         <div class="category-list" role="group" aria-label="Filter posts by category">
-          <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All ({posts.length})</button>
+          <button type="button" class="category-chip is-active" data-category="all" aria-pressed="true">All <span class="chip-count">{posts.length}</span></button>
           {
             categories.map((category) => (
               <button type="button" class="category-chip" data-category={category} aria-pressed="false">
-                {category} ({categoryCounts[category]})
+                {category} <span class="chip-count">{categoryCounts[category]}</span>
               </button>
             ))
           }
@@ -166,10 +166,6 @@ const formatDate = (date: Date) =>
 </html>
 
 <style>
-  .blog-shell {
-    padding-top: 90px;
-  }
-
   .blog-shell .category-band {
     border-top: none;
     padding-top: 0;
@@ -182,50 +178,12 @@ const formatDate = (date: Date) =>
   }
 
   .hub-hint a {
-    color: var(--accent-2);
+    color: var(--accent-text);
     font-weight: 600;
     text-decoration: none;
   }
 
   .hub-hint a:hover {
     text-decoration: underline;
-  }
-
-  .category-chip {
-    font: inherit;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-
-  .category-chip:hover {
-    background: rgba(52, 87, 209, 0.14);
-  }
-
-  .category-chip.is-active {
-    background: var(--grad);
-    border-color: transparent;
-    color: #fff;
-  }
-
-  .category-chip.is-active:hover {
-    background: var(--grad);
-  }
-
-  .post-card.is-hidden {
-    display: none;
-  }
-
-  .no-results {
-    padding: 32px 0 8px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  @media (max-width: 760px) {
-    .blog-shell {
-      padding-top: 76px;
-    }
   }
 </style>

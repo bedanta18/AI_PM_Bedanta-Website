@@ -636,14 +636,13 @@ const tests = [
     }
 
     .cs-btn--primary {
-      background: linear-gradient(130deg, #3457d1 0%, #0083a8 100%);
-      box-shadow: 0 8px 28px rgba(79, 142, 255, 0.28);
-      color: #fff;
+      background: var(--accent);
+      box-shadow: var(--glow);
+      color: var(--accent-ink);
     }
 
     .cs-btn--primary:hover {
-      color: #fff;
-      box-shadow: 0 16px 48px rgba(79, 142, 255, 0.4);
+      color: var(--accent-ink);
     }
 
     .cs-btn--ghost {
@@ -701,11 +700,11 @@ const tests = [
     /* ── STEP NAV ─────────────────────────── */
     .cs-steps {
       position: sticky;
-      top: 72px;
+      top: 64px;
       z-index: 5;
       margin: 0 -8px;
       padding: 12px 8px;
-      background: rgba(250, 251, 255, 0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
@@ -738,7 +737,7 @@ const tests = [
     }
 
     .cs-steps a:hover {
-      border-color: rgba(52, 87, 209, 0.4);
+      border-color: var(--border-strong);
       color: var(--accent-2);
     }
 
@@ -816,7 +815,7 @@ const tests = [
       margin-left: 8px;
       padding: 2px 8px;
       border-radius: 100px;
-      background: rgba(52, 87, 209, 0.12);
+      background: var(--accent-soft);
       color: var(--accent-2);
       font-size: 0.66rem;
       font-weight: 700;
@@ -846,8 +845,8 @@ const tests = [
     }
 
     .cs-products li.focus {
-      border-color: rgba(52, 87, 209, 0.35);
-      background: rgba(52, 87, 209, 0.06);
+      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+      background: var(--accent-soft);
     }
 
     .cs-product-name {
@@ -935,9 +934,9 @@ const tests = [
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--grad);
-      color: #fff;
-      font-family: var(--font-display);
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: var(--font-mono);
       font-size: 1.2rem;
       font-weight: 700;
     }
@@ -1009,7 +1008,7 @@ const tests = [
       font-family: var(--font-display);
       font-size: 1.6rem;
       font-weight: 700;
-      color: rgba(52, 87, 209, 0.22);
+      color: var(--border-strong);
     }
 
     .cs-evidence {
@@ -1027,8 +1026,8 @@ const tests = [
       margin-right: 6px;
       padding: 1px 8px;
       border-radius: 100px;
-      background: var(--grad);
-      color: #fff;
+      background: var(--accent);
+      color: var(--accent-ink);
       font-size: 0.7rem;
       font-style: normal;
       font-weight: 700;
@@ -1070,7 +1069,7 @@ const tests = [
     }
 
     .cs-rice tr.top td {
-      background: rgba(52, 87, 209, 0.05);
+      background: var(--accent-soft);
       color: var(--text);
     }
 
@@ -1160,9 +1159,9 @@ const tests = [
     }
 
     .cs-chip--ai {
-      border-color: rgba(0, 131, 168, 0.3);
-      background: rgba(0, 131, 168, 0.08);
-      color: #006a88;
+      border-color: color-mix(in srgb, var(--tone-cyan) 32%, transparent);
+      background: color-mix(in srgb, var(--tone-cyan) 10%, transparent);
+      color: var(--tone-cyan);
       font-weight: 600;
     }
 
@@ -1189,7 +1188,7 @@ const tests = [
       margin: 0;
       padding: 12px 14px;
       border-radius: 12px;
-      background: rgba(22, 163, 74, 0.06);
+      background: var(--success-soft);
       list-style: none;
     }
 
@@ -1208,7 +1207,7 @@ const tests = [
       content: '✓';
       position: absolute;
       left: 0;
-      color: #16a34a;
+      color: var(--success);
       font-weight: 700;
     }
 
@@ -1225,8 +1224,11 @@ const tests = [
       margin-top: 28px;
       padding: 28px 32px;
       border-radius: 22px;
-      background: linear-gradient(130deg, rgba(52, 87, 209, 0.1) 0%, rgba(0, 131, 168, 0.08) 100%);
-      border: 1px solid rgba(52, 87, 209, 0.18);
+      background:
+        radial-gradient(520px 260px at 0% 0%, var(--halo-1), transparent 70%),
+        radial-gradient(420px 220px at 100% 100%, var(--halo-2), transparent 70%),
+        var(--bg-elev);
+      border: 1px solid var(--border-strong);
     }
 
     .cs-cta-band h3 {

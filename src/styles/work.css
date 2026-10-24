@@ -1,103 +1,109 @@
 /* Case-study specific styles. Layered on top of blog.css, which supplies the
-   shared :root tokens plus .blog-shell / .blog-hero / .post-grid / .post-card /
-   .post-meta / .article-* / .back-link / .chip-row. */
+   shared tokens plus .blog-shell / .blog-hero / .post-grid / .post-card /
+   .post-meta / .article-* / .back-link / .chip-row / .tag. */
 
 .work-logo {
   width: 40px;
   height: 40px;
+  padding: 4px;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  object-fit: contain;
   background: #000;
-  padding: 3px;
+  object-fit: contain;
 }
 
+/* Industry tag — one tone per tagVariant. */
 .work-tag {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 3px 10px;
+  border: 1px solid color-mix(in srgb, var(--tone, var(--muted)) 32%, transparent);
   border-radius: 999px;
-  border: 1px solid;
+  background: color-mix(in srgb, var(--tone, var(--muted)) 10%, transparent);
+  color: var(--tone, var(--muted));
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.work-tag.te { color: #c65a12; border-color: rgba(198, 90, 18, 0.3); background: rgba(198, 90, 18, 0.09); }
-.work-tag.tq { color: #0083a8; border-color: rgba(0, 131, 168, 0.3); background: rgba(0, 131, 168, 0.09); }
-.work-tag.ts { color: #6d43d6; border-color: rgba(109, 67, 214, 0.3); background: rgba(109, 67, 214, 0.09); }
-.work-tag.tp { color: #0a8f5b; border-color: rgba(10, 143, 91, 0.3); background: rgba(10, 143, 91, 0.09); }
-.work-tag.ta { color: #a1670a; border-color: rgba(161, 103, 10, 0.3); background: rgba(161, 103, 10, 0.09); }
+.work-tag.te { --tone: var(--tone-orange); }
+.work-tag.tq { --tone: var(--tone-cyan); }
+.work-tag.ts { --tone: var(--tone-violet); }
+.work-tag.tp { --tone: var(--tone-green); }
+.work-tag.ta { --tone: var(--tone-amber); }
 
 .work-co {
   margin-top: 22px;
   color: var(--quiet);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
 }
 
 .work-role {
   margin-top: 6px;
   color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
-.work-current .work-co,
-.work-current .work-role {
-  margin-top: 22px;
-}
-
+/* Current role: lime-edged card with a live dot. */
 .post-card.work-current {
-  position: relative;
-  border-color: rgba(198, 90, 18, 0.25);
-  background: linear-gradient(145deg, rgba(198, 90, 18, 0.1), var(--card-bg));
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  background:
+    radial-gradient(420px 220px at 100% 0%, var(--accent-soft), transparent 70%),
+    var(--card-bg);
 }
 
 .post-card.work-current::after {
-  content: "● NOW";
+  content: 'Now';
   position: absolute;
-  top: 24px;
-  right: 24px;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  color: #c65a12;
-  font-weight: 700;
+  top: 26px;
+  right: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 12px;
+  background: radial-gradient(circle at 4px 50%, var(--accent) 3.5px, transparent 4px);
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .work-metrics {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px 24px;
+  margin-top: auto;
   padding-top: 18px;
   border-top: 1px solid var(--border);
 }
 
 .work-met-v {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  background: var(--grad);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.1;
 }
 
 .work-current .work-met-v {
-  background: linear-gradient(130deg, #c65a12, #a8380b);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-text);
 }
 
 .work-met-l {
   display: block;
-  margin-top: 3px;
+  margin-top: 4px;
   color: var(--quiet);
-  font-size: 0.65rem;
-  text-transform: uppercase;
+  font-size: 0.66rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .work-header-meta {
@@ -110,7 +116,7 @@
 
 @media (max-width: 760px) {
   .post-card.work-current::after {
-    top: 20px;
-    right: 20px;
+    top: 22px;
+    right: 22px;
   }
 }

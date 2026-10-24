@@ -273,11 +273,11 @@ const resources = [
 
       <h2 class="filters-heading">Browse Free PM Templates by Category</h2>
       <div class="filters" role="group" aria-label="Filter by category">
-        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All Resources ({resources.length})</button>
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All <span class="chip-count">{resources.length}</span></button>
         {
           Object.entries(catLabels).map(([key, label]) => (
             <button class="filter-pill" type="button" data-filter={key} aria-pressed="false">
-              {label} ({resources.filter((r) => r.cat === key).length})
+              {label} <span class="chip-count">{resources.filter((r) => r.cat === key).length}</span>
             </button>
           ))
         }
@@ -305,11 +305,11 @@ const resources = [
                   <a href={item.href} class="resource-dl-btn">
                     {item.cta}
                     {item.isInternalLink ? (
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 8h10M9 4l4 4-4 4" />
                       </svg>
                     ) : (
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                         <path d="M8 2v9M4 7l4 5 4-5" />
                         <line x1="2" y1="14" x2="14" y2="14" />
                       </svg>

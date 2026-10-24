@@ -48,10 +48,10 @@ const icons: Record<string, string> = {
   box: '<path d="M12 2 3 6.5v11L12 22l9-4.5v-11L12 2zm0 1.7 6.5 3.25L12 10.2 5.5 6.95 12 3.7zM4.5 8.1l6.75 3.375v8.05L4.5 16.15V8.1zm15 0v8.05l-6.75 3.375v-8.05L19.5 8.1z"/>',
 };
 
-const aiIcoStyle = 'background:rgba(0,131,168,.1);color:#0083A8';
-const mktIcoStyle = 'background:rgba(161,103,10,.1);color:#A1670A';
-const booksIcoStyle = 'background:rgba(109,67,214,.1);color:#6D43D6';
-const physIcoStyle = 'background:rgba(46,125,90,.1);color:#2E7D5A';
+const aiIcoStyle = '--tone: var(--tone-cyan)';
+const mktIcoStyle = '--tone: var(--tone-amber)';
+const booksIcoStyle = '--tone: var(--tone-violet)';
+const physIcoStyle = '--tone: var(--tone-green)';
 
 // Every book sub-category shares the purple "books" treatment; every physical
 // product category shares the green "phys" treatment — differentiated by tag text.
@@ -314,19 +314,19 @@ for (const tool of tools) {
 
       <h2 class="filters-heading">Browse Tools & Books by Category</h2>
       <div class="filters" role="group" aria-label="Filter by category">
-        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All ({tools.length})</button>
-        <button class="filter-pill" type="button" data-filter="aipm-books" aria-pressed="false">AI PM Books ({catCounts['aipm-books']})</button>
-        <button class="filter-pill" type="button" data-filter="pm-books" aria-pressed="false">PM Books ({catCounts['pm-books']})</button>
-        <button class="filter-pill" type="button" data-filter="aiml-books" aria-pressed="false">AI/ML Books ({catCounts['aiml-books']})</button>
-        <button class="filter-pill" type="button" data-filter="analytics-books" aria-pressed="false">Analytics Books ({catCounts['analytics-books']})</button>
-        <button class="filter-pill" type="button" data-filter="interview-books" aria-pressed="false">Interview Books ({catCounts['interview-books']})</button>
-        <button class="filter-pill" type="button" data-filter="sql-python-books" aria-pressed="false">SQL/Python Books ({catCounts['sql-python-books']})</button>
-        <button class="filter-pill" type="button" data-filter="ux-books" aria-pressed="false">UX Books ({catCounts['ux-books']})</button>
-        <button class="filter-pill" type="button" data-filter="desk-setup" aria-pressed="false">Desk Setup ({catCounts['desk-setup']})</button>
-        <button class="filter-pill" type="button" data-filter="productivity" aria-pressed="false">Productivity ({catCounts['productivity']})</button>
-        <button class="filter-pill" type="button" data-filter="electronics" aria-pressed="false">Electronics ({catCounts['electronics']})</button>
-        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI Tools ({catCounts['ai']})</button>
-        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing Tools ({catCounts['mkt']})</button>
+        <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All <span class="chip-count">{tools.length}</span></button>
+        <button class="filter-pill" type="button" data-filter="aipm-books" aria-pressed="false">AI PM Books <span class="chip-count">{catCounts['aipm-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="pm-books" aria-pressed="false">PM Books <span class="chip-count">{catCounts['pm-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="aiml-books" aria-pressed="false">AI/ML Books <span class="chip-count">{catCounts['aiml-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="analytics-books" aria-pressed="false">Analytics Books <span class="chip-count">{catCounts['analytics-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="interview-books" aria-pressed="false">Interview Books <span class="chip-count">{catCounts['interview-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="sql-python-books" aria-pressed="false">SQL/Python Books <span class="chip-count">{catCounts['sql-python-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="ux-books" aria-pressed="false">UX Books <span class="chip-count">{catCounts['ux-books']}</span></button>
+        <button class="filter-pill" type="button" data-filter="desk-setup" aria-pressed="false">Desk Setup <span class="chip-count">{catCounts['desk-setup']}</span></button>
+        <button class="filter-pill" type="button" data-filter="productivity" aria-pressed="false">Productivity <span class="chip-count">{catCounts['productivity']}</span></button>
+        <button class="filter-pill" type="button" data-filter="electronics" aria-pressed="false">Electronics <span class="chip-count">{catCounts['electronics']}</span></button>
+        <button class="filter-pill" type="button" data-filter="ai" aria-pressed="false">AI Tools <span class="chip-count">{catCounts['ai']}</span></button>
+        <button class="filter-pill" type="button" data-filter="mkt" aria-pressed="false">Marketing Tools <span class="chip-count">{catCounts['mkt']}</span></button>
       </div>
 
       <section class="product-grid" aria-label="Tools and books">

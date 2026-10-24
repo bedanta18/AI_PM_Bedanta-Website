@@ -52,22 +52,45 @@ const workItems = (await getCollection('work'))
     <main class="blog-shell">
       <SiteNav current="about" />
 
-      <header class="blog-hero">
-        <p class="eyebrow">About</p>
-        <h1>Bedanta Gogoi</h1>
-        <p>
-          I'm a Product Manager with 6+ years shipping SaaS, Quick Commerce, and PropTech products —
-          from zero-to-one launches to scaling features to 1M+ users. I've led product across Zopping,
-          Oculon AI, Styldod, and GroupM, and I now write <a href="/">aipmbedanta.com</a>, a resource
-          for product, marketing, growth, and AI professionals.
-        </p>
-        <p class="contact-line">
-          Get in touch: <a href="mailto:bedanta.product@gmail.com">bedanta.product@gmail.com</a> ·
-          <a href="https://www.linkedin.com/in/bedantagogoi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
+      <header class="about-hero">
+        <div class="blog-hero">
+          <p class="eyebrow">About</p>
+          <h1>Bedanta Gogoi</h1>
+          <p>
+            I'm a Product Manager with 6+ years shipping SaaS, Quick Commerce, and PropTech products —
+            from zero-to-one launches to scaling features to 1M+ users. I've led product across Zopping,
+            Oculon AI, Styldod, and GroupM, and I now write <a href="/">aipmbedanta.com</a>, a resource
+            for product, marketing, growth, and AI professionals.
+          </p>
+          <div class="about-actions">
+            <a class="btn btn-primary" href="mailto:bedanta.product@gmail.com">
+              Email me <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/bedantagogoi/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <aside class="about-facts" aria-label="Quick facts">
+          <div class="facts-head">
+            <span class="avatar" aria-hidden="true">BG</span>
+            <div>
+              <p class="facts-name">Bedanta Gogoi</p>
+              <p class="facts-sub">Product Manager · India</p>
+            </div>
+          </div>
+          <dl>
+            <div><dt>Now</dt><dd>Marketing &amp; Growth Specialist, Apollo Knowledge</dd></div>
+            <div><dt>Experience</dt><dd>6+ years in product</dd></div>
+            <div><dt>Domains</dt><dd>SaaS · Quick Commerce · PropTech · AI</dd></div>
+            <div><dt>Contact</dt><dd><a href="mailto:bedanta.product@gmail.com">bedanta.product@gmail.com</a></dd></div>
+          </dl>
+        </aside>
       </header>
 
       <section id="projects" class="about-section" aria-label="AI Projects">
+        <p class="section-label">Side projects</p>
         <h2>
           <a class="section-heading-link" href="/projects/">AI Projects <span aria-hidden="true">→</span></a>
         </h2>
@@ -79,6 +102,11 @@ const workItems = (await getCollection('work'))
           {
             projects.map((project) => (
               <a class="explore-card project-card" href={`/projects/${project.slug}/`}>
+                {project.image ? (
+                  <img class="project-thumb" src={project.image} alt={project.imageAlt ?? ''} loading="lazy" />
+                ) : (
+                  <div class="project-thumb project-cover" aria-hidden="true"><span>{project.coverLabel ?? project.title.split(' — ')[0]}</span></div>
+                )}
                 <h3>{project.title}</h3>
                 <p>{project.summary}</p>
                 <div class="pills">
@@ -146,28 +174,28 @@ const workItems = (await getCollection('work'))
         <div class="tl-wrap">
           <div class="edu-list">
             <div class="edu-item">
-              <span class="edu-ico">🎓</span>
+              <span class="edu-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke-linecap="round"/></svg></span>
               <div>
                 <div class="edu-t">PGDM — Marketing &amp; Operations</div>
                 <div class="edu-sub">ISME · 2017–2019</div>
               </div>
             </div>
             <div class="edu-item">
-              <span class="edu-ico">⚡</span>
+              <span class="edu-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke-linecap="round"/></svg></span>
               <div>
                 <div class="edu-t">B.E. — Electrical &amp; Electronics Engineering</div>
                 <div class="edu-sub">VTU · 2012–2016</div>
               </div>
             </div>
             <div class="edu-item">
-              <span class="edu-ico">📜</span>
+              <span class="edu-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8" stroke-linecap="round"/></svg></span>
               <div>
                 <div class="edu-t">International Certification in Product Management</div>
                 <div class="edu-sub">Institute of Product Leadership</div>
               </div>
             </div>
             <div class="edu-item">
-              <span class="edu-ico">🏆</span>
+              <span class="edu-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8" stroke-linecap="round"/></svg></span>
               <div>
                 <div class="edu-t">PG Diploma in Product Management</div>
                 <div class="edu-sub">Pragmatic Leaders</div>
