@@ -7,28 +7,16 @@ import ThemeInit from '../../components/ThemeInit.astro';
 import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { SITE_URL, DEFAULT_ARTICLE_IMAGE } from '../../lib/seo';
+import { getRelatedMap, relatedHref } from '../../lib/related';
 import '../../styles/blog.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (post) => post.data.ispublished);
 
+  const relatedMap = await getRelatedMap();
+
   return posts.map((post) => {
-    // Related = manually pinned posts (relatedSlugs) first, then other published
-    // posts sharing a category, newest first, capped at 3, de-duplicated.
-    const pinned = (post.data.relatedSlugs ?? [])
-      .map((slug) => posts.find((p) => p.id === slug))
-      .filter((p) => p !== undefined && p.id !== post.id);
-
-    const autoRelated = posts
-      .filter(
-        (p) =>
-          p.id !== post.id &&
-          !pinned.some((pin) => pin.id === p.id) &&
-          p.data.categories.some((c) => post.data.categories.includes(c))
-      )
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-    const related = [...pinned, ...autoRelated].slice(0, 3);
+    const related = relatedMap.get(post.id) ?? [];
 
     return {
       params: { slug: post.id },
@@ -148,7 +136,7 @@ const formatDate = (date: Date) =>
             <h2>Related Articles</h2>
             <div class="explore-grid">
               {related.map((r) => (
-                <a class="explore-card" href={`/blog/${r.id}/`}>
+                <a class="explore-card" href={relatedHref(r, '/blog/')}>
                   <h3>{r.data.title}</h3>
                   <p>{r.data.desc}</p>
                   <p class="explore-date">{formatShortDate(r.data.date)}</p>

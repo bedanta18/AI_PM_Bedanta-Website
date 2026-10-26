@@ -7,27 +7,17 @@ import ThemeInit from '../../components/ThemeInit.astro';
 import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { SITE_URL, DEFAULT_ARTICLE_IMAGE } from '../../lib/seo';
+import { getRelatedMap, relatedHref } from '../../lib/related';
 import '../../styles/blog.css';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog', (post) => post.data.ispublished);
   const posts = allPosts.filter((post) => post.data.categories.includes('AI'));
 
+  const relatedMap = await getRelatedMap();
+
   return posts.map((post) => {
-    const pinned = (post.data.relatedSlugs ?? [])
-      .map((slug) => posts.find((p) => p.id === slug))
-      .filter((p) => p !== undefined && p.id !== post.id);
-
-    const autoRelated = posts
-      .filter(
-        (p) =>
-          p.id !== post.id &&
-          !pinned.some((pin) => pin.id === p.id) &&
-          p.data.categories.some((c) => post.data.categories.includes(c))
-      )
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-    const related = [...pinned, ...autoRelated].slice(0, 3);
+    const related = relatedMap.get(post.id) ?? [];
 
     return {
       params: { slug: post.id },
@@ -145,7 +135,7 @@ const formatDate = (date: Date) =>
             <h2>Related Articles</h2>
             <div class="explore-grid">
               {related.map((r) => (
-                <a class="explore-card" href={`/ai/${r.id}/`}>
+                <a class="explore-card" href={relatedHref(r, '/ai/', 'AI')}>
                   <h3>{r.data.title}</h3>
                   <p>{r.data.desc}</p>
                   <p class="explore-date">{formatShortDate(r.data.date)}</p>
