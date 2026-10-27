@@ -616,6 +616,19 @@ a {
   text-decoration-color: currentColor;
 }
 
+/* Auto-linked glossary terms (rehype-concept-links): quieter dotted underline. */
+.article-body a.concept-link {
+  color: inherit;
+  text-decoration-style: dotted;
+  text-decoration-color: color-mix(in srgb, var(--accent-text) 70%, transparent);
+  text-decoration-thickness: 1.5px;
+}
+
+.article-body a.concept-link:hover {
+  color: var(--accent-text);
+  text-decoration-style: solid;
+}
+
 .article-body ul,
 .article-body ol {
   margin: 0 0 1.4em;

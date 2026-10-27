@@ -7,18 +7,34 @@ import ThemeInit from '../../components/ThemeInit.astro';
 import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { SITE_URL, DEFAULT_ARTICLE_IMAGE } from '../../lib/seo';
+import { CONCEPT_TERMS, conceptMatchers } from '../../lib/concept-terms.mjs';
 import '../../styles/blog.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('pmConcepts', (post) => post.data.ispublished);
+  const articles = await getCollection('blog', (post) => post.data.ispublished);
+
+  // Articles that mention this concept, most mentions first (then newest).
+  const mentionsOf = (slug: string) => {
+    const matcher = conceptMatchers.find((m) => m.slug === slug);
+    if (!matcher) return [];
+    const count = (text: string) =>
+      [matcher.sensitive, matcher.insensitive].reduce((n, re) => n + (re ? (text.match(re) ?? []).length : 0), 0);
+    return articles
+      .map((a) => ({ a, n: count(`${a.data.title}\n${a.body ?? ''}`) }))
+      .filter((x) => x.n > 0)
+      .sort((x, y) => y.n - x.n || y.a.data.date.getTime() - x.a.data.date.getTime())
+      .slice(0, 6)
+      .map((x) => x.a);
+  };
 
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, mentions: post.id in CONCEPT_TERMS ? mentionsOf(post.id) : [] },
   }));
 }
 
-const { post } = Astro.props;
+const { post, mentions } = Astro.props;
 const { Content } = await render(post);
 
 const seoTitle = post.data.metaTitle ?? post.data.title;
@@ -100,6 +116,20 @@ const formatDate = (date: Date) =>
         <div class="article-body">
           <Content />
         </div>
+
+        {mentions.length > 0 && (
+          <section class="explore-more" aria-label="Articles that cover this concept">
+            <h2>Articles that cover {post.data.title.split(/[:(]/)[0].trim()}</h2>
+            <div class="explore-grid">
+              {mentions.map((a) => (
+                <a class="explore-card" href={`/blog/${a.id}/`}>
+                  <h3>{a.data.title}</h3>
+                  <p>{a.data.desc}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </article>
     </main>
 
